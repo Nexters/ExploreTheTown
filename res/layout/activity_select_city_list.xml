@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b_bg_blur"
+    >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/b_bg_upper" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/b_bg_bottm" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/b_big_seoul" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/b_seoul_upper" />
+
+    <ImageButton
+        android:id="@+id/imgBtnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/b_start" />
+
+    <ImageButton
+        android:id="@+id/imgBtnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_alignParentLeft="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/b_btn_back" />
+
+    <ImageButton
+        android:id="@+id/imgBtnCitySeoul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView2"
+        android:layout_marginLeft="27dp"
+        android:layout_toRightOf="@+id/imageView4"
+        android:background="@android:color/transparent"
+        android:src="@drawable/b_small_seoul" />
+
+    <ImageButton
+        android:id="@+id/imgBtnCityGyeonggi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgBtnCitySeoul"
+        android:layout_toRightOf="@+id/imgBtnCitySeoul"
+        android:background="@android:color/transparent"
+        android:src="@drawable/b__small_gyeonggi" />
+
+    <ImageButton
+        android:id="@+id/imgBtnCityGangwon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgBtnCityGyeonggi"
+        android:layout_toRightOf="@+id/imgBtnCityGyeonggi"
+        android:background="@android:color/transparent"
+        android:src="@drawable/b__small_gangwon_do" />
+
+    <ImageButton
+        android:id="@+id/imgBtnCityIncheon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgBtnCityGyeonggi"
+        android:layout_toRightOf="@+id/imgBtnStart"
+        android:background="@android:color/transparent"
+        android:src="@drawable/b__0004_small_incheon" />
+
+</RelativeLayout>
