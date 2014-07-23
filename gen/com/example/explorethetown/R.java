@@ -1103,6 +1103,9 @@ containing a value of this type.
         public static final int b_small_seoul_pressed=0x7f02006e;
         public static final int b_start=0x7f02006f;
         public static final int ic_launcher=0x7f020070;
+        public static final int z__btn=0x7f020071;
+        public static final int z__no=0x7f020072;
+        public static final int z__yes=0x7f020073;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1134,20 +1137,30 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
-        public static final int imageView1=0x7f05003c;
-        public static final int imageView2=0x7f05003d;
-        public static final int imageView3=0x7f05003e;
-        public static final int imageView4=0x7f05003f;
-        public static final int imgBtnBack=0x7f050041;
-        public static final int imgBtnCityGangwon=0x7f050044;
-        public static final int imgBtnCityGyeonggi=0x7f050043;
-        public static final int imgBtnCityIncheon=0x7f050045;
-        public static final int imgBtnCitySeoul=0x7f050042;
-        public static final int imgBtnLeftDown=0x7f050048;
-        public static final int imgBtnLeftUp=0x7f050049;
-        public static final int imgBtnRight=0x7f050047;
-        public static final int imgBtnStart=0x7f050040;
-        public static final int imgBtnUpper=0x7f050046;
+        public static final int imageView1=0x7f050048;
+        public static final int imageView2=0x7f050049;
+        public static final int imageView3=0x7f05004a;
+        public static final int imageView4=0x7f05004b;
+        public static final int imgBtnBack=0x7f05004d;
+        public static final int imgBtnCityGangwon=0x7f050050;
+        public static final int imgBtnCityGyeonggi=0x7f05004f;
+        public static final int imgBtnCityIncheon=0x7f050051;
+        public static final int imgBtnCitySeoul=0x7f05004e;
+        public static final int imgBtnLeftDown=0x7f050054;
+        public static final int imgBtnLeftUp=0x7f050055;
+        public static final int imgBtnQ1_1_NO=0x7f05003e;
+        public static final int imgBtnQ1_1_YES=0x7f05003d;
+        public static final int imgBtnQ1_2_NO=0x7f05003f;
+        public static final int imgBtnQ1_2_YES=0x7f050040;
+        public static final int imgBtnQ1_3_NO=0x7f050041;
+        public static final int imgBtnQ1_3_YES=0x7f050042;
+        public static final int imgBtnQ1_4_NO=0x7f050044;
+        public static final int imgBtnQ1_4_YES=0x7f050043;
+        public static final int imgBtnQ1_5_NO=0x7f050046;
+        public static final int imgBtnQ1_5_YES=0x7f050045;
+        public static final int imgBtnRight=0x7f050053;
+        public static final int imgBtnStart=0x7f05004c;
+        public static final int imgBtnUpper=0x7f050052;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
@@ -1156,6 +1169,7 @@ containing a value of this type.
         public static final int normal=0x7f050000;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
+        public static final int questionWayBtn=0x7f050047;
         public static final int radio=0x7f05002f;
         public static final int search_badge=0x7f050032;
         public static final int search_bar=0x7f050031;
@@ -1174,6 +1188,7 @@ containing a value of this type.
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
+        public static final int textView1=0x7f05003c;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
@@ -1232,9 +1247,15 @@ containing a value of this type.
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_intro=0x7f030018;
         public static final int activity_main=0x7f030019;
-        public static final int activity_select_city_list=0x7f03001a;
-        public static final int activity_select_city_map_image=0x7f03001b;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
+        public static final int activity_question1_1=0x7f03001a;
+        public static final int activity_question1_2=0x7f03001b;
+        public static final int activity_question1_3=0x7f03001c;
+        public static final int activity_question1_4=0x7f03001d;
+        public static final int activity_question1_5=0x7f03001e;
+        public static final int activity_question_way=0x7f03001f;
+        public static final int activity_select_city_list=0x7f030020;
+        public static final int activity_select_city_map_image=0x7f030021;
+        public static final int support_simple_spinner_dropdown_item=0x7f030022;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

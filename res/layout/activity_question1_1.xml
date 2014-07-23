@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="99dp"
+        android:text="니가 살 동네에서 커피 한잔의 여유가 필요해?" />
+
+    <ImageButton
+        android:id="@+id/imgBtnQ1_1_YES"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/z__yes" />
+
+    <ImageButton
+        android:id="@+id/imgBtnQ1_1_NO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_alignTop="@+id/imgBtnQ1_1_YES"
+        android:layout_marginRight="51dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/z__no" />
+
+</RelativeLayout>

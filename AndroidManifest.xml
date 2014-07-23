@@ -24,6 +24,8 @@
         </activity>
         <activity android:name="SelectCityActivity"></activity>
         <activity android:name="SelectCityListActivity"></activity>
+        <activity android:name="SelectQuestionWayActivity"></activity>
+        <activity android:name="Question1Activity"></activity>
     </application>
 
 </manifest>

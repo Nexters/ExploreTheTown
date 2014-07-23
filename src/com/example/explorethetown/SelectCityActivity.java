@@ -45,7 +45,7 @@ public class SelectCityActivity  extends ActionBarActivity{
 				//Change Page after Few secs
 				// TODO 
 				handler = new Handler();
-				handler.postDelayed(irun, 2000);		//change page after 2 secs
+				handler.postDelayed(irun, 1000);		//change page after 2 secs
 			}
 			
 			Runnable irun = new Runnable(){

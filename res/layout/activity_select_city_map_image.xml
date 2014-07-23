@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
         android:src="@drawable/a__upper" />
 
     <ImageButton
@@ -18,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:background="@android:color/transparent"
         android:src="@drawable/a__right" />
 
     <ImageButton
@@ -26,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:background="@android:color/transparent"
         android:src="@drawable/a__left_down" />
 
     <ImageButton
@@ -35,6 +38,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="210dp"
+        android:background="@android:color/transparent"
         android:src="@drawable/a__left_up" />
 
 </RelativeLayout>
