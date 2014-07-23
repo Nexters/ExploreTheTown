@@ -22,10 +22,6 @@ public class Question1Activity extends ActionBarActivity{
 		questionNumber = 0;
 		
 		setOnClickListenerQ1();
-		setOnClickListenerQ2();
-		setOnClickListenerQ3();
-		setOnClickListenerQ4();
-		setOnClickListenerQ5();
 	}
 	
 	public void setOnClickListenerQ1(){
@@ -36,6 +32,7 @@ public class Question1Activity extends ActionBarActivity{
 			@Override
 			public void onClick(View arg0){
 				setContentView(R.layout.activity_question1_2);
+				setOnClickListenerQ2();
 			}
 		});
 		
@@ -43,6 +40,7 @@ public class Question1Activity extends ActionBarActivity{
 			@Override
 			public void onClick(View arg0){
 				setContentView(R.layout.activity_question1_2);
+				setOnClickListenerQ2();
 			}
 		});
 	}
@@ -56,6 +54,7 @@ public class Question1Activity extends ActionBarActivity{
 			@Override
 			public void onClick(View arg0){
 				setContentView(R.layout.activity_question1_3);
+				setOnClickListenerQ3();
 			}
 		});
 		
@@ -63,6 +62,7 @@ public class Question1Activity extends ActionBarActivity{
 			@Override
 			public void onClick(View arg0){
 				setContentView(R.layout.activity_question1_3);
+				setOnClickListenerQ3();
 			}
 		});
 	}
@@ -75,6 +75,7 @@ public class Question1Activity extends ActionBarActivity{
 			@Override
 			public void onClick(View arg0){
 				setContentView(R.layout.activity_question1_4);
+				setOnClickListenerQ4();
 			}
 		});
 		
@@ -82,6 +83,7 @@ public class Question1Activity extends ActionBarActivity{
 			@Override
 			public void onClick(View arg0){
 				setContentView(R.layout.activity_question1_4);
+				setOnClickListenerQ4();
 			}
 		});
 	}
@@ -94,6 +96,7 @@ public class Question1Activity extends ActionBarActivity{
 			@Override
 			public void onClick(View arg0){
 				setContentView(R.layout.activity_question1_5);
+				setOnClickListenerQ5();
 			}
 		});
 		
@@ -101,6 +104,7 @@ public class Question1Activity extends ActionBarActivity{
 			@Override
 			public void onClick(View arg0){
 				setContentView(R.layout.activity_question1_5);
+				setOnClickListenerQ5();
 			}
 		});
 	}
@@ -112,6 +116,9 @@ public class Question1Activity extends ActionBarActivity{
 		imgBtnYES.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View arg0){
+				Intent iIntent = new Intent(Question1Activity.this, AnswerMapActivity.class);
+				startActivity(iIntent);
+				finish();
 
 			}
 		});
@@ -119,7 +126,9 @@ public class Question1Activity extends ActionBarActivity{
 		imgBtnNO.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View arg0){
-
+				Intent iIntent = new Intent(Question1Activity.this, AnswerMapActivity.class);
+				startActivity(iIntent);
+				finish();
 			}
 		});
 	}
