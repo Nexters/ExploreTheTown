@@ -32,7 +32,7 @@
         <activity android:name="SelectCityActivity"></activity>
         <activity android:name="SelectCityListActivity"></activity>
         <activity android:name="SelectQuestionWayActivity"></activity>
-        <activity android:name="Question1Activity"></activity>
+        <activity android:name="QuestionActivity"></activity>
         <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBEMnCveLl4mnJMJzhxRFkX_cpBwW3fheo"/>
         <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
         <activity android:name="AnswerMapActivity"></activity>

@@ -23,13 +23,13 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 	}
 	
 	public void setOnClickListener(){
-		ImageButton imageButton1 = (ImageButton)findViewById(R.id.questionWayBtn);
+		ImageButton imageButton1 = (ImageButton)findViewById(R.id.imgBtn_Question1);
 		
 		imageButton1.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View arg0){
 
-				Intent iIntent = new Intent(SelectQuestionWayActivity.this, Question1Activity.class);
+				Intent iIntent = new Intent(SelectQuestionWayActivity.this, QuestionActivity.class);
 				startActivity(iIntent);
 				finish();
 			}
