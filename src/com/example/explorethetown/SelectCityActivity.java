@@ -53,7 +53,6 @@ public class SelectCityActivity  extends ActionBarActivity{
 				public void run(){
 					Intent iIntent = new Intent(SelectCityActivity.this, SelectCityListActivity.class);
 					startActivity(iIntent);
-					finish();
 					
 					
 				}

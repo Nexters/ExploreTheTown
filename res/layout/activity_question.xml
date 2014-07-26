@@ -5,7 +5,7 @@
     android:background="@android:color/white" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/questionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -14,22 +14,34 @@
         android:text="니가 살 동네에서 커피 한잔의 여유가 필요해?" />
 
     <ImageButton
-        android:id="@+id/imgBtnQ1_1_YES"
+        android:id="@+id/imgBtnQ_YES"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignLeft="@+id/questionText"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="24dp"
         android:background="@android:color/transparent"
         android:src="@drawable/z__yes" />
 
     <ImageButton
-        android:id="@+id/imgBtnQ1_1_NO"
+        android:id="@+id/imgBtnQ_NO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_alignTop="@+id/imgBtnQ1_1_YES"
-        android:layout_marginRight="51dp"
+        android:layout_alignTop="@+id/imgBtnQ_YES"
+        android:layout_marginLeft="72dp"
+        android:layout_toRightOf="@+id/imgBtnQ_YES"
         android:background="@android:color/transparent"
         android:src="@drawable/z__no" />
+
+    <ImageButton
+        android:id="@+id/imgBtnQ_Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgBtnQ_NO"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="56dp"
+        android:layout_toRightOf="@+id/imgBtnQ_YES"
+        android:background="@android:color/transparent"
+        android:src="@drawable/z__btn" />
 
 </RelativeLayout>

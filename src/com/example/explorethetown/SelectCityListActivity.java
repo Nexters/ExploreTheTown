@@ -44,7 +44,6 @@ public class SelectCityListActivity extends ActionBarActivity{
 				// TODO Auto-generated method stub
 				Intent iIntent = new Intent(SelectCityListActivity.this, SelectQuestionWayActivity.class);
 				startActivity(iIntent);
-				finish();
 			}
 		});
 	}
