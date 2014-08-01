@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -28,6 +29,19 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 		actionBar.hide();
 		
 		setOnClickListener();
+		
+		// Test for DAun
+		Button daunTest = (Button)findViewById(R.id.daunTestButton);
+		daunTest.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+
+				Intent iIntent = new Intent(SelectQuestionWayActivity.this, QuestionNeighborActivity.class);
+				startActivity(iIntent);
+			}
+		});
 	}
 	
 	public void setOnClickListener(){
