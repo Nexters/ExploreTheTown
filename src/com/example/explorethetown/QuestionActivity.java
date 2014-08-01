@@ -29,7 +29,7 @@ public class QuestionActivity extends ActionBarActivity{
 		
 		// get Intent 
 		Intent intent = getIntent();
-		int qNum = intent.getExtras().getInt("NUM");
+		int qNum = 1;
 		
 		
 		question = new Question(qNum*10+1);

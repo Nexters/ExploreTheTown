@@ -129,7 +129,7 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 			public void onClick(View arg0){
 
 				Intent iIntent = new Intent(SelectQuestionWayActivity.this, QuestionActivity.class);
-				iIntent.putExtra("NUM", 1);
+				iIntent.putExtra("CLICKEDQUESTION", isClicked);
 				startActivity(iIntent);
 			}
 		});
