@@ -11,54 +11,59 @@ import android.view.View;
 
 public class GraphView extends View {
 
-	GraphData data;
-	Point center;
+   GraphData data;
+   Point center;
 
-	Paint paint = new Paint();
-	Path path = new Path();
+   Paint paint = new Paint();
+   Path path = new Path();
 
-	public GraphView(Context context) {
-		super(context);
-	}
+   public GraphView(Context context) {
+      super(context);
+   }
 
-	public GraphView(Context context, GraphData data) {
-		super(context);
-		this.data = data;
+   public GraphView(Context context, GraphData data) {
+      super(context);
+      this.data = data;
 
-		// paint 설정
-		paint.setColor(Color.BLUE);
-		paint.setStyle(Style.FILL);
+      // paint �꽕�젙
+      paint.setColor(Color.BLUE);
+      paint.setStyle(Style.FILL);
 
-		// center초기화.
-		center = new Point(200, 200);
-	}
+      // center珥덇린�솕.
+      center = new Point(300, 900);
+   }
 
-	@Override
-	protected void onDraw(Canvas canvas) {
+   @Override
+   protected void onDraw(Canvas canvas) {
 
-		// 위치 설정.
-		int topX = center.x; // top X
-		int topY = center.y - data.getTop(); // top Y
+      // �쐞移� �꽕�젙.
+      int topX = data.getTop().getX(); // top X
+      int topY = data.getTop().getY(); // top Y
 
-		int rightX = center.x + data.getRight(); // right X
-		int rightY = center.y; // right Y
+      int rightUpX = data.getRightUp().getX();
+      int rightUpY = data.getRightUp().getY();
+      
+      int rightDownX = data.getRightDown().getX();
+      int rightDownY = data.getRightDown().getY();
+      
+      int leftDownX = data.getLeftDown().getX();
+      int leftDownY = data.getLeftDown().getY();
+      
+      int leftUpX = data.getLeftUp().getX();
+      int leftUpY = data.getLeftUp().getY();
 
-		int bottomX = center.x; // bottom X
-		int bottomY = center.y + data.getBottom(); // bottom Y
+      // 洹몃━湲�
+      path.reset(); // only needed when reusing this path for a new build
+      path.moveTo(topX, topY); // used for first point
+      path.lineTo(rightUpX, rightUpY);
+      path.lineTo(rightDownX, rightDownY);
+      path.lineTo(leftDownX, leftDownY);
+      path.lineTo(leftUpX, leftUpY);
+      path.lineTo(topX, topY);
+      // path.lineTo(x[0], y[0]); // there is a setLastPoint action but i
+      // found it not to work as expected
 
-		int leftX = center.x - data.getLeft(); // left X
-		int leftY = center.y; // left Y
+      canvas.drawPath(path, paint);
 
-		// 그리기
-		path.reset(); // only needed when reusing this path for a new build
-		path.moveTo(topX, topY); // used for first point
-		path.lineTo(rightX, rightY);
-		path.lineTo(bottomX, bottomY);
-		path.lineTo(leftX, leftY);
-		// path.lineTo(x[0], y[0]); // there is a setLastPoint action but i
-		// found it not to work as expected
-
-		canvas.drawPath(path, paint);
-
-	}
+   }
 }

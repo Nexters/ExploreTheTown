@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
@@ -10,29 +10,46 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
     <SeekBar
         android:id="@+id/seek_top"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
-    <SeekBar
-        android:id="@+id/seek_bottom"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+    <ImageButton
+        android:id="@+id/imgBtn_questionNeighbor_Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/z__btn" />
 
     <SeekBar
-        android:id="@+id/seek_left"
+        android:id="@+id/seek_rightDown"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/seek_rightUp"
+        android:layout_below="@+id/seek_rightUp" />
 
     <SeekBar
-        android:id="@+id/seek_right"
+        android:id="@+id/seek_leftDown"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/seek_rightDown"
+        android:layout_below="@+id/seek_rightDown" />
 
-</LinearLayout>
+    <SeekBar
+        android:id="@+id/seek_leftUp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/seek_leftDown"
+        android:layout_below="@+id/seek_leftDown" />
+
+    <SeekBar
+        android:id="@+id/seek_rightUp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/seek_top"
+        android:layout_below="@+id/seek_top" />
+
+</RelativeLayout>

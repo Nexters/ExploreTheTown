@@ -66,7 +66,7 @@
         android:layout_alignLeft="@+id/d_question_health"
         android:layout_below="@+id/d_question_health"
         android:layout_marginTop="30dp"
-        android:src="@drawable/d_answer_health_mountain" />
+        android:src="@drawable/d_answer_health_1_2" />
 
         <ImageButton
             android:id="@+id/imgBtn_D_Next"
@@ -84,6 +84,6 @@
             android:layout_alignLeft="@+id/d_question_mountain"
             android:layout_below="@+id/d_question_mountain"
             android:layout_marginTop="18dp"
-            android:src="@drawable/d_answer_health_park" />
+            android:src="@drawable/d_answer_health_1_2" />
 
 </RelativeLayout>
