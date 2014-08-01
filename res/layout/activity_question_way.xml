@@ -132,4 +132,12 @@
         android:background="@android:color/transparent"
         android:src="@drawable/c_btn_next" />
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imgBtn_Question1"
+        android:layout_alignParentLeft="true"
+        android:text="Button" />
+
 </RelativeLayout>
