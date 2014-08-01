@@ -6,21 +6,17 @@ import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 
 public class QuestionHouseActivity extends ActionBarActivity {
-	public class MainActivity extends ActionBarActivity {
 
-		
-	    Handler handler; 	// Handler for delay
-	    
-		@Override
-		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			setContentView(R.layout.activity_question_house);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_question_house);
 			
-			// Hidden Action Bar
-			ActionBar actionBar = getActionBar();
-	        actionBar.hide();
+		// Hidden Action Bar
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
 	        
 	        	        
-		}
-	}	
+	}
+
 }
