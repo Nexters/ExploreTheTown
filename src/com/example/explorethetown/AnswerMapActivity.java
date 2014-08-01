@@ -28,10 +28,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.location.Criteria;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 
 public class AnswerMapActivity extends ActionBarActivity  implements LocationListener {
 	 private GoogleMap mmap;
-	    private LocationManager locationManager;
+//	    private LocationManager locationManager;
 	    private String provider;
 	    MapFragment fragment;
 	    
@@ -44,6 +46,26 @@ public class AnswerMapActivity extends ActionBarActivity  implements LocationLis
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 		
+		
+		setOnClickListener();
+		
+	}
+	
+	
+	// Go to Next
+	public void setOnClickListener(){
+		ImageButton imgBtnNext = (ImageButton)findViewById(R.id.imgBtn_answermap_Next);
+		
+		imgBtnNext.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent iIntent = new Intent(AnswerMapActivity.this, QuestionNeighborActivity.class);
+				startActivity(iIntent);
+				
+			}
+		});
 	}
 	
     @Override
@@ -51,17 +73,17 @@ public class AnswerMapActivity extends ActionBarActivity  implements LocationLis
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
 		case 0:
-			 locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+//			 locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		        Criteria criteria = new Criteria();
-		        provider = locationManager.getBestProvider(criteria, true);
-		        if(provider==null){
+//		        provider = locationManager.getBestProvider(criteria, true);
+//		        if(provider==null){
 		        	//�궗�슜�옄媛� �쐞移섏꽕�젙�룞�쓽 �븞�뻽�쓣�븣 醫낅즺 
-					finish();
-			}else{
+//					finish();
+//			}else{
 				//�궗�슜�옄媛� �쐞移섏꽕�젙 �룞�쓽 �뻽�쓣�븣 
-				locationManager.requestLocationUpdates(provider, 1L, 2F, AnswerMapActivity.this);
+//				locationManager.requestLocationUpdates(provider, 1L, 2F, AnswerMapActivity.this);
 		        	setUpMapIfNeeded();
-			}
+//			}
 			break;
 		}
 	}
@@ -81,7 +103,7 @@ public class AnswerMapActivity extends ActionBarActivity  implements LocationLis
     @Override
     protected void onPause() {
         super.onPause();
-        locationManager.removeUpdates(this);
+ //       locationManager.removeUpdates(this);
     }
     
     private void setUpMapIfNeeded() {
