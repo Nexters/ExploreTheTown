@@ -2,7 +2,6 @@ package com.example.explorethetown;
 
 import android.app.ActionBar;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 
 public class QuestionHouseActivity extends ActionBarActivity {

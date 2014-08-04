@@ -5,8 +5,8 @@ public class GraphData {
    final private int width = 200;
    final private int height = 200;
    
-   final private int startX = 150;
-   final private int startY = 550;
+   final private int startX = 250;
+   final private int startY = 200;
    
    GraphXY top = new GraphXY(100,100);
    GraphXY rightUp = new GraphXY(100,100);
