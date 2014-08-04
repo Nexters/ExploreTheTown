@@ -38,7 +38,7 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 
-				Intent iIntent = new Intent(SelectQuestionWayActivity.this, QuestionNeighborActivity.class);
+				Intent iIntent = new Intent(SelectQuestionWayActivity.this, AnswerMapActivity.class);
 				startActivity(iIntent);
 			}
 		});

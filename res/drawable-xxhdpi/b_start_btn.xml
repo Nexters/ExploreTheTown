@@ -2,9 +2,9 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
         android:state_enabled = "false"
-        android:drawable="@drawable/b_start" />
+        android:drawable="@drawable/b_btn_start" />
     <item
         android:state_pressed="true"
-        android:drawable="@drawable/b__start_pressed"/>
+        android:drawable="@drawable/b_btn_start_pressed"/>
 
 </selector>

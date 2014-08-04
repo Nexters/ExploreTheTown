@@ -6,7 +6,7 @@ public class GraphData {
    final private int height = 200;
    
    final private int startX = 150;
-   final private int startY = 400;
+   final private int startY = 550;
    
    GraphXY top = new GraphXY(100,100);
    GraphXY rightUp = new GraphXY(100,100);

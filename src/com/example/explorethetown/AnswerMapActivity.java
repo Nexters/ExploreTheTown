@@ -62,6 +62,7 @@ public class AnswerMapActivity extends ActionBarActivity  implements LocationLis
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent iIntent = new Intent(AnswerMapActivity.this, QuestionNeighborActivity.class);
+				
 				startActivity(iIntent);
 				
 			}
