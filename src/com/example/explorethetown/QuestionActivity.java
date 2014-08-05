@@ -6,6 +6,8 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class QuestionActivity extends ActionBarActivity{
@@ -14,6 +16,15 @@ public class QuestionActivity extends ActionBarActivity{
 	ImageView btn_yes;
 	ImageView btn_no;
 	ImageView btn_next;
+	
+	boolean townClicked[] = new boolean[6];
+	
+	boolean town_picnic_isClicked[] = new boolean[0];
+	boolean town_perfect_isClicked[] = new boolean[0];
+	boolean town_health_isClicked[] = new boolean[2];
+	boolean town_learning_isClicked[] = new boolean[4];
+	boolean town_nothing_isClicked[] = new boolean[1];
+	boolean town_young_isClicked[] = new boolean[3];
 	
 	@SuppressLint("NewApi")
 	@Override
@@ -27,79 +38,93 @@ public class QuestionActivity extends ActionBarActivity{
 		
 		// get Intent 
 		Intent intent = getIntent();
-		int qNum = 1;
+		townClicked = intent.getBooleanArrayExtra("CLICKEDQUESTION");
+		System.out.println(townClicked);
+		//check each array to see which town is selected. Then show questions according to that.
+		//--> 
 		
-		
-		//question = new Question(qNum*10+1);
 
 		img_question = (ImageView)findViewById(R.id.d_question_health);
-		//btn_yes = (ImageView)findViewById(R.id.d_question_health_yes);
-		//btn_no = (ImageView)findViewById(R.id.d_question_health_no);
 		btn_next = (ImageView)findViewById(R.id.imgBtn_D_Next);
 		
+		init(); //initializing the answer arrays for each town
 		
-		// Set Image buttons click listener
-		//initEvents();
-		// set question view 
-		//showQuestionView();
+		int state = checkNextTown(0);
+		System.out.println("Here you go: " + state);
 		
+		switch(state) {
+		case 0:
+			setContentView(R.layout.activity_question);
+			town_health_setOnClickListener();
+			//checkNextTown(0);
+		}
 		
-		//TODO �떎�쓬 臾몄젣濡� �꽆�뼱媛� �븣 �깉濡� �씠誘몄��뙆�씪�쓣 遺덈윭以섏빞 �븯�뒗�뜲 紐뉖쾲�쑝濡� �꽆�뼱媛붾뒗吏� keep track �븯�뒗 寃껋씠 �븘
-		
-		
+		town_health_setOnClickListener();
 		
 	}
 	
+	public void town_health_setOnClickListener(){
+		final ImageButton answer_mountain = (ImageButton)findViewById(R.id.d_answer_mountain);
+		answer_mountain.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View arg0){
+				if(!town_health_isClicked[0]){
+					answer_mountain.setImageResource(R.drawable.d_answer_health_1_1_pressed);
+					town_health_isClicked[0] = true;
+				}else{
+					answer_mountain.setImageResource(R.drawable.d_answer_health_1_1);
+					town_health_isClicked[0] = false;
+				}
+			}
+		});
+		
+		final ImageButton answer_park = (ImageButton)findViewById(R.id.d_answer_park);
+		answer_park.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View arg0){
+				if(!town_health_isClicked[1]){
+					answer_park.setImageResource(R.drawable.d_answer_health_1_2_pressed);
+					town_health_isClicked[1] = true;
+				}else{
+					answer_park.setImageResource(R.drawable.d_answer_health_1_2);
+					town_health_isClicked[1] = false;
+				}
+			}
+		});
+	}
+	
+	
 	/*
-	private void initEvents() {
-		btn_yes.setOnClickListener(this);
-		btn_no.setOnClickListener(this);
-		btn_next.setOnClickListener(this);
-	} */
-	/*
-	public void onClick(View v) {
-		switch (v.getId()) {
-		//case R.id.d_question_health_yes:
-			break;
-		case R.id.d_question_health_no:
-			
-			//moveToBack(); // �뮘濡쒓�湲�
-			break;
-		case R.id.imgBtn_D_Next:
-			//PromptDialog("�젙留� �궘�젣�븯�떆寃좎뒿�땲源�?");
-			break;
+	 * Initializing the result boolean arrays
+	 */
+	public void init() {
+		for(int i = 0 ; i < 2 ; i++){
+			town_health_isClicked[i] = false;
+		}
+		for(int i=0; i<3; i++) {
+			town_young_isClicked[i] = false;
+		}
+		for(int i=0; i<1; i++) {
+			town_nothing_isClicked[i] = false;
+		}
+		for(int i=0; i<4; i++) {
+			town_learning_isClicked[i] = false;
 		}
 	}
 	
-*/
-	
-/*
-	// show question view 
-	public void showQuestionView(){
-		questionText.setText(question.getQuestion());
-		
-		if(question.getQuestionType() == 0){
-			// YES OR NO 
-			setYesOrNoQuestionView();
-		}else if(question.getQuestionType() == 1){
-			setCheckBoxQuestionView();
+	public int checkNextTown(int townNum) {
+		int nextTown = 6;
+		for (int i = townNum; i < 6; i++) {
+			if(townClicked[i] == true) {
+				System.out.println("Next town!: " + i);
+				nextTown = i;
+				break;
+			}
 		}
 		
+		return nextTown;
 	}
 	
-	// if question view is Yes or NO then do this function
-	public void setYesOrNoQuestionView(){
-		imgBtnYES.setVisibility(View.VISIBLE);
-		imgBtnNO.setVisibility(View.VISIBLE);
-		imgBtnNext.setVisibility(View.INVISIBLE);
-		
-	}
-	// if question view is Check Box then do this function
-	public void setCheckBoxQuestionView(){
-		imgBtnYES.setVisibility(View.INVISIBLE);
-		imgBtnNO.setVisibility(View.INVISIBLE);
-		imgBtnNext.setVisibility(View.VISIBLE);
-
-	} */
+	
 	
 }

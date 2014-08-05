@@ -1,5 +1,6 @@
 package com.example.explorethetown;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +10,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+@SuppressLint("NewApi")
 public class SelectQuestionWayActivity extends ActionBarActivity {
 
 	boolean isClicked[] = new boolean[6];
 	ImageView imgCenterBig ;
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
