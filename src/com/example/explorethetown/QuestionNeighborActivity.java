@@ -31,7 +31,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_question_neighbor);
-      layoutSetting();
+//      layoutSetting();
       
       // Hidden Action Bar
       ActionBar actionBar = getActionBar();
@@ -111,15 +111,32 @@ public class QuestionNeighborActivity extends ActionBarActivity {
 	   int screenHeight = metrics.heightPixels;
 	   
 	   
-	   ImageView naviImageView = (ImageView)findViewById(R.id.img_question_neighbor_navi);
-	   naviImageView.getLayoutParams().height = (int) (screenHeight*0.101041);
-	   naviImageView.setScaleType(ScaleType.FIT_XY);
+	   ImageView imgView;
 	   
-	   ImageView titleImageView = (ImageView)findViewById(R.id.img_question_neighbor_title);
-	   titleImageView.getLayoutParams().height = (int) (screenHeight*0.02708);
-	   titleImageView.getLayoutParams().width = (int) (screenWidth * 0.203703);
-	   titleImageView.setPadding((int) (screenWidth*0.01667), 0, 0, 0);
-	   naviImageView.setScaleType(ScaleType.FIT_XY);
+	   imgView = (ImageView)findViewById(R.id.img_question_neighbor_topbg);
+	   imgView.getLayoutParams().height=  (int) (screenHeight * 0.101041);
+	   imgView.setScaleType(ScaleType.FIT_XY);
+	   
+	   imgView = (ImageView)findViewById(R.id.img_question_neighbor_navi);
+	   imgView.getLayoutParams().height = (int) (screenHeight*0.101041);
+	   imgView.getLayoutParams().width = (int) (screenWidth * 0.101041);
+	   imgView.setScaleType(ScaleType.FIT_XY);
+	   
+	   imgView = (ImageView)findViewById(R.id.img_question_neighbor_title);
+	   imgView.getLayoutParams().height = (int) (screenHeight*0.02708);
+	   imgView.getLayoutParams().width = (int) (screenWidth * 0.203703);
+	   imgView.setPadding((int) (screenWidth*0.01667), 0, 0, 0);
+	   imgView.setScaleType(ScaleType.FIT_XY);
+	   
+
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
 	   
    }
    

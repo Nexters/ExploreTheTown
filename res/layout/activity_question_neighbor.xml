@@ -5,40 +5,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/b_bg_blur">
 
-    <ImageView
-        android:id="@+id/img_question_neighbor_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/seek_top"
-        android:layout_centerVertical="true"
-        android:src="@drawable/f_question" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/img_question_neighbor_question"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/img_question_neighbor_title"
-        android:src="@drawable/f_bg_line" />
-
-    <ImageView
-        android:id="@+id/img_question_neighbor_navi"
-        android:layout_width="fill_parent"
-        android:layout_height="64dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/f_top_process_navi_attach" />
-
-    <ImageView
-        android:id="@+id/img_question_neighbor_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/img_question_neighbor_navi"
-        android:src="@drawable/f_text_top_people" />
-
     <SeekBar
         android:id="@+id/seek_top"
         android:layout_width="fill_parent"
@@ -85,15 +51,77 @@
         android:thumb="@drawable/f_controler_people" />
 
     <ImageView
+        android:id="@+id/img_question_neighbor_topbg"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/navi_red" />
+
+    <ImageView
+        android:id="@+id/img_question_neighbor_navi"
+        android:layout_width="287dp"
+        android:layout_height="56dp"
+        android:layout_alignBottom = "@+id/img_question_neighbor_topbg"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/navi_icon_only_sum" />
+
+    <ImageView
+        android:id="@+id/img_question_neighbor_title"
+        android:layout_width="73.33dp"
+        android:layout_height="17.33dp"
+        android:layout_marginTop="9.67dp"
+		android:layout_marginLeft="6dp"
+        android:layout_below="@+id/img_question_neighbor_topbg"
+        android:src="@drawable/f_text_top_people" />
+
+    <ImageView
         android:id="@+id/img_question_neighbor_bottombg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="82.33dp"
+        android:scaleType="fitXY"
+        android:layout_alignParentBottom="true"
         android:src="@drawable/b_bg_bottom" />
 
     <Button
         android:id="@+id/imgBtn_questionNeighbor_Next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+		android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/c_next_btn_selector" />
+
+    <ImageView
+        android:id="@+id/img_question_neighbor_whitebg"
+        android:layout_width="fill_parent"
+        android:layout_height="201.33dp"
+        android:scaleType="fitXY"
+        android:layout_above="@+id/img_question_neighbor_bottombg"
+        android:src="@drawable/f_bg_white" />
+    
+    
+    <ImageView
+        android:id="@+id/img_question_neighbor_question"
+        android:layout_width="232.33dp"
+        android:layout_height="77.67dp"
+		android:layout_marginLeft="37.67dp"
+        android:layout_above="@+id/img_question_neighbor_whitebg"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/f_question" />
+
+    <ImageView
+        android:id="@+id/img_question_neighbor_linebg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/img_question_neighbor_question"
+        android:layout_below="@+id/img_question_neighbor_topbg"
+        android:layout_marginLeft="81.33dp"
+        android:layout_marginRight="81.33dp"
+        android:layout_marginTop="9.67dp"
+        android:layout_marginBottom=""
+        android:scaleType="fitXY"
+        android:src="@drawable/f_bg_line" />
 
 </RelativeLayout>
