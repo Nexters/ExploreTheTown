@@ -45,21 +45,35 @@ public class QuestionActivity extends ActionBarActivity{
 		
 
 		img_question = (ImageView)findViewById(R.id.d_question_health);
-		btn_next = (ImageView)findViewById(R.id.imgBtn_D_Next);
+		//btn_next = (ImageView)findViewById(R.id.imgBtn_D_Next);
 		
 		init(); //initializing the answer arrays for each town
 		
-		int state = checkNextTown(0);
-		System.out.println("Here you go: " + state);
+		int townState = checkNextTown(0);
+		int questionNumber = 1;
 		
-		switch(state) {
+		switch(townState) {
 		case 0:
 			setContentView(R.layout.activity_question);
 			town_health_setOnClickListener();
-			//checkNextTown(0);
+			checkNextTown(0);
+		case 1:
+			checkNextTown(1);
+			break;
+		case 2:
+			checkNextTown(2);
+			break;
+		case 3:
+			checkNextTown(3);
+			break;
+		case 4:
+			checkNextTown(4);
+			break;
+		case 5:
+			checkNextTown(5);
+			break;
 		}
-		
-		town_health_setOnClickListener();
+
 		
 	}
 	
@@ -91,6 +105,17 @@ public class QuestionActivity extends ActionBarActivity{
 				}
 			}
 		});
+		
+		final ImageButton btn_next = (ImageButton)findViewById(R.id.d_Next);
+		btn_next.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//move to the next question
+				
+			}
+		});
+		
 	}
 	
 	

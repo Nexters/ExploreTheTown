@@ -70,7 +70,7 @@
         android:src="@drawable/d_answer_health_1_1" />
 
         <ImageButton
-            android:id="@+id/imgBtn_D_Next"
+            android:id="@+id/d_Next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
