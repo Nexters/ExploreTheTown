@@ -5,57 +5,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/b_bg_blur">
 
-    <Button
-        android:id="@+id/imgBtn_questionNeighbor_Next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/c_next_btn_selector" />
-
-    <SeekBar
-        android:id="@+id/seek_leftUp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imgBtn_questionNeighbor_Next"
-        android:layout_alignLeft="@+id/seek_leftDown"
-        android:layout_marginBottom="33dp"
-        android:thumb="@drawable/f_controler_people" />
-
-    <SeekBar
-        android:id="@+id/seek_leftDown"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/seek_leftUp"
-        android:layout_alignLeft="@+id/seek_rightDown"
-        android:layout_marginBottom="9dp"
-        android:thumb="@drawable/f_controler_people" />
-
-    <SeekBar
-        android:id="@+id/seek_rightDown"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/seek_leftDown"
-        android:layout_alignLeft="@+id/seek_rightUp"
-        android:layout_marginBottom="10dp"
-        android:thumb="@drawable/f_controler_people" />
-
-    <SeekBar
-        android:id="@+id/seek_rightUp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/seek_rightDown"
-        android:layout_alignLeft="@+id/seek_top"
-        android:layout_marginBottom="8dp"
-        android:thumb="@drawable/f_controler_people" />
-
-    <SeekBar
-        android:id="@+id/seek_top"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/seek_rightUp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp"
-        android:thumb="@drawable/f_controler_people" />
-
     <ImageView
         android:id="@+id/img_question_neighbor_question"
         android:layout_width="wrap_content"
@@ -89,5 +38,62 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/img_question_neighbor_navi"
         android:src="@drawable/f_text_top_people" />
+
+    <SeekBar
+        android:id="@+id/seek_top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/img_question_neighbor_question"
+        android:layout_marginTop="25dp"
+        android:thumb="@drawable/f_controler_people" />
+
+    <SeekBar
+        android:id="@+id/seek_rightUp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/seek_top"
+        android:layout_marginTop="13dp"
+        android:thumb="@drawable/f_controler_people" />
+
+    <SeekBar
+        android:id="@+id/seek_rightDown"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/seek_rightUp"
+        android:layout_marginTop="10dp"
+        android:thumb="@drawable/f_controler_people" />
+
+    <SeekBar
+        android:id="@+id/seek_leftDown"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/seek_rightDown"
+        android:layout_marginTop="11dp"
+        android:thumb="@drawable/f_controler_people" />
+
+    <SeekBar
+        android:id="@+id/seek_leftUp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/seek_leftDown"
+        android:layout_marginTop="13dp"
+        android:thumb="@drawable/f_controler_people" />
+
+    <ImageView
+        android:id="@+id/img_question_neighbor_bottombg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/b_bg_bottom" />
+
+    <Button
+        android:id="@+id/imgBtn_questionNeighbor_Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/c_next_btn_selector" />
 
 </RelativeLayout>

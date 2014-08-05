@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.SeekBar;
 import android.widget.LinearLayout.LayoutParams;
 
@@ -29,7 +30,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      setContentView(R.layout.activity_question_house);
+      setContentView(R.layout.activity_question_neighbor);
       layoutSetting();
       
       // Hidden Action Bar
@@ -101,6 +102,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
 
    }
    
+   
    private void layoutSetting(){
 	   
 	   DisplayMetrics metrics = new DisplayMetrics();
@@ -109,8 +111,17 @@ public class QuestionNeighborActivity extends ActionBarActivity {
 	   int screenHeight = metrics.heightPixels;
 	   
 	   
-	   ImageView titleImageView = (ImageView)findViewById(R.id.img_question_neighbor_navi);
-	   titleImageView.getLayoutParams().height = (int) (screenHeight*0.101041);
+	   ImageView naviImageView = (ImageView)findViewById(R.id.img_question_neighbor_navi);
+	   naviImageView.getLayoutParams().height = (int) (screenHeight*0.101041);
+	   naviImageView.setScaleType(ScaleType.FIT_XY);
+	   
+	   ImageView titleImageView = (ImageView)findViewById(R.id.img_question_neighbor_title);
+	   titleImageView.getLayoutParams().height = (int) (screenHeight*0.02708);
+	   titleImageView.getLayoutParams().width = (int) (screenWidth * 0.203703);
+	   titleImageView.setPadding((int) (screenWidth*0.01667), 0, 0, 0);
+	   naviImageView.setScaleType(ScaleType.FIT_XY);
 	   
    }
+   
 }
+   
