@@ -59,17 +59,18 @@
         android:layout_marginTop="14dp"
         android:src="@drawable/d_question_health_1" />
         
-    <ImageView
-        android:id="@+id/d_question_mountain"
+    <ImageButton
+        android:id="@+id/d_answer_mountain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/d_question_health"
         android:layout_below="@+id/d_question_health"
         android:layout_marginTop="30dp"
-        android:src="@drawable/d_answer_health_1_2" />
+        android:background="@android:color/transparent"
+        android:src="@drawable/d_answer_health_1_1" />
 
         <ImageButton
-            android:id="@+id/imgBtn_D_Next"
+            android:id="@+id/d_Next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -77,13 +78,14 @@
             android:background="@android:color/transparent"
             android:src="@drawable/c_next_btn_selector" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/d_answer_park"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/d_question_mountain"
-            android:layout_below="@+id/d_question_mountain"
-            android:layout_marginTop="18dp"
+            android:layout_alignLeft="@+id/d_answer_mountain"
+            android:layout_below="@+id/d_answer_mountain"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
             android:src="@drawable/d_answer_health_1_2" />
 
 </RelativeLayout>
