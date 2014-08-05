@@ -148,6 +148,7 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 				Intent iIntent = new Intent(SelectQuestionWayActivity.this, QuestionActivity.class);
 				iIntent.putExtra("CLICKEDQUESTION", isClicked);
 				startActivity(iIntent);
+				//finish();
 			}
 		});
 	}

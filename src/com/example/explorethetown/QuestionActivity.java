@@ -17,6 +17,8 @@ public class QuestionActivity extends ActionBarActivity{
 	ImageView btn_no;
 	ImageView btn_next;
 	
+	int townState;
+	
 	boolean townClicked[] = new boolean[6];
 	
 	boolean town_picnic_isClicked[] = new boolean[0];
@@ -49,15 +51,18 @@ public class QuestionActivity extends ActionBarActivity{
 		
 		init(); //initializing the answer arrays for each town
 		
-		int townState = checkNextTown(0);
+		townState = checkNextTown(0);
 		int questionNumber = 1;
 		
 		switch(townState) {
 		case 0:
-			setContentView(R.layout.activity_question);
+			//townHealth(); --> setContentView, change questions as it goes.
+			//change the question
+			System.out.println("It's here");
 			town_health_setOnClickListener();
-			checkNextTown(0);
+			System.out.println("chekced2");
 		case 1:
+			System.out.println("Got to case1");
 			checkNextTown(1);
 			break;
 		case 2:
@@ -111,8 +116,9 @@ public class QuestionActivity extends ActionBarActivity{
 			
 			@Override
 			public void onClick(View v) {
-				//move to the next question
-				
+				//move to the next question if there is one.
+				townState = checkNextTown(0);
+				System.out.println("Checked");
 			}
 		});
 		
