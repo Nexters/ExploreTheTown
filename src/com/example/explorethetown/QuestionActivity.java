@@ -3,16 +3,10 @@ package com.example.explorethetown;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class QuestionActivity extends ActionBarActivity{
 	int questionNumber;
@@ -50,7 +44,7 @@ public class QuestionActivity extends ActionBarActivity{
 		//showQuestionView();
 		
 		
-		//TODO 다음 문제로 넘어갈 때 새로 이미지파일을 불러줘야 하는데 몇번으로 넘어갔는지 keep track 하는 것이 필
+		//TODO �떎�쓬 臾몄젣濡� �꽆�뼱媛� �븣 �깉濡� �씠誘몄��뙆�씪�쓣 遺덈윭以섏빞 �븯�뒗�뜲 紐뉖쾲�쑝濡� �꽆�뼱媛붾뒗吏� keep track �븯�뒗 寃껋씠 �븘
 		
 		
 		
@@ -69,10 +63,10 @@ public class QuestionActivity extends ActionBarActivity{
 			break;
 		case R.id.d_question_health_no:
 			
-			//moveToBack(); // 뒤로가기
+			//moveToBack(); // �뮘濡쒓�湲�
 			break;
 		case R.id.imgBtn_D_Next:
-			//PromptDialog("정말 삭제하시겠습니까?");
+			//PromptDialog("�젙留� �궘�젣�븯�떆寃좎뒿�땲源�?");
 			break;
 		}
 	}

@@ -13,17 +13,14 @@ import com.google.android.gms.maps.MapFragment;
 import android.app.ActionBar;
 import android.location.Location;
 import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.location.Criteria;

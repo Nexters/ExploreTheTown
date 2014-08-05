@@ -2,11 +2,9 @@ package com.example.explorethetown;
 
 public class Question {
 	Question(){
-		type = 0;
 		questionNumber = 0;
 	}
 	public Question(int QNUM){
-		type = 0;
 		setQuestionNumber(QNUM);
 	}
 	public int getQuestionType(){
@@ -42,7 +40,6 @@ public class Question {
 	}
 
 	
-	private int type;				// 0 : YES or NO     1 : CheckBox
 	private int questionNumber;		// 11 : Question1_1  21 : Question 2_1 Etc...
 	private String question;
 }

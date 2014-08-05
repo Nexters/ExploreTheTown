@@ -8,11 +8,12 @@ import com.example.spider_graph_test.SeekbarControl;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.LinearLayout.LayoutParams;
 
@@ -29,7 +30,8 @@ public class QuestionNeighborActivity extends ActionBarActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_question_house);
-         
+      layoutSetting();
+      
       // Hidden Action Bar
       ActionBar actionBar = getActionBar();
       actionBar.hide();
@@ -37,11 +39,13 @@ public class QuestionNeighborActivity extends ActionBarActivity {
       drawGraph();
            
       setOnClickListener();
+   
+   
    }
    
    // Go to Next
    public void setOnClickListener(){
-      ImageButton imgBtnNext = (ImageButton)findViewById(R.id.imgBtn_questionNeighbor_Next);
+      Button imgBtnNext = (Button)findViewById(R.id.imgBtn_questionNeighbor_Next);
       
       imgBtnNext.setOnClickListener(new View.OnClickListener() {
          
@@ -61,7 +65,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
 
       GraphData data = new GraphData();
       graph = new GraphView(getApplicationContext(), data);
-      vg.addView(graph, new LayoutParams(600, 1300));
+      vg.addView(graph, new LayoutParams(1000, 1300));
 
       // top
       seek_top = (SeekBar) findViewById(R.id.seek_top);
@@ -95,5 +99,18 @@ public class QuestionNeighborActivity extends ActionBarActivity {
             graph));
 
 
+   }
+   
+   private void layoutSetting(){
+	   
+	   DisplayMetrics metrics = new DisplayMetrics();
+	   getWindowManager().getDefaultDisplay().getMetrics(metrics);
+	   int screenWidth = metrics.widthPixels;
+	   int screenHeight = metrics.heightPixels;
+	   
+	   
+	   ImageView titleImageView = (ImageView)findViewById(R.id.img_question_neighbor_navi);
+	   titleImageView.getLayoutParams().height = (int) (screenHeight*0.101041);
+	   
    }
 }
