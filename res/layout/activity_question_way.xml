@@ -15,7 +15,7 @@
         android:id="@+id/img_question_way_navi"
         android:layout_width="287dp"
         android:layout_height="56dp"
-        android:layout_alignBottom="@+id/img+question_way_topbg"
+        android:layout_alignBottom="@+id/img_question_way_topbg"
         android:layout_centerHorizontal="true"
         android:src="@drawable/navi_icon_only_sum" />
 
@@ -68,17 +68,6 @@
         android:background="@android:color/transparent"
         android:src="@drawable/c_btn_study" />
 
-    <ImageButton
-        android:id="@+id/imgBtn_Question1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView1"
-        android:layout_marginRight="45dp"
-        android:layout_marginTop="33dp"
-        android:layout_toLeftOf="@+id/imgBtn_Question2"
-        android:background="@android:color/transparent"
-        android:src="@drawable/c_btn_picnic" />
-
 
 
 
@@ -86,7 +75,7 @@
         android:id="@+id/imgBtn_C_Next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/img_c_centerImg"
+        android:layout_alignLeft="@+id/img_question_way_center"
         android:layout_alignParentBottom="true"
         android:background="@android:color/transparent"
         android:src="@drawable/c_btn_next" />
@@ -125,5 +114,15 @@
         android:layout_alignLeft="@+id/imgBtn_Question3"
         android:background="@android:color/transparent"
         android:src="@drawable/c_btn_young" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_Question1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/img_question_way_navi"
+        android:layout_alignTop="@+id/img_question_way_whitebg"
+        android:layout_marginLeft="7dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/c_btn_picnic" />
 
 </RelativeLayout>

@@ -21,7 +21,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 	
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_select_city_list);
+		setContentView(R.layout.activity_select_city_list_first);
 		
 		// Hidden Action bar
 		ActionBar actionBar = getActionBar();
@@ -32,9 +32,9 @@ public class SelectCityListActivity extends ActionBarActivity{
 	}
 	
 	public void addFirstPageListenerOnButton(){
-		final ImageView bigImg = (ImageView)findViewById(R.id.img_selectCityList_City);
+		final ImageView bigImg = (ImageView)findViewById(R.id.img_selectCityListFirst_City);
 		
-		final ImageButton imgBtnSeoul = (ImageButton)findViewById(R.id.imgBtn_selectCityList_seoul);
+		final ImageButton imgBtnSeoul = (ImageButton)findViewById(R.id.imgBtn_selectCityListFirst_seoul);
 		imgBtnSeoul.setSelected(false);
 		imgBtnSeoul.setOnClickListener(new View.OnClickListener(){
 			@Override
@@ -47,7 +47,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 			}
 		});
 		
-		final ImageButton imgBtnIncheon = (ImageButton)findViewById(R.id.imgBtn_selectCityList_incheon);
+		final ImageButton imgBtnIncheon = (ImageButton)findViewById(R.id.imgBtn_selectCityListFirst_incheon);
 		imgBtnIncheon.setSelected(false);
 		imgBtnIncheon.setOnClickListener(new View.OnClickListener() {
 			
@@ -62,7 +62,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 			}
 		});
 		
-		final ImageButton imgBtnGyeonggi = (ImageButton)findViewById(R.id.imgBtn_selectCityList_gyeonggido);
+		final ImageButton imgBtnGyeonggi = (ImageButton)findViewById(R.id.imgBtn_selectCityListFirst_gyeonggido);
 		imgBtnGyeonggi.setSelected(false);
 		imgBtnGyeonggi.setOnClickListener(new View.OnClickListener() {
 			
@@ -77,7 +77,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 			}
 		});
 		
-		final ImageButton imgBtnGangwon = (ImageButton)findViewById(R.id.imgBtn_selectCityList_gangwondo);
+		final ImageButton imgBtnGangwon = (ImageButton)findViewById(R.id.imgBtn_selectCityListFirst_gangwondo);
 		imgBtnGangwon.setSelected(false);
 		imgBtnGangwon.setOnClickListener(new View.OnClickListener() {
 			
@@ -100,7 +100,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 	}
 	
 	public void addStartBtnListenerOnButton(){
-		Button imgStartBtn = (Button)findViewById(R.id.button_selectCityList_start);
+		Button imgStartBtn = (Button)findViewById(R.id.button_selectCityListFirst_start);
 		
 		imgStartBtn.setOnClickListener(new View.OnClickListener() {
 			

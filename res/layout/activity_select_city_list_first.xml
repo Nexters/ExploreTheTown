@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b_bg_blur"
+    >
+
+    <!-- navi -->
+    <ImageView
+        android:id="@+id/img_selectCityListFirst_naviBar"
+        android:layout_width="fill_parent"
+        android:layout_height="50.67dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/b_bg_navigation_bar" />
+
+    <ImageView
+        android:id="@+id/img_selectCityListFirst_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/b_text_top" />
+
+    
+    <!--  bottom  -->
+    <ImageView
+        android:id="@+id/img_selectCityListFirst_bottombg"
+        android:layout_width="fill_parent"
+        android:layout_height="80.33dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/b_bg_bottom" />
+
+    <Button
+        android:id="@+id/button_selectCityListFirst_start"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:background="@drawable/b_start_btn" />
+    
+    <!-- middle city list -->
+    <ImageView
+        android:id="@+id/img_selectCityListFirst_midbg"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/img_selectCityListFirst_bottombg"
+        android:scaleType="fitXY"
+        android:background="@drawable/b_menu_bg" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_selectCityListFirst_incheon"
+        android:layout_width="68.67dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/img_selectCityListFirst_bottombg"
+        android:layout_alignLeft="@+id/button_selectCityListFirst_start"
+        android:layout_marginLeft="21.33dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/b_small_incheon_btn" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_selectCityListFirst_seoul"
+        android:layout_width="68.67dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/img_selectCityListFirst_bottombg"
+        android:layout_toLeftOf="@+id/imgBtn_selectCityListFirst_incheon"
+        android:layout_marginRight="-21.33dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/b_small_seoul_btn" />
+    
+     <ImageButton
+        android:id="@+id/imgBtn_selectCityListFirst_gyeonggido"
+        android:layout_width="68.67dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/img_selectCityListFirst_bottombg"
+        android:layout_toRightOf="@+id/imgBtn_selectCityListFirst_incheon"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/b_small_gyeonggido_btn" />
+     
+    <ImageButton
+        android:id="@+id/imgBtn_selectCityListFirst_gangwondo"
+        android:layout_width="68.67dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/img_selectCityListFirst_bottombg"
+        android:layout_toRightOf="@+id/imgBtn_selectCityListFirst_gyeonggido"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/b_small_gangwon_btn" />     
+        
+    <ImageView
+        android:id="@+id/img_selectCityListFirst_City"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_selectCityListFirst_naviBar"
+        android:layout_above="@+id/imgBtn_selectCityListFirst_gangwondo"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/b_big_seoul" />
+    
+    <ImageButton
+        android:id="@+id/imgBtn_selectCityListFirst_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imgBtn_selectCityListFirst_incheon"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="44dp"
+        android:layout_marginLeft="7dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/b_btn_left" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_selectCityListFirst_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imgBtn_selectCityListFirst_left"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/b_btn_right" />
+
+
+
+</RelativeLayout>
