@@ -120,6 +120,10 @@
         android:layout_marginLeft="81.33dp"
         android:layout_marginRight="81.33dp"
         android:layout_marginTop="9.67dp"
+<<<<<<< HEAD
+=======
+        android:layout_marginBottom="15dp"
+>>>>>>> 4f6221fe615abdd77d03c027357cc64b769c5e71
         android:scaleType="fitXY"
         android:src="@drawable/f_bg_line" />
 
