@@ -3,15 +3,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/b_bg_blur" >
+	
+    <ImageView
+        android:id="@+id/img_question_way_topbg"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/navi_red" />
+    
+    <ImageView
+        android:id="@+id/img_question_way_navi"
+        android:layout_width="287dp"
+        android:layout_height="56dp"
+        android:layout_alignBottom="@+id/img+question_way_topbg"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/navi_icon_only_sum" />
 
-    <ImageButton
-        android:id="@+id/imgBtn_Question2"
+    <ImageView
+        android:id="@+id/img_question_way_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imgBtn_Question1"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent"
-        android:src="@drawable/c_btn_every" />
+        android:layout_marginTop="9.67dp"
+		android:layout_marginLeft="6dp"
+        android:layout_below="@+id/img_question_way_topbg"
+        android:src="@drawable/c_text_top_town" />
+    
+    <ImageView
+        android:id="@+id/img_question_way_whitebg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="79dp"
+        android:src="@drawable/c_bg_white" />
+        
+        <!-- 여기 좌우 여백 크기 체크하기 dp로 주기! -->
+    <ImageView
+        android:id="@+id/img_question_way_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_below="@+id/img_question_way_title"
+		android:layout_above="@+id/img_question_way_whitebg"
+		android:scaleType="fitXY"
+		android:layout_centerHorizontal="true"
+        android:src="@drawable/c_big_every" />
 
     <ImageButton
         android:id="@+id/imgBtn_Question3"
@@ -34,24 +69,6 @@
         android:src="@drawable/c_btn_study" />
 
     <ImageButton
-        android:id="@+id/imgBtn_Question5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imgBtn_Question2"
-        android:layout_alignTop="@+id/imgBtn_Question4"
-        android:background="@android:color/transparent"
-        android:src="@drawable/c_btn_less" />
-
-    <ImageButton
-        android:id="@+id/imgBtn_Question6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imgBtn_Question3"
-        android:layout_alignTop="@+id/imgBtn_Question4"
-        android:background="@android:color/transparent"
-        android:src="@drawable/c_btn_young" />
-
-    <ImageButton
         android:id="@+id/imgBtn_Question1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,66 +79,8 @@
         android:background="@android:color/transparent"
         android:src="@drawable/c_btn_picnic" />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="79dp"
-        android:src="@drawable/c_bg_white" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imgBtn_Question1"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/c_btn_town_color" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView2"
-        android:layout_toLeftOf="@+id/imgBtn_Question2"
-        android:src="@drawable/c_btn_people" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imgBtn_Question2"
-        android:layout_alignTop="@+id/imageView3"
-        android:layout_marginLeft="24dp"
-        android:src="@drawable/c_btn_house" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/imgBtn_Question3"
-        android:layout_alignTop="@+id/imageView4"
-        android:layout_marginRight="25dp"
-        android:src="@drawable/c_btn_result" />
-
-    <ImageView
-        android:id="@+id/img_c_centerImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView5"
-        android:layout_marginTop="13dp"
-        android:layout_toRightOf="@+id/imageView2"
-        android:src="@drawable/c_big_every" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/img_c_centerImg"
-        android:src="@drawable/c_text_top_town" />
 
     <ImageButton
         android:id="@+id/imgBtn_C_Next"
@@ -139,5 +98,32 @@
         android:layout_above="@+id/imgBtn_Question1"
         android:layout_alignParentLeft="true"
         android:text="Button" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_Question2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/img_question_way_whitebg"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/c_btn_every" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_Question5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/img_question_way_whitebg"
+        android:layout_alignLeft="@+id/imgBtn_Question2"
+        android:background="@android:color/transparent"
+        android:src="@drawable/c_btn_less" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_Question6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/img_question_way_whitebg"
+        android:layout_alignLeft="@+id/imgBtn_Question3"
+        android:background="@android:color/transparent"
+        android:src="@drawable/c_btn_young" />
 
 </RelativeLayout>

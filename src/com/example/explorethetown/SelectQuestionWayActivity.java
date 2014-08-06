@@ -20,7 +20,7 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_question_way);
-		imgCenterBig = (ImageView)findViewById(R.id.img_c_centerImg);
+		imgCenterBig = (ImageView)findViewById(R.id.img_question_way_center);
 		// init
 		for(int i = 0 ; i < 6 ; i++){
 			isClicked[i] = false;
