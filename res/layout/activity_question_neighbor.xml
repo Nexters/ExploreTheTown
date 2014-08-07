@@ -112,16 +112,11 @@
 
     <ImageView
         android:id="@+id/img_question_neighbor_linebg"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/img_question_neighbor_question"
         android:layout_below="@+id/img_question_neighbor_topbg"
-        android:layout_marginLeft="81.33dp"
-        android:layout_marginRight="81.33dp"
-        android:layout_marginTop="9.67dp"
-        android:layout_marginBottom="15dp"
-        android:scaleType="fitXY"
         android:src="@drawable/f_bg_line" />
 
 </RelativeLayout>

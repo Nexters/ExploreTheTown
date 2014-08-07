@@ -21,38 +21,38 @@ public class GraphView extends View {
       super(context);
    }
 
-   public GraphView(Context context, GraphData data) {
+   public GraphView(Context context, GraphData data, int startX, int startY) {
       super(context);
       this.data = data;
-
-      // paint �꽕�젙
+      // paint 占쎄퐬占쎌젟
       paint.setColor(Color.BLUE);
       paint.setStyle(Style.FILL);
 
-      // center珥덇린�솕.
-      center = new Point(300, 900);
+      // center�룯�뜃由곤옙�넅.
+      center = new Point(startX, startY);
+      
    }
 
    @Override
    protected void onDraw(Canvas canvas) {
 
-      // �쐞移� �꽕�젙.
-      int topX = data.getTop().getX(); // top X
-      int topY = data.getTop().getY(); // top Y
+      // 占쎌맄燁삼옙 占쎄퐬占쎌젟.
+      int topX = center.x + data.getTop().getX(); // top X
+      int topY = center.y + data.getTop().getY(); // top Y
 
-      int rightUpX = data.getRightUp().getX();
-      int rightUpY = data.getRightUp().getY();
+      int rightUpX = center.x + data.getRightUp().getX();
+      int rightUpY = center.y + data.getRightUp().getY();
       
-      int rightDownX = data.getRightDown().getX();
-      int rightDownY = data.getRightDown().getY();
+      int rightDownX = center.x + data.getRightDown().getX();
+      int rightDownY = center.y + data.getRightDown().getY();
       
-      int leftDownX = data.getLeftDown().getX();
-      int leftDownY = data.getLeftDown().getY();
+      int leftDownX = center.x + data.getLeftDown().getX();
+      int leftDownY = center.y + data.getLeftDown().getY();
       
-      int leftUpX = data.getLeftUp().getX();
-      int leftUpY = data.getLeftUp().getY();
+      int leftUpX = center.x + data.getLeftUp().getX();
+      int leftUpY = center.y + data.getLeftUp().getY();
 
-      // 洹몃━湲�
+      // 域밸챶�봺疫뀐옙
       path.reset(); // only needed when reusing this path for a new build
       path.moveTo(topX, topY); // used for first point
       path.lineTo(rightUpX, rightUpY);

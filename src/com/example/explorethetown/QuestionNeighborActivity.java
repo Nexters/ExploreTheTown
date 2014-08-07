@@ -7,6 +7,7 @@ import com.example.spider_graph_test.SeekbarControl;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.DisplayMetrics;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ImageView.ScaleType;
 import android.widget.SeekBar;
 import android.widget.LinearLayout.LayoutParams;
@@ -37,11 +39,19 @@ public class QuestionNeighborActivity extends ActionBarActivity {
       ActionBar actionBar = getActionBar();
       actionBar.hide();
            
-      drawGraph();
+     // drawGraph();
            
       setOnClickListener();
    
    
+   }
+   @Override
+   public void onWindowFocusChanged(boolean hasFocus) {
+	   super.onWindowFocusChanged(hasFocus);
+        // TODO Auto-generated method stub
+        // 여기서 width를 찍어보면 값이 제대로 출력된다.
+	   ImageView imgBgLine = (ImageView)findViewById(R.id.img_question_neighbor_linebg);
+	   drawGraph(imgBgLine.getLeft(), imgBgLine.getRight(), imgBgLine.getTop(), imgBgLine.getBottom());
    }
    
    // Go to Next
@@ -59,15 +69,15 @@ public class QuestionNeighborActivity extends ActionBarActivity {
       });
    }
 
-   public void drawGraph(){
+   public void drawGraph(int left, int right, int top, int bottom){
       setContentView(R.layout.activity_question_neighbor);
 
       ViewGroup vg = (ViewGroup) findViewById(R.id.main_layout);
-
+      
+      
       GraphData data = new GraphData();
-      graph = new GraphView(getApplicationContext(), data);
+      graph = new GraphView(getApplicationContext(), data, left+50 , top+30 );
       vg.addView(graph, new LayoutParams(1000, 1300));
-
       // top
       seek_top = (SeekBar) findViewById(R.id.seek_top);
       seek_top.setMax(200);

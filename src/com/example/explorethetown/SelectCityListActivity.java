@@ -116,6 +116,19 @@ public class SelectCityListActivity extends ActionBarActivity{
 				
 			}
 		});
+		
+		ImageButton imgBtnLeft = (ImageButton)findViewById(R.id.imgBtn_selectCityListFirst_left);
+		imgBtnLeft.setVisibility(View.INVISIBLE);
+		
+		ImageButton imgBtnRight = (ImageButton)findViewById(R.id.imgBtn_selectCityListFirst_right);
+		imgBtnRight.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showContentViewSetting(CityPosition.RIGHT);
+			}
+		});
 		beforeClickedButton = imgBtn1;
 		beforeClickedButton.setSelected(true);
 		clickedCityName = CityName.SEOUL;
@@ -178,6 +191,28 @@ public class SelectCityListActivity extends ActionBarActivity{
 				beforeClickedButton = imgBtn4;
 				bigImg.setImageResource(R.drawable.b_big_chungcheongbukdo);
 				clickedCityName = CityName.CHUNGCHEONGBUK_DO;
+				
+			}
+		});
+		
+		ImageButton imgBtnLeft = (ImageButton)findViewById(R.id.imgBtn_selectCityListSecond_left);
+		imgBtnLeft.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showContentViewSetting(CityPosition.UPPER);
+				
+			}
+		});
+		
+		ImageButton imgBtnRight = (ImageButton)findViewById(R.id.imgBtn_selectCityListSecond_right);
+		imgBtnRight.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showContentViewSetting(CityPosition.LEFTUP);
 				
 			}
 		});
@@ -246,6 +281,29 @@ public class SelectCityListActivity extends ActionBarActivity{
 				
 			}
 		});
+
+		ImageButton imgBtnLeft = (ImageButton)findViewById(R.id.imgBtn_selectCityListThird_left);
+		imgBtnLeft.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showContentViewSetting(CityPosition.RIGHT);
+				
+			}
+		});
+		
+		ImageButton imgBtnRight = (ImageButton)findViewById(R.id.imgBtn_selectCityListThird_right);
+		imgBtnRight.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showContentViewSetting(CityPosition.LEFTDOWN);
+				
+			}
+		});
+		
 		beforeClickedButton = imgBtn1;
 		beforeClickedButton.setSelected(true);
 		clickedCityName = CityName.JEOLLABUK_DO;
@@ -326,6 +384,21 @@ public class SelectCityListActivity extends ActionBarActivity{
 				
 			}
 		});
+		
+
+		ImageButton imgBtnLeft = (ImageButton)findViewById(R.id.imgBtn_selectCityListFourth_left);
+		imgBtnLeft.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showContentViewSetting(CityPosition.LEFTUP);
+				
+			}
+		});
+		
+		ImageButton imgBtnRight = (ImageButton)findViewById(R.id.imgBtn_selectCityListFourth_right);
+		imgBtnRight.setVisibility(View.INVISIBLE);
 		beforeClickedButton = imgBtn1;
 		beforeClickedButton.setSelected(true);
 		clickedCityName = CityName.JEOLLABUK_DO;

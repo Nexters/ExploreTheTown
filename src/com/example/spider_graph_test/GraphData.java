@@ -2,11 +2,9 @@ package com.example.spider_graph_test;
 
 public class GraphData {
    
-   final private int width = 200;
-   final private int height = 200;
+   private int width = 200;
+   private int height = 200;
    
-   final private int startX = 250;
-   final private int startY = 200;
    
    GraphXY top = new GraphXY(100,100);
    GraphXY rightUp = new GraphXY(100,100);
@@ -22,13 +20,14 @@ public class GraphData {
       setLeftUp(0.5f);
       setLeftDown(0.5f);
    }
+   
    public GraphXY getTop() {
       return top;
    }
 
    public void setTop(float progressPercent) {
-      this.top.setX(startX + width);
-      this.top.setY(startY + (int)(height - height*progressPercent));
+      this.top.setX((int)(width + width*0.309016*progressPercent));
+      this.top.setY((int)(height - height*0.951056*progressPercent));
    }
 
    public GraphXY getRightUp() {
@@ -36,8 +35,8 @@ public class GraphData {
    }
 
    public void setRightUp(float progressPercent) {
-      this.rightUp.setX((int)(startX + width + width*0.95*progressPercent));
-      this.rightUp.setY((int)(startY + height - height*0.30*progressPercent));
+      this.rightUp.setX((int)(width + width*progressPercent));
+      this.rightUp.setY((int)(height));
    }
 
    public GraphXY getRightDown() {
@@ -45,8 +44,8 @@ public class GraphData {
    }
 
    public void setRightDown(float progressPercent) {
-      this.rightDown.setX((int)(startX + width + width*0.59*progressPercent));
-      this.rightDown.setY((int)(startY + height + height*0.81*progressPercent));
+      this.rightDown.setX((int)(width + width*0.309016*progressPercent));
+      this.rightDown.setY((int)(height + height*0.951056*progressPercent));
    }
 
    public GraphXY getLeftDown() {
@@ -54,8 +53,8 @@ public class GraphData {
    }
 
    public void setLeftDown(float progressPercent) {
-      this.leftDown.setX((int)(startX + width - width*0.59*progressPercent));
-      this.leftDown.setY((int)(startY + height + height*0.81*progressPercent));
+      this.leftDown.setX((int)(width - width*0.809016*progressPercent));
+      this.leftDown.setY((int)(height + height*0.587785*progressPercent));
    }
    
    public GraphXY getLeftUp(){
@@ -64,8 +63,8 @@ public class GraphData {
    
    public void setLeftUp(float progressPercent){
 
-      this.leftUp.setX((int)(startX + width - width*0.95*progressPercent));
-      this.leftUp.setY((int)(startY + height - height*0.30*progressPercent));
+      this.leftUp.setX((int)(width - width*0.809016*progressPercent));
+      this.leftUp.setY((int)(height - height*0.587785*progressPercent));
    }
 
 }
