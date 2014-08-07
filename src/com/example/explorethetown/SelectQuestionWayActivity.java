@@ -33,18 +33,6 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 		
 		setOnClickListener();
 		
-		// Test for DAun
-		Button daunTest = (Button)findViewById(R.id.daunTestButton);
-		daunTest.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-
-				Intent iIntent = new Intent(SelectQuestionWayActivity.this, QuestionNeighborActivity.class);
-				startActivity(iIntent);
-			}
-		});
 	}
 	
 	public void setOnClickListener(){

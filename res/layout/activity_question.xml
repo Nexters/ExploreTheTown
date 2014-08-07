@@ -5,7 +5,7 @@
     android:background="@android:color/white" >
 
     <ImageView
-        android:id="@+id/town"
+        android:id="@+id/img_question_town"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -15,62 +15,73 @@
         android:src="@drawable/c_btn_town_color" />
 
     <ImageView
-        android:id="@+id/neighbor"
+        android:id="@+id/img_question_people"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/town"
+        android:layout_alignTop="@+id/img_question_town"
         android:layout_marginLeft="25dp"
-        android:layout_toRightOf="@+id/town"
+        android:layout_toRightOf="@+id/img_question_town"
         android:src="@drawable/c_btn_people" />
 
     <ImageView
-        android:id="@+id/house"
+        android:id="@+id/img_question_house"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/neighbor"
+        android:layout_alignTop="@+id/img_question_people"
         android:layout_marginLeft="28dp"
-        android:layout_toRightOf="@+id/neighbor"
+        android:layout_toRightOf="@+id/img_question_people"
         android:src="@drawable/c_btn_house" />
 
     <ImageView
-        android:id="@+id/recommendation"
+        android:id="@+id/img_question_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/house"
+        android:layout_alignTop="@+id/img_question_house"
         android:layout_marginLeft="28dp"
-        android:layout_toRightOf="@+id/house"
+        android:layout_toRightOf="@+id/img_question_house"
         android:src="@drawable/c_btn_result" />
 
     <ImageView
-        android:id="@+id/town_health"
+        android:id="@+id/img_question_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/recommendation"
+        android:layout_below="@+id/img_question_result"
         android:layout_marginTop="20dp"
         android:src="@drawable/d_text_top_health" />
     
         <ImageView
-        android:id="@+id/d_question_health"
+        android:id="@+id/img_question_body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/town_health"
+        android:layout_below="@+id/img_question_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:src="@drawable/d_question_health_1" />
         
     <ImageButton
-        android:id="@+id/d_answer_mountain"
+        android:id="@+id/img_question_answer1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/d_question_health"
-        android:layout_below="@+id/d_question_health"
+        android:layout_below="@+id/img_question_body"
         android:layout_marginTop="30dp"
         android:background="@android:color/transparent"
         android:src="@drawable/d_answer_health_1_1" />
 
+
         <ImageButton
-            android:id="@+id/d_Next"
+            android:id="@+id/img_question_answer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/img_question_answer1"
+            android:layout_below="@+id/img_question_answer1"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/d_answer_health_1_2" />
+        
+        <ImageButton
+            android:id="@+id/img_question_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -79,12 +90,22 @@
             android:src="@drawable/c_next_btn_selector" />
 
         <ImageButton
-            android:id="@+id/d_answer_park"
+            android:id="@+id/img_question_answer3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/d_answer_mountain"
-            android:layout_below="@+id/d_answer_mountain"
-            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/img_question_answer2"
+            android:layout_marginTop="14dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/d_answer_health_1_2" />
+
+        <ImageButton
+            android:id="@+id/img_question_answer4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/img_question_answer3"
+            android:layout_marginTop="21dp"
             android:background="@android:color/transparent"
             android:src="@drawable/d_answer_health_1_2" />
 
