@@ -10,7 +10,11 @@ public class Question {
 	}
 	public QuestionType getQuestionType(){
 		switch(questionNumber){
-		case 13:
+		case 31:
+		case 42:
+		case 43:
+		case 44:
+		case 51:
 			return QuestionType.CHECKBOX;
 		default:
 			return QuestionType.YESORNO;
