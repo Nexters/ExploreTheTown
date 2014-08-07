@@ -15,6 +15,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.custom.CityPosition;
+
 public class SelectCityActivity  extends ActionBarActivity{	
 	
 	 Handler handler;			// Handler for delay
@@ -34,30 +36,53 @@ public class SelectCityActivity  extends ActionBarActivity{
 	
 	
 	public void addListenerOnButton(){
-		ImageButton imageButton1 = (ImageButton)findViewById(R.id.imgBtnUpper);
+		ImageButton imgBtnUpper = (ImageButton)findViewById(R.id.imgBtn_selectCitymap_upper);
 		
-		imageButton1.setOnClickListener(new View.OnClickListener(){
+		imgBtnUpper.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View arg0){
-				Toast.makeText(SelectCityActivity.this, "ImageButton is clicked!!",Toast.LENGTH_LONG).show();
-		
-				
-				//Change Page after Few secs
-				// TODO 
-				handler = new Handler();
-				handler.postDelayed(irun, 1000);		//change page after 2 secs
+				Intent iIntent = new Intent(SelectCityActivity.this, SelectCityListActivity.class);
+				iIntent.putExtra("CityPosition", CityPosition.UPPER);
+				startActivity(iIntent);
 			}
-			
-			Runnable irun = new Runnable(){
-				@Override
-				public void run(){
-					Intent iIntent = new Intent(SelectCityActivity.this, SelectCityListActivity.class);
-					startActivity(iIntent);
-					
-					
-				}
-			};
-			
 		});
+		
+		ImageButton imgBtnRight = (ImageButton)findViewById(R.id.imgBtn_selectCitymap_right);
+		imgBtnRight.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent iIntent = new Intent(SelectCityActivity.this, SelectCityListActivity.class);
+				iIntent.putExtra("CityPosition", CityPosition.RIGHT);
+				startActivity(iIntent);
+				
+			}
+		});
+		
+		ImageButton imgBtnLeftUp = (ImageButton)findViewById(R.id.imgBtn_selectCitymap_leftup);
+		imgBtnLeftUp.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent iIntent = new Intent(SelectCityActivity.this, SelectCityListActivity.class);
+				iIntent.putExtra("CityPosition", CityPosition.LEFTUP);
+				startActivity(iIntent);
+				
+			}
+		});
+		
+		ImageButton imgBtnLeftDown = (ImageButton)findViewById(R.id.imgBtn_selectCitymap_leftdown);
+		imgBtnLeftDown.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent iIntent = new Intent(SelectCityActivity.this, SelectCityListActivity.class);
+				iIntent.putExtra("CityPosition", CityPosition.LEFTDOWN);
+				startActivity(iIntent);
+				
+			}
+		});
+		
+		
 	}
 }

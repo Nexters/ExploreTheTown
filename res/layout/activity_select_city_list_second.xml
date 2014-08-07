@@ -7,7 +7,7 @@
 
     <!-- navi -->
     <ImageView
-        android:id="@+id/img_selectCityListFirst_naviBar"
+        android:id="@+id/img_selectCityListSecond_naviBar"
         android:layout_width="fill_parent"
         android:layout_height="50.67dp"
         android:layout_alignParentTop="true"
@@ -16,7 +16,7 @@
         android:src="@drawable/b_bg_navigation_bar" />
 
     <ImageView
-        android:id="@+id/img_selectCityListFirst_title"
+        android:id="@+id/img_selectCityListSecond_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -27,7 +27,7 @@
     
     <!--  bottom  -->
     <ImageView
-        android:id="@+id/img_selectCityListFirst_bottombg"
+        android:id="@+id/img_selectCityListSecond_bottombg"
         android:layout_width="fill_parent"
         android:layout_height="80.33dp"
         android:layout_alignParentBottom="true"
@@ -47,70 +47,70 @@
     
     <!-- middle city list -->
     <ImageView
-        android:id="@+id/img_selectCityListFirst_midbg"
+        android:id="@+id/img_selectCityListSecond_midbg"
         android:layout_width="fill_parent"
         android:layout_height="70dp"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/img_selectCityListFirst_bottombg"
+        android:layout_above="@+id/img_selectCityListSecond_bottombg"
         android:scaleType="fitXY"
         android:background="@drawable/b_menu_bg" />
 
     <ImageButton
-        android:id="@+id/imgBtn_selectCityListFirst_incheon"
+        android:id="@+id/imgBtn_selectCityListSecond_sejong"
         android:layout_width="68.67dp"
         android:layout_height="100dp"
-        android:layout_above="@+id/img_selectCityListFirst_bottombg"
+        android:layout_above="@+id/img_selectCityListSecond_bottombg"
         android:layout_alignLeft="@+id/button_selectCityList_start"
         android:layout_marginLeft="21.33dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:src="@drawable/b_small_incheon_btn" />
+        android:src="@drawable/b_small_sejong_btn" />
 
     <ImageButton
-        android:id="@+id/imgBtn_selectCityListFirst_seoul"
+        android:id="@+id/imgBtn_selectCityListSecond_chungcheongnamdo"
         android:layout_width="68.67dp"
         android:layout_height="100dp"
-        android:layout_above="@+id/img_selectCityListFirst_bottombg"
-        android:layout_toLeftOf="@+id/imgBtn_selectCityListFirst_incheon"
+        android:layout_above="@+id/img_selectCityListSecond_bottombg"
+        android:layout_toLeftOf="@+id/imgBtn_selectCityListSecond_sejong"
         android:layout_marginRight="-21.33dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:src="@drawable/b_small_seoul_btn" />
+        android:src="@drawable/b_small_chungcheongnamdo_btn" />
     
      <ImageButton
-        android:id="@+id/imgBtn_selectCityListFirst_gyeonggido"
+        android:id="@+id/imgBtn_selectCityListSecond_daejeon"
         android:layout_width="68.67dp"
         android:layout_height="100dp"
-        android:layout_above="@+id/img_selectCityListFirst_bottombg"
-        android:layout_toRightOf="@+id/imgBtn_selectCityListFirst_incheon"
+        android:layout_above="@+id/img_selectCityListSecond_bottombg"
+        android:layout_toRightOf="@+id/imgBtn_selectCityListSecond_sejong"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:src="@drawable/b_small_gyeonggido_btn" />
+        android:src="@drawable/b_small_daejeon_btn" />
      
     <ImageButton
-        android:id="@+id/imgBtn_selectCityListFirst_gangwondo"
+        android:id="@+id/imgBtn_selectCityListSecond_chungcheongbukdo"
         android:layout_width="68.67dp"
         android:layout_height="100dp"
-        android:layout_above="@+id/img_selectCityListFirst_bottombg"
-        android:layout_toRightOf="@+id/imgBtn_selectCityListFirst_gyeonggido"
+        android:layout_above="@+id/img_selectCityListSecond_bottombg"
+        android:layout_toRightOf="@+id/imgBtn_selectCityListSecond_daejeon"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:src="@drawable/b_small_gangwon_btn" />     
+        android:src="@drawable/b_small_chungcheongbukdo_btn" />     
         
     <ImageView
-        android:id="@+id/img_selectCityListFirst_City"
+        android:id="@+id/img_selectCityListSecond_City"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/img_selectCityListFirst_naviBar"
-        android:layout_above="@+id/imgBtn_selectCityListFirst_gangwondo"
+        android:layout_below="@+id/img_selectCityListSecond_naviBar"
+        android:layout_above="@+id/imgBtn_selectCityListSecond_chungcheongbukdo"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/b_big_seoul" />
+        android:src="@drawable/b_big_chungcheongbukdo" />
     
     <ImageButton
-        android:id="@+id/imgBtn_selectCityListFirst_left"
+        android:id="@+id/imgBtn_selectCityListSecond_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imgBtn_selectCityListFirst_incheon"
+        android:layout_alignBottom="@+id/imgBtn_selectCityListSecond_sejong"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="44dp"
         android:layout_marginLeft="7dp"
@@ -118,10 +118,10 @@
         android:src="@drawable/b_btn_left" />
 
     <ImageButton
-        android:id="@+id/imgBtn_selectCityListFirst_right"
+        android:id="@+id/imgBtn_selectCityListSecond_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imgBtn_selectCityListFirst_incheon"
+        android:layout_alignBottom="@+id/imgBtn_selectCityListSecond_sejong"
         android:layout_alignParentRight="true"
 		android:layout_marginBottom="44dp"
 		android:layout_marginRight="7dp"
