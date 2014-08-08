@@ -16,6 +16,7 @@ public class QuestionActivity extends ActionBarActivity{
 	int questionNumber;
 	Question question;
 	ImageView titleImg;
+	ImageView progressImg;
 	ImageView bodyImg;
 	ImageButton[] answerImgBtn;					
 	ImageButton nextBtn;
@@ -53,12 +54,13 @@ public class QuestionActivity extends ActionBarActivity{
 		answerImgBtn = new ImageButton[4];
 		titleImg = (ImageView)findViewById(R.id.img_question_title);
 		bodyImg = (ImageView)findViewById(R.id.img_question_body);
-		answerImgBtn[0] = (ImageButton)findViewById(R.id.img_question_answer1);
+		answerImgBtn[0] = (ImageButton)findViewById(R.id.imgBtn_question_answer1);
 		answerImgBtn[1] = (ImageButton)findViewById(R.id.img_question_answer2);
 		answerImgBtn[2] = (ImageButton)findViewById(R.id.img_question_answer3);
 		answerImgBtn[3] = (ImageButton)findViewById(R.id.img_question_answer4);
 		nextBtn = (ImageButton)findViewById(R.id.img_question_next);
-
+		progressImg = (ImageView)findViewById(R.id.img_question_progressView);
+		
 		beforeClickAnswerList = new boolean[4];
 		setInit();
 		
@@ -171,6 +173,7 @@ public class QuestionActivity extends ActionBarActivity{
 						if(clickedTownsInt == 0){
 							Intent iIntent = new Intent(QuestionActivity.this,AnswerMapActivity.class);
 							startActivity(iIntent);
+							finish();
 						}else{
 							question.setQuestionNumber((clickedTownsInt%10)*10+1);
 							clickedTownsInt /= 10;
@@ -201,6 +204,7 @@ public class QuestionActivity extends ActionBarActivity{
 		
 		titleImg.setImageResource(question.getTitleImg());
 		bodyImg.setImageResource(question.getBodyImg());
+		progressImg.setImageResource(question.getTopProgressImg());
 		
 	}
 	
