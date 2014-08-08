@@ -18,7 +18,7 @@
 	    android:layout_height="56dp"
 	    android:layout_alignBottom="@+id/img_question_topbg"
 	    android:layout_centerHorizontal="true"
-	    android:src="@drawable/navi_icon_only_sum" />
+	    android:src="@drawable/c_navi_step1" />
 	
 	<!-- 아래부분 -->
 	<ImageView

@@ -112,8 +112,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imgBtn_selectCityListSecond_sejong"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="44dp"
-        android:layout_marginLeft="7dp"
         android:background="@android:color/transparent"
         android:src="@drawable/b_btn_left" />
 
@@ -123,8 +121,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imgBtn_selectCityListSecond_sejong"
         android:layout_alignParentRight="true"
-		android:layout_marginBottom="44dp"
-		android:layout_marginRight="7dp"
         android:background="@android:color/transparent"
         android:src="@drawable/b_btn_right" />
 

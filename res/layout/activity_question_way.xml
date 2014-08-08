@@ -17,7 +17,7 @@
         android:layout_height="56dp"
         android:layout_alignBottom="@+id/img_question_way_topbg"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/navi_icon_only_sum" />
+        android:src="@drawable/c_navi_step1" />
 
     <ImageView
         android:id="@+id/img_question_way_title"
@@ -43,7 +43,6 @@
         android:id="@+id/imgBtn_C_Next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/img_question_way_center"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="26.67dp"

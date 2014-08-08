@@ -217,10 +217,11 @@ public class Question {
 	public int getTopProgressImg(){
 		switch(questionNumber){
 		case 11:
-			return R.drawable.d_view_picnic_one;
+			return R.drawable.d_view_young_one;
 		case 12:
-			return R.drawable.d_view_picnic_two;
+			return R.drawable.d_view_young_two;
 		case 13:
+			return R.drawable.d_view_young_three;
 		case 21:
 		case 31:
 			return R.drawable.d_view_health_one;
@@ -235,6 +236,7 @@ public class Question {
 		case 44:
 			return R.drawable.d_view_study_four;
 		case 51:
+			return R.drawable.d_view_four_copy_7;
 		case 61:
 			return R.drawable.d_view_young_one;
 		case 62:

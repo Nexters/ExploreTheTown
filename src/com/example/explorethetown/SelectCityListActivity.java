@@ -41,15 +41,15 @@ public class SelectCityListActivity extends ActionBarActivity{
 			setContentView(R.layout.activity_select_city_list_first);
 			addFirstPageListenerOnButton();
 			break;
-		case RIGHT:
+		case LEFTUP:
 			setContentView(R.layout.activity_select_city_list_second);
 			addSecondPageListenerOnButton();
 			break;
-		case LEFTUP:
+		case LEFTDOWN:
 			setContentView(R.layout.activity_select_city_list_third);
 			addThirdPageListenerOnButton();
 			break;
-		case LEFTDOWN:
+		case RIGHT:
 			setContentView(R.layout.activity_select_city_list_fourth);
 			addFourthPageListenerOnButton();
 			break;
@@ -118,7 +118,14 @@ public class SelectCityListActivity extends ActionBarActivity{
 		});
 		
 		ImageButton imgBtnLeft = (ImageButton)findViewById(R.id.imgBtn_selectCityListFirst_left);
-		imgBtnLeft.setVisibility(View.INVISIBLE);
+		imgBtnLeft.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showContentViewSetting(CityPosition.RIGHT);
+			}
+		});
 		
 		ImageButton imgBtnRight = (ImageButton)findViewById(R.id.imgBtn_selectCityListFirst_right);
 		imgBtnRight.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +133,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				showContentViewSetting(CityPosition.RIGHT);
+				showContentViewSetting(CityPosition.LEFTUP);
 			}
 		});
 		beforeClickedButton = imgBtn1;
@@ -212,7 +219,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				showContentViewSetting(CityPosition.LEFTUP);
+				showContentViewSetting(CityPosition.LEFTDOWN);
 				
 			}
 		});
@@ -288,7 +295,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				showContentViewSetting(CityPosition.RIGHT);
+				showContentViewSetting(CityPosition.LEFTUP);
 				
 			}
 		});
@@ -299,7 +306,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				showContentViewSetting(CityPosition.LEFTDOWN);
+				showContentViewSetting(CityPosition.RIGHT);
 				
 			}
 		});
@@ -392,13 +399,24 @@ public class SelectCityListActivity extends ActionBarActivity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				showContentViewSetting(CityPosition.LEFTUP);
+				showContentViewSetting(CityPosition.LEFTDOWN);
 				
 			}
 		});
 		
 		ImageButton imgBtnRight = (ImageButton)findViewById(R.id.imgBtn_selectCityListFourth_right);
-		imgBtnRight.setVisibility(View.INVISIBLE);
+		imgBtnRight.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showContentViewSetting(CityPosition.UPPER);
+				
+			}
+		});
+
+		
+		
 		beforeClickedButton = imgBtn1;
 		beforeClickedButton.setSelected(true);
 		clickedCityName = CityName.JEOLLABUK_DO;

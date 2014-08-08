@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 @SuppressLint("NewApi")
 public class SelectQuestionWayActivity extends ActionBarActivity {
@@ -48,6 +49,9 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 				}else{
 					imageButton1.setImageResource(R.drawable.c_btn_picnic);
 					isClicked[0] = false;
+					if (checkNothingClicked()){
+						imgCenterBig.setImageResource(R.drawable.c_unselect);
+					}
 				}
 			}
 		});
@@ -63,6 +67,9 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 				}else{
 					imageButton2.setImageResource(R.drawable.c_btn_every);
 					isClicked[1] = false;
+					if (checkNothingClicked()){
+						imgCenterBig.setImageResource(R.drawable.c_unselect);
+					}
 				}
 
 			}
@@ -79,6 +86,9 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 				}else{
 					imageButton3.setImageResource(R.drawable.c_btn_health);
 					isClicked[2] = false;
+					if (checkNothingClicked()){
+						imgCenterBig.setImageResource(R.drawable.c_unselect);
+					}
 				}
 			}
 		});
@@ -94,6 +104,9 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 				}else{
 					imageButton4.setImageResource(R.drawable.c_btn_study);
 					isClicked[3] = false;
+					if (checkNothingClicked()){
+						imgCenterBig.setImageResource(R.drawable.c_unselect);
+					}
 				}
 			}
 		});
@@ -109,6 +122,9 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 				}else{
 					imageButton5.setImageResource(R.drawable.c_btn_less);
 					isClicked[4] = false;
+					if (checkNothingClicked()){
+						imgCenterBig.setImageResource(R.drawable.c_unselect);
+					}
 				}
 			}
 		});
@@ -123,6 +139,9 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 				}else{
 					imageButton6.setImageResource(R.drawable.c_btn_young);
 					isClicked[5] = false;
+					if (checkNothingClicked()){
+						imgCenterBig.setImageResource(R.drawable.c_unselect);
+					}
 				}
 				
 			}
@@ -132,12 +151,31 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 		goNextBtn.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View arg0){
-
-				Intent iIntent = new Intent(SelectQuestionWayActivity.this, QuestionActivity.class);
-				iIntent.putExtra("CLICKEDQUESTION", isClicked);
-				startActivity(iIntent);
-				//finish();
+				if(checkNothingClicked()){
+					Toast toast = Toast.makeText(SelectQuestionWayActivity.this, "Please select type", Toast.LENGTH_LONG);
+					toast.show();
+			
+				}else{
+					Intent iIntent = new Intent(SelectQuestionWayActivity.this, QuestionActivity.class);
+					iIntent.putExtra("CLICKEDQUESTION", isClicked);
+					startActivity(iIntent);
+					//finish();
+				}
 			}
 		});
+	}
+	
+	private boolean checkNothingClicked(){
+		int chk = 0;
+		for(int i = 0 ; i < 6 ; i++){
+			if(isClicked[i]){
+				chk++;
+			}
+		}
+		
+		if(chk == 0){
+			return true;
+		}
+		return false;
 	}
 }
