@@ -17,29 +17,34 @@ public class SeekbarControl implements OnSeekBarChangeListener {
    @Override
    public void onProgressChanged(SeekBar bar, int progress, boolean fromUser) {
       GraphData data = graph.data;
-
+      float nowProgress = progress/(float)bar.getMax();
       switch (type) {
-      case TOP:
-         data.setTop(progress/(float)bar.getMax());
+      case CNT:
+    	  graph.setPeopleCntColor(nowProgress);
+         data.setCnt(nowProgress);
          break;
-      case RIGHTUP:
-         data.setRightUp(progress/(float)bar.getMax());
+      case AGE:
+    	  graph.setAgeColor(nowProgress);
+         data.setAge(nowProgress);
          break;
-      case RIGHTDOWN:
-         data.setRightDown(progress/(float)bar.getMax());
+      case GENDER:
+    	 //graph.setGraphColor(nowProgress);
+    	  graph.setGenderColor(nowProgress);
+         data.setGender(nowProgress);
          break;
-      case LEFTDOWN:
-         data.setLeftDown(progress/(float)bar.getMax());
+      case STUDY:
+         data.setStudy(nowProgress);
+   	  graph.setStudyColor(nowProgress);
          break;
-      case LEFTUP:
-         data.setLeftUp(progress/(float)bar.getMax());
+      case FOREIGNER:
+         data.setForigner(nowProgress);
          break;
       default:
          break;
 
       }
 
-      // 洹몃옒�봽瑜� �떎�떆 洹몃젮以��떎.
+      // 域밸챶�삋占쎈늄�몴占� 占쎈뼄占쎈뻻 域밸챶�젻餓ο옙占쎈뼄.
       graph.invalidate();
 
    }

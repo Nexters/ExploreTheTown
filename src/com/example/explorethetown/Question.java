@@ -33,7 +33,7 @@ public class Question {
 	public boolean isEndQuestion(){
 		switch(questionNumber){
 		case 13:
-		case 22:
+		case 26:
 		case 32:
 		case 44:
 		case 51:
@@ -57,6 +57,7 @@ public class Question {
 		case 1:
 			return R.drawable.d_text_top_picnic;
 		case 2:
+			return R.drawable.d_text_top_every;
 		case 3:
 			return R.drawable.d_text_top_health;
 		case 4:
@@ -87,9 +88,17 @@ public class Question {
 		case 13:
 			return R.drawable.d_question_picnic_3;
 		case 21:
+			return R.drawable.d_question_every_1;
 		case 22:
+			return R.drawable.d_question_every_2;
 		case 23:
+			return R.drawable.d_question_every_3;
 		case 24:
+			return R.drawable.d_question_every_4;
+		case 25:
+			return R.drawable.d_question_every_5;
+		case 26:
+			return R.drawable.d_question_every_6;
 		case 31:
 			return R.drawable.d_question_health_1;
 		case 32:
@@ -127,6 +136,9 @@ public class Question {
 		case 22:
 		case 23:
 		case 24:
+		case 25:
+		case 26:
+			return R.drawable.d_answer_every_1_1_btn;
 		case 31:
 			return R.drawable.d_answer_health_1_1_btn;
 		case 32:
@@ -163,6 +175,9 @@ public class Question {
 		case 22:
 		case 23:
 		case 24:
+		case 25:
+		case 26:
+			return R.drawable.d_answer_every_1_2_btn;
 		case 31:
 			return R.drawable.d_answer_health_1_2_btn;
 		case 32:

@@ -79,34 +79,34 @@ public class QuestionNeighborActivity extends ActionBarActivity {
       graph = new GraphView(getApplicationContext(), data, left+50 , top+30 );
       vg.addView(graph, new LayoutParams(1000, 1300));
       // top
-      seek_top = (SeekBar) findViewById(R.id.seek_top);
+      seek_top = (SeekBar) findViewById(R.id.seek_question_neighbor_peopleCnt);
       seek_top.setMax(200);
       seek_top.setProgress(100);
-      seek_top.setOnSeekBarChangeListener(new SeekbarControl(SeekBarType.TOP,
+      seek_top.setOnSeekBarChangeListener(new SeekbarControl(SeekBarType.CNT,
             graph));
       
-      seek_rightUp = (SeekBar) findViewById(R.id.seek_rightUp);
+      seek_rightUp = (SeekBar) findViewById(R.id.seek_question_neighbor_age);
       seek_rightUp.setMax(200);
       seek_rightUp.setProgress(100);
-      seek_rightUp.setOnSeekBarChangeListener(new SeekbarControl(SeekBarType.RIGHTUP,
+      seek_rightUp.setOnSeekBarChangeListener(new SeekbarControl(SeekBarType.AGE,
             graph));
       
-      seek_rightDown = (SeekBar) findViewById(R.id.seek_rightDown);
+      seek_rightDown = (SeekBar) findViewById(R.id.seek_question_neighbor_gender);
       seek_rightDown.setMax(200);
       seek_rightDown.setProgress(100);
-      seek_rightDown.setOnSeekBarChangeListener(new SeekbarControl(SeekBarType.RIGHTDOWN,
+      seek_rightDown.setOnSeekBarChangeListener(new SeekbarControl(SeekBarType.GENDER,
             graph));
       
-      seek_leftDown = (SeekBar) findViewById(R.id.seek_leftDown);
+      seek_leftDown = (SeekBar) findViewById(R.id.seek_question_neighbor_foreigner);
       seek_leftDown.setMax(200);
       seek_leftDown.setProgress(100);
-      seek_leftDown.setOnSeekBarChangeListener(new SeekbarControl(SeekBarType.LEFTDOWN,
+      seek_leftDown.setOnSeekBarChangeListener(new SeekbarControl(SeekBarType.FOREIGNER,
             graph));
       
-      seek_leftUp = (SeekBar) findViewById(R.id.seek_leftUp);
+      seek_leftUp = (SeekBar) findViewById(R.id.seek_question_neighbor_study);
       seek_leftUp.setMax(200);
       seek_leftUp.setProgress(100);
-      seek_leftUp.setOnSeekBarChangeListener(new SeekbarControl(SeekBarType.LEFTUP,
+      seek_leftUp.setOnSeekBarChangeListener(new SeekbarControl(SeekBarType.STUDY,
             graph));
 
 

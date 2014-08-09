@@ -31,8 +31,6 @@ public class SelectCityListActivity extends ActionBarActivity{
 		CityPosition nowCity = (CityPosition)iIntent.getSerializableExtra("CityPosition");
 		
 		showContentViewSetting(nowCity);
-		
-		addStartBtnListenerOnButton();
 	}
 	
 	public void showContentViewSetting(CityPosition nowCity){
@@ -139,6 +137,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 		beforeClickedButton = imgBtn1;
 		beforeClickedButton.setSelected(true);
 		clickedCityName = CityName.SEOUL;
+		addStartBtnListenerOnButton();
 	}
 	
 	public void addSecondPageListenerOnButton(){
@@ -226,6 +225,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 		beforeClickedButton = imgBtn1;
 		beforeClickedButton.setSelected(true);
 		clickedCityName = CityName.CHUNGCHEONGNAM_DO;
+		addStartBtnListenerOnButton();
 	}
 	
 	public void addThirdPageListenerOnButton(){
@@ -314,6 +314,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 		beforeClickedButton = imgBtn1;
 		beforeClickedButton.setSelected(true);
 		clickedCityName = CityName.JEOLLABUK_DO;
+		addStartBtnListenerOnButton();
 	}
 	
 	public void addFourthPageListenerOnButton(){
@@ -420,6 +421,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 		beforeClickedButton = imgBtn1;
 		beforeClickedButton.setSelected(true);
 		clickedCityName = CityName.JEOLLABUK_DO;
+		addStartBtnListenerOnButton();
 	}
 	
 	public void addStartBtnListenerOnButton(){

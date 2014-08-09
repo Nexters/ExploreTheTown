@@ -8,6 +8,7 @@
 package com.example.explorethetown;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.MapFragment;
 
 import android.app.ActionBar;
@@ -18,6 +19,7 @@ import android.support.v7.app.ActionBarActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
 
@@ -27,12 +29,16 @@ import android.location.Criteria;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
-public class AnswerMapActivity extends ActionBarActivity  implements LocationListener {
+public class AnswerMapActivity extends ActionBarActivity  implements LocationListener, OnMarkerClickListener {
 	 private GoogleMap mmap;
 //	    private LocationManager locationManager;
 	    private String provider;
 	    MapFragment fragment;
+	    
+
+	    private Marker nowMarker;
 	    
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -104,6 +110,8 @@ public class AnswerMapActivity extends ActionBarActivity  implements LocationLis
  //       locationManager.removeUpdates(this);
     }
     
+    
+    
     private void setUpMapIfNeeded() {
 		if (mmap == null) {
 			fragment  = (MapFragment)getFragmentManager().findFragmentById(R.id.map);
@@ -114,12 +122,18 @@ public class AnswerMapActivity extends ActionBarActivity  implements LocationLis
 			// 占쎈뻻占쎌삂 獄쏄퀣�몛 占쎌젟占쎈릭疫뀐옙!!
 			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint,16));
 			
+			
+			/*
 			// Marker 占쎈꼦占쎈뮉 �굜遺얜굡
 			MarkerOptions optSecond = new MarkerOptions();
 			optSecond.position(new LatLng(37.37664, 126.94012));// 占쎌맄占쎈즲 占쏙옙 野껋럥猷�
-//			optSecond.title("Title hahahoho"); // 占쎌젫筌륅옙 沃섎챶�봺癰귣떯由�
-//			optSecond.snippet("Snippet hihihi");
+			optSecond.title("Title hahahoho"); // 占쎌젫筌륅옙 沃섎챶�봺癰귣떯由�
+			optSecond.snippet("Snippet hihihi\n hello\n 123");
+
 			mmap.addMarker(optSecond).showInfoWindow();
+			*/
+			nowMarker = mmap.addMarker(new MarkerOptions().position(new LatLng(37.37664, 126.94012)).title("title").snippet("hihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihihi"));
+			mmap.setOnMarkerClickListener((OnMarkerClickListener)this);
 			
 			
 			// A(alpha channel) R(red color) G(green color) B(blueColor)
@@ -165,6 +179,16 @@ public class AnswerMapActivity extends ActionBarActivity  implements LocationLis
 		}
 		}
 	}
+    
+    public boolean onMarkerClick(Marker marker){
+    	//TODO AUto-generated method stub
+    	if(marker.equals(nowMarker)){
+    		Toast toast = Toast.makeText(AnswerMapActivity.this, "marker clickd", Toast.LENGTH_LONG);
+    		toast.show();
+    		return true;
+    	}
+    	return false;
+    }
 
    private void tmpFunc(){
 
