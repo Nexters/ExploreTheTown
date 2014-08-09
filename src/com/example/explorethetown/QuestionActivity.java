@@ -171,7 +171,7 @@ public class QuestionActivity extends ActionBarActivity{
 				}else{
 					if(question.isEndQuestion()){
 						if(clickedTownsInt == 0){
-							Intent iIntent = new Intent(QuestionActivity.this,AnswerMapActivity.class);
+							Intent iIntent = new Intent(QuestionActivity.this,FirstAnswerMapActivity.class);
 							startActivity(iIntent);
 							finish();
 						}else{

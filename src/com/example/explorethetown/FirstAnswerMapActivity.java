@@ -28,10 +28,11 @@ import android.graphics.Color;
 import android.location.Criteria;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class AnswerMapActivity extends ActionBarActivity  implements LocationListener, OnMarkerClickListener {
+public class FirstAnswerMapActivity extends ActionBarActivity  implements LocationListener, OnMarkerClickListener {
 	 private GoogleMap mmap;
 //	    private LocationManager locationManager;
 	    private String provider;
@@ -43,7 +44,7 @@ public class AnswerMapActivity extends ActionBarActivity  implements LocationLis
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_answer_map);
+		setContentView(R.layout.activity_first_answer_map);
 		
 		// Hidden Action Bar
 		ActionBar actionBar = getActionBar();
@@ -57,14 +58,14 @@ public class AnswerMapActivity extends ActionBarActivity  implements LocationLis
 	
 	// Go to Next
 	public void setOnClickListener(){
-		ImageButton imgBtnNext = (ImageButton)findViewById(R.id.imgBtn_answermap_Next);
+		Button imgBtnNext = (Button)findViewById(R.id.imgBtn_first_answer_Next);
 		
 		imgBtnNext.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent iIntent = new Intent(AnswerMapActivity.this, QuestionNeighborActivity.class);
+				Intent iIntent = new Intent(FirstAnswerMapActivity.this, QuestionNeighborActivity.class);
 				
 				startActivity(iIntent);
 				
@@ -183,7 +184,7 @@ public class AnswerMapActivity extends ActionBarActivity  implements LocationLis
     public boolean onMarkerClick(Marker marker){
     	//TODO AUto-generated method stub
     	if(marker.equals(nowMarker)){
-    		Toast toast = Toast.makeText(AnswerMapActivity.this, "marker clickd", Toast.LENGTH_LONG);
+    		Toast toast = Toast.makeText(FirstAnswerMapActivity.this, "marker clickd", Toast.LENGTH_LONG);
     		toast.show();
     		return true;
     	}

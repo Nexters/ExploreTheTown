@@ -238,7 +238,18 @@ public class Question {
 		case 13:
 			return R.drawable.d_view_young_three;
 		case 21:
-		case 31:
+			return R.drawable.d_view_every_one;
+		case 22:
+			return R.drawable.d_view_every_two;
+		case 23:
+			return R.drawable.d_view_every_three;
+		case 24:
+			return R.drawable.d_view_every_four;
+		case 25:
+			return R.drawable.d_view_every_five;
+		case 26:
+			return R.drawable.d_view_every_six;
+		case 31:	
 			return R.drawable.d_view_health_one;
 		case 32:
 			return R.drawable.d_view_health_two;
