@@ -1,6 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/b_bg_blur">
@@ -66,7 +65,16 @@
         android:layout_above="@+id/img_question_neighbor_bottombg"
         android:layout_marginBottom="10dp"
         android:src="@drawable/f_bar_sum" />
-   
+    
+    <ImageButton
+        android:id="@+id/imgBtn_question_neighbor_helpBtn"
+        android:layout_width="30dp"
+        android:layout_height="201.33dp"
+        android:scaleType="fitXY"
+        android:layout_alignRight="@+id/img_question_neighbor_barbg"
+        android:layout_above="@+id/img_question_neighbor_bottombg"
+   		android:src="@drawable/f_question_empty" />
+    
     <SeekBar
         android:id="@+id/seek_question_neighbor_age"
         android:layout_width="fill_parent"
@@ -147,7 +155,59 @@
         android:layout_above="@+id/img_question_neighbor_question"
         android:layout_below="@+id/img_question_neighbor_topbg"
         android:src="@drawable/f_bg_line" />
+    
+    <RelativeLayout 
+        android:id="@+id/main_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/img_question_neighbor_linebg"
+        android:layout_alignBottom="@+id/img_question_neighbor_linebg"
+        android:layout_alignLeft="@+id/img_question_neighbor_linebg"
+        android:layout_alignRight="@+id/img_question_neighbor_linebg">
+        
+    </RelativeLayout>
 
-
+	<!-- Help View -->
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="@drawable/f_bg_black"
+	    android:visibility="invisible"
+	    android:id="@+id/layout_quetion_neighbor_help">
+	    <ImageView
+	        android:id="@+id/img_question_neighbor_help_bg"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:src="@drawable/f_bg_popup" />
+	    
+	    <ImageButton
+	        android:id="@+id/imgBtn_question_neighbor_help_close"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignTop="@+id/img_question_neighbor_help_bg"
+	        android:layout_alignRight="@+id/img_question_neighbor_help_bg"
+	        android:background="@android:color/transparent"
+	        android:src="@drawable/f_btn_delete" />
+	    
+	    <ScrollView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignTop="@+id/img_question_neighbor_help_bg"
+	        android:layout_alignBottom="@+id/img_question_neighbor_help_bg"
+	        android:layout_alignRight="@+id/img_question_neighbor_help_bg"
+	        android:layout_alignLeft="@+id/img_question_neighbor_help_bg"
+	        android:layout_marginTop="55dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        android:layout_marginBottom="10dp">
+	    <ImageView
+	        android:id="@+id/img_question_heighbor_helpImg"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:adjustViewBounds="true"
+	        android:background="@drawable/f_text_long" />
+	</ScrollView>
+	</RelativeLayout>
 
 </RelativeLayout>
