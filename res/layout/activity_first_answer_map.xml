@@ -60,6 +60,7 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_alignTop="@+id/img_first_answer_smallInfobg"
+	    android:layout_marginTop="4.33dp"
 	    android:layout_centerHorizontal="true"
 	    android:src="@drawable/e_bar"/>
 	

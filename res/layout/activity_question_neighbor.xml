@@ -191,6 +191,7 @@
 	        android:src="@drawable/f_btn_delete" />
 	    
 	    <ScrollView 
+	        android:id="@+id/scrollview_question_neighbor_help"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignTop="@+id/img_question_neighbor_help_bg"
@@ -199,12 +200,17 @@
 	        android:layout_alignLeft="@+id/img_question_neighbor_help_bg"
 	        android:layout_marginTop="55dp"
 	        android:layout_marginLeft="10dp"
-	        android:layout_marginRight="10dp"
+	        android:layout_marginRight="7dp"
 	        android:layout_marginBottom="10dp">
 	    <ImageView
 	        android:id="@+id/img_question_heighbor_helpImg"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
+	        android:layout_alignTop="@+id/scrollview_question_neighbor_help"
+	        android:layout_alignBottom="@+id/scrollview_question_neighbor_help"
+	        android:layout_alignLeft="@+id/scrollview_question_neighbor_help"
+	        android:layout_alignRight="@+id/scrollview_question_neighbor_help"
+	        android:layout_marginRight="5dp"
 	        android:adjustViewBounds="true"
 	        android:background="@drawable/f_text_long" />
 	</ScrollView>

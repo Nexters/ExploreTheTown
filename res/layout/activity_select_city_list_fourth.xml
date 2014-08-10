@@ -57,9 +57,10 @@
 
     <ImageButton
         android:id="@+id/imgBtn_selectCityListFourth_ulsan"
-        android:layout_width="68.67dp"
-        android:layout_height="100dp"
+        android:layout_width="58dp"
+        android:layout_height="78.67dp"
         android:layout_above="@+id/img_selectCityListFourth_bottombg"
+        android:layout_marginBottom="21.33dp"
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
@@ -67,9 +68,9 @@
 
     <ImageButton
         android:id="@+id/imgBtn_selectCityListFourth_daegu"
-        android:layout_width="68.67dp"
-        android:layout_height="100dp"
-        android:layout_above="@+id/img_selectCityListFourth_bottombg"
+        android:layout_width="58dp"
+        android:layout_height="78.67dp"
+		android:layout_alignTop="@+id/imgBtn_selectCityListFourth_ulsan"
         android:layout_toLeftOf="@+id/imgBtn_selectCityListFourth_ulsan"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
@@ -77,9 +78,9 @@
     
      <ImageButton
         android:id="@+id/imgBtn_selectCityListFourth_gyeongsangbuk"
-        android:layout_width="68.67dp"
-        android:layout_height="100dp"
-        android:layout_above="@+id/img_selectCityListFourth_bottombg"
+        android:layout_width="58dp"
+        android:layout_height="78.67dp"
+		android:layout_alignTop="@+id/imgBtn_selectCityListFourth_ulsan"
         android:layout_toLeftOf="@+id/imgBtn_selectCityListFourth_daegu"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
@@ -87,9 +88,9 @@
      
     <ImageButton
         android:id="@+id/imgBtn_selectCityListFourth_gyeonsangnamdo"
-        android:layout_width="68.67dp"
-        android:layout_height="100dp"
-        android:layout_above="@+id/img_selectCityListFourth_bottombg"
+        android:layout_width="58dp"
+        android:layout_height="78.67dp"
+		android:layout_alignTop="@+id/imgBtn_selectCityListFourth_ulsan"
         android:layout_toRightOf="@+id/imgBtn_selectCityListFourth_ulsan"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
@@ -97,9 +98,9 @@
           
     <ImageButton
         android:id="@+id/imgBtn_selectCityListFourth_busan"
-        android:layout_width="68.67dp"
-        android:layout_height="100dp"
-        android:layout_above="@+id/img_selectCityListFourth_bottombg"
+        android:layout_width="58dp"
+        android:layout_height="78.67dp"
+		android:layout_alignTop="@+id/imgBtn_selectCityListFourth_ulsan"
         android:layout_toRightOf="@+id/imgBtn_selectCityListFourth_gyeonsangnamdo"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
