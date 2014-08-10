@@ -1,4 +1,4 @@
-package com.example.custom;
+package com.nexters.custom;
 
 public enum CityName {
 	   SEOUL, INCHEON, GYEONGGI_DO, GANGWON_DO, CHUNGCHEONGNAM_DO, SEJONG, DAEJEON, CHUNGCHEONGBUK_DO,

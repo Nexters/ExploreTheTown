@@ -1,4 +1,4 @@
-package com.example.explorethetown;
+package com.nexters.explorethetown;
 
 
 import android.annotation.SuppressLint;
@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-import com.example.custom.QuestionType;
+
+import com.nexters.explorethetown.R;
+import com.nexters.custom.QuestionType;
 
 public class QuestionActivity extends ActionBarActivity{
 	int questionNumber;

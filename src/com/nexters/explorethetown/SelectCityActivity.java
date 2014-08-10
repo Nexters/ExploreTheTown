@@ -3,7 +3,7 @@
  * 
  * Daun Joung..
  */
-package com.example.explorethetown;
+package com.nexters.explorethetown;
 
 
 import android.support.v7.app.ActionBarActivity;
@@ -15,7 +15,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.custom.CityPosition;
+import com.nexters.explorethetown.R;
+import com.nexters.custom.CityPosition;
 
 public class SelectCityActivity  extends ActionBarActivity{	
 	

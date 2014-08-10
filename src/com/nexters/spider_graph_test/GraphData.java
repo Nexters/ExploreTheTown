@@ -1,4 +1,4 @@
-package com.example.spider_graph_test;
+package com.nexters.spider_graph_test;
 
 public class GraphData {
    

@@ -1,6 +1,6 @@
 // android selector -> change image when click button
 // http://goo.gl/Jlgd4v
-package com.example.explorethetown;
+package com.nexters.explorethetown;
 
 import android.app.ActionBar;
 import android.content.Intent;
@@ -10,8 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import com.example.custom.*;
-import com.example.custom.CityPosition;
+
+import com.nexters.explorethetown.R;
+import com.nexters.custom.*;
 
 public class SelectCityListActivity extends ActionBarActivity{
 	

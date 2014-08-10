@@ -1,4 +1,4 @@
-package com.example.spider_graph_test;
+package com.nexters.spider_graph_test;
 
 import android.content.Context;
 import android.graphics.Canvas;

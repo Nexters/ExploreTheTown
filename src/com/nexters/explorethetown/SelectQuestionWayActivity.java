@@ -1,4 +1,6 @@
-package com.example.explorethetown;
+package com.nexters.explorethetown;
+
+import com.nexters.explorethetown.R;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;

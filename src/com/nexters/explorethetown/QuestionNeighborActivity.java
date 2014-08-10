@@ -1,9 +1,10 @@
-package com.example.explorethetown;
+package com.nexters.explorethetown;
 
-import com.example.spider_graph_test.GraphData;
-import com.example.spider_graph_test.GraphView;
-import com.example.spider_graph_test.SeekBarType;
-import com.example.spider_graph_test.SeekbarControl;
+import com.nexters.explorethetown.R;
+import com.nexters.spider_graph_test.GraphData;
+import com.nexters.spider_graph_test.GraphView;
+import com.nexters.spider_graph_test.SeekBarType;
+import com.nexters.spider_graph_test.SeekbarControl;
 
 import android.app.ActionBar;
 import android.content.Intent;
@@ -51,7 +52,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
    public void onWindowFocusChanged(boolean hasFocus) {
 	   super.onWindowFocusChanged(hasFocus);
         // TODO Auto-generated method stub
-        // ¿©±â¼­ width¸¦ Âï¾îº¸¸é °ªÀÌ Á¦´ë·Î Ãâ·ÂµÈ´Ù.
+        // ï¿½ï¿½ï¿½â¼­ widthï¿½ï¿½ ï¿½ï¿½îº¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÂµÈ´ï¿½.
 	   ImageView imgBgLine = (ImageView)findViewById(R.id.img_question_neighbor_linebg);
 	   drawGraph(imgBgLine.getLeft(), imgBgLine.getRight(), imgBgLine.getTop(), imgBgLine.getBottom());
    }

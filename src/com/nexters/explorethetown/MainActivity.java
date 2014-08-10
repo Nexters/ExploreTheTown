@@ -5,7 +5,9 @@
  * 
  * http://goo.gl/PlOs87   -> android intro page
  */
-package com.example.explorethetown;
+package com.nexters.explorethetown;
+
+import com.nexters.explorethetown.R;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.ActionBar;

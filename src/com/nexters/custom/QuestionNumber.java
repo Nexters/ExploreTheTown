@@ -1,4 +1,4 @@
-package com.example.custom;
+package com.nexters.custom;
 
 public enum QuestionNumber {
 	HEALTH1,

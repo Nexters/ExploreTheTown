@@ -1,5 +1,6 @@
-package com.example.explorethetown;
-import com.example.custom.QuestionType;
+package com.nexters.explorethetown;
+import com.nexters.explorethetown.R;
+import com.nexters.custom.QuestionType;
 
 public class Question {
 	Question(){

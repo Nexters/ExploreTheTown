@@ -1,4 +1,4 @@
-package com.example.server;
+package com.nexters.server;
 
 public class ResponseData {
 	private String cdValue;
