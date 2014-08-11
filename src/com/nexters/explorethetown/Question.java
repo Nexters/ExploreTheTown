@@ -1,13 +1,18 @@
 package com.nexters.explorethetown;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.nexters.explorethetown.R;
 import com.nexters.custom.QuestionType;
 
 public class Question {
 	Question(){
 		questionNumber = 0;
+		answersCode = new ArrayList<String>();
 	}
 	public Question(int QNUM){
 		setQuestionNumber(QNUM);
+		answersCode = new ArrayList<String>();
 	}
 	public QuestionType getQuestionType(){
 		switch(questionNumber){
@@ -276,6 +281,134 @@ public class Question {
 		}
 		
 	}
+	public void setAnswerCode(boolean chk){
+		if(chk == true){
+			switch(questionNumber){
+			case 11:
+				answersCode.add("item_40");
+				break;
+			case 12:
+				answersCode.add("item_41");
+				break;
+			case 21:
+				answersCode.add("item_53");
+				break;
+			case 22:
+				answersCode.add("item_31");
+				answersCode.add("item_32");
+				break;
+			case 23:
+				answersCode.add("item_33");
+				break;
+			case 24:
+				answersCode.add("item_36");
+				break;
+			case 25:
+				answersCode.add("item_34");
+				break;
+			case 26:
+				answersCode.add("literay_art_hall");
+				break;
+			case 32:
+				answersCode.add("item_43");
+				break;
+			case 41:
+				answersCode.add("item_19");
+				break;
+			case 61:
+				answersCode.add("item_29");
+				answersCode.add("item_30");
+				break;
+			case 62:
+				answersCode.add("item_39");
+				break;
+			case 63:
+				answersCode.add("item_54");
+				break;
+			}
+		}
+	}
+	public void setAnswerCode(boolean[] chk){
+		if(chk[0]){
+			switch(questionNumber){
+			case 13:
+			case 31:
+				answersCode.add("trail");
+				break;
+			case 42:
+				answersCode.add("item_20");
+				break;
+			case 43:
+				answersCode.add("item_23");
+				break;
+			case 44:
+				answersCode.add("item_35");
+				break;
+			case 51:
+				answersCode.add("item_54");
+				break;
+			}
+		}else if(chk[1]){
+			switch(questionNumber){
+			case 13:
+				answersCode.add("swimming_pool");
+				break;
+			case 31:
+				answersCode.add("item_42");
+				break;
+			case 42:
+				answersCode.add("item_21");
+				break;
+			case 43:
+				answersCode.add("item_24");
+				break;
+			case 44:
+				answersCode.add("item_28");
+				break;
+			case 51:
+				answersCode.add("item_22");
+				break;
+			}
+		}else if(chk[2]){
+			switch(questionNumber){
+			case 13:
+				answersCode.add("roller_skating_rink");
+				break;
+			case 42:
+				answersCode.add("item_22");
+				break;
+			case 43:
+				answersCode.add("item_25");
+				break;
+			case 51:
+				answersCode.add("item_23");
+				answersCode.add("item_24");
+				answersCode.add("item_25");
+				answersCode.add("item_26");
+				break;
+			}
+		}else if(chk[3]){
+			switch(questionNumber){
+			case 13:
+			case 43:
+				answersCode.add("item_26");
+				break;
+			case 51:
+				answersCode.add("item_29");
+				answersCode.add("item_30");
+				break;
+			}
+		}
+	}
+	public String[] getAnswerCode(){
+		String[] returnStr = new String[answersCode.size()];
+		for(int i = 0 ; i < returnStr.length ; i++){
+			returnStr[i] = answersCode.get(i);
+		}
+		return returnStr;
+	}
+	
+	private List<String> answersCode;			// 정답 요청 번호들 저장
 	private int questionNumber;		// 11 : Question1_1  21 : Question 2_1 Etc...
 	private String question;
 }

@@ -3,6 +3,7 @@ package com.nexters.explorethetown;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -23,12 +24,18 @@ public class QuestionActivity extends ActionBarActivity{
 	ImageButton[] answerImgBtn;					
 	ImageButton nextBtn;
 	
-	int beforeClickAnswerNum;					// YES OR NO에서 정답 체크한거 하는거
-	boolean[] beforeClickAnswerList;			// Check Box 방식에서 정답 체크한거 하는거
+	int beforeClickAnswerNum;					// YES OR NO�뿉�꽌 �젙�떟 泥댄겕�븳嫄� �븯�뒗嫄�
+	boolean chkYesOrNo;							// 정답 체크여부 
+	boolean[] beforeClickAnswerList;			// Check Box 諛⑹떇�뿉�꽌 �젙�떟 泥댄겕�븳嫄� �븯�뒗嫄�
 	int townState;			
 	QuestionType nowQuestionType;				// YES OR NO / Check Box
 	boolean townClicked[] = new boolean[6];		// get clicked town list
-	int clickedTownsInt;							// 도시 형태 선택한거 저장해놓는 변수
+	int clickedTownsInt;							// �룄�떆 �삎�깭 �꽑�깮�븳嫄� ���옣�빐�넃�뒗 蹂��닔
+	
+	
+	
+	
+	
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -63,6 +70,7 @@ public class QuestionActivity extends ActionBarActivity{
 		nextBtn = (ImageButton)findViewById(R.id.img_question_next);
 		progressImg = (ImageView)findViewById(R.id.img_question_progressView);
 		
+		chkYesOrNo = false;
 		beforeClickAnswerList = new boolean[4];
 		setInit();
 		
@@ -77,6 +85,7 @@ public class QuestionActivity extends ActionBarActivity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if(nowQuestionType == QuestionType.YESORNO){
+					chkYesOrNo = true;
 					if(beforeClickAnswerNum != -1){
 						answerImgBtn[beforeClickAnswerNum].setSelected(false);
 					}
@@ -100,6 +109,7 @@ public class QuestionActivity extends ActionBarActivity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if(nowQuestionType == QuestionType.YESORNO){
+					chkYesOrNo = false;
 					if(beforeClickAnswerNum != -1){
 						answerImgBtn[beforeClickAnswerNum].setSelected(false);
 					}
@@ -171,9 +181,18 @@ public class QuestionActivity extends ActionBarActivity{
 					Toast toast = Toast.makeText(QuestionActivity.this, "Please select answer", Toast.LENGTH_LONG);
 					toast.show();
 				}else{
+					switch(nowQuestionType){
+					case YESORNO:
+						question.setAnswerCode(chkYesOrNo);
+						break;
+					case CHECKBOX:
+						question.setAnswerCode(beforeClickAnswerList);
+					}
+					
 					if(question.isEndQuestion()){
 						if(clickedTownsInt == 0){
 							Intent iIntent = new Intent(QuestionActivity.this,FirstAnswerMapActivity.class);
+							iIntent.putExtra("SELECT_RESULT", question.getAnswerCode());
 							startActivity(iIntent);
 							finish();
 						}else{
@@ -220,6 +239,7 @@ public class QuestionActivity extends ActionBarActivity{
 	}
 
 	
+
 	
 	
 	

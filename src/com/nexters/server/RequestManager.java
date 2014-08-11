@@ -9,39 +9,54 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.nexters.custom.FirstMapAnswerData;
+import com.nexters.custom.FirstMapRequestData;
 
 public class RequestManager {
 
-	private static String requestFormatter(String relUrl, String cd, String req_svc)
-			throws UnsupportedEncodingException {
+	@SuppressWarnings("deprecation")
+	private static String requestFormatter(String relUrl, FirstMapAnswerData answerData)
+			throws UnsupportedEncodingException, JSONException {
+		
+		String[] data = answerData.requestData;
+		String cd = answerData.cd;
+		String req_svc = answerData.req_svc;
+		
+		JSONObject resultJson = new JSONObject();
+		JSONObject reqDataObject = new JSONObject();
+		JSONArray itemCodeArr = new JSONArray();
+		JSONArray reqDataArr = new JSONArray();
+		for(int i = 0 ; i < data.length ; i++){
+			itemCodeArr.put(data[i]);
+		}
+		
+		JSONArray tmp = new JSONArray();
+		reqDataObject.put("_cd", cd);
+		reqDataObject.put("_cond_cd", itemCodeArr);
+		reqDataObject.put("_ne_cond_cd", tmp);
+		reqDataArr.put(reqDataObject);
+		resultJson.put("req_data", reqDataArr);
+		resultJson.put("req_svc", req_svc);
+		
+		
 		return relUrl
 				+ "/?JSONData="
-				+ URLEncoder.encode("{\"req_data\":[{\"_cd\":\"" + cd
-						+ "\"}],\"req_svc\":\"" + req_svc + "\"}", "UTF-8");
+				+ URLEncoder.encode(resultJson.toString());
 	}
 
-	public static ResponseData responseParser(JSONObject responseData)
+	public static FirstMapRequestData responseParser(JSONObject responseData)
 			throws JSONException {
-		JSONArray res_data = responseData.getJSONArray("res_data");
-		JSONObject component = res_data.getJSONObject(0);
+		FirstMapRequestData returnData = new FirstMapRequestData();
+		returnData.parseAndSaveData(responseData);
 
-		String cdValue = component.get("_cd").toString();
-		String cntValue = component.get("_cnt").toString();
-		String itemValue = component.get("_item").toString();
-
-		ResponseData responseOne = new ResponseData();
-		responseOne.setCDValue(cdValue);
-		responseOne.setCntValue(cntValue);
-		responseOne.setItemValue(itemValue);
-
-		return responseOne;
+		return returnData;
 	}
 
-	public static boolean sendRequest(String relUrl, String cd, String req_svc,
-			JsonHttpResponseHandler handler) {
+	public static boolean sendRequest(String relUrl, FirstMapAnswerData answerData,
+			JsonHttpResponseHandler handler) throws JSONException {
 		String requestURL;
 		try {
-			requestURL = requestFormatter(relUrl, cd, req_svc);
+			requestURL = requestFormatter(relUrl, answerData);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 			return false;

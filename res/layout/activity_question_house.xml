@@ -1,7 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-    
+    android:layout_height="match_parent"
+    android:background="@drawable/b_bg_blur" >
+   
+    <!-- 위에부분 -->
+	<ImageView
+	    android:id="@+id/img_question_house_topbg"
+	    android:layout_width="fill_parent"
+	    android:layout_height="56dp"
+	    android:scaleType="fitXY"
+	    android:src="@drawable/navi_red" />
+	
+	<ImageView
+	    android:id="@+id/img_question_house_navi"
+	    android:layout_width="287dp"
+	    android:layout_height="56dp"
+	    android:layout_alignBottom="@+id/img_question_house_topbg"
+	    android:layout_centerHorizontal="true"
+	    android:src="@drawable/c_navi_step3" />
+	
+	<!-- 아래부분 -->
+	<ImageView
+	    android:id="@+id/img_question_house_bottomBg"
+	    android:layout_width="fill_parent"
+	    android:layout_height="80dp"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentLeft="true"
+	    android:scaleType="fitXY"
+	    android:src="@drawable/b_bg_bottom" />
+	
+	<Button 
+	    android:id="@+id/imgBtn_question_house_next"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:layout_alignParentBottom="true"
+	    android:layout_marginBottom="20dp"
+	    android:background="@drawable/g_btn_house_final_btn"/>
 
+    <ImageView
+        android:id="@+id/img_question_house_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_question_house_navi"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/g_text_top" />
+    
+    <ImageView
+        android:id="@+id/img_question_house_progressView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_below="@+id/img_question_house_navi"
+		android:layout_alignParentRight="true"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/d_view_young_one" />
+    
+    <ImageView
+        android:id="@+id/img_question_house_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_alignLeft="@+id/img_question_house_navi"
+		android:layout_below="@+id/img_question_house_title"
+		android:layout_marginTop="30dp"
+        android:src="@drawable/g_question_house_1" />
+
+
+    <ImageButton
+        android:id="@+id/imgBtn_question_house_answer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_question_house_title"
+        android:layout_alignLeft="@+id/img_question_house_body"
+        android:layout_marginTop="130dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/g_answer_house_1_1_btn" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_question_house_answer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_below="@+id/imgBtn_question_house_answer1"
+		android:layout_alignLeft="@+id/imgBtn_question_house_answer1"
+		android:layout_marginTop="29.34dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/g_answer_house_1_2_btn" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_question_house_answer3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_below="@+id/imgBtn_question_house_answer2"
+		android:layout_alignLeft="@+id/imgBtn_question_house_answer2"
+		android:layout_marginTop="29.34dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/g_answer_house_1_3_btn" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_question_house_answer4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_below="@+id/imgBtn_question_house_answer3"
+		android:layout_alignLeft="@+id/imgBtn_question_house_answer3"
+		android:layout_marginTop="29.34dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/g_answer_house_1_4_btn" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_question_house_answer5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_below="@+id/imgBtn_question_house_answer4"
+		android:layout_alignLeft="@+id/imgBtn_question_house_answer4"
+		android:layout_above="@+id/img_question_house_bottombg"
+		android:layout_marginTop="29.34dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/g_answer_house_1_5_btn" />
 </RelativeLayout>

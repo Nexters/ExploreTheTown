@@ -5,5 +5,11 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="lib" path="subprojects/httpclient-.jar"/>
+	<classpathentry kind="lib" path="subprojects/httpclient-4.3.4.jar"/>
+	<classpathentry kind="lib" path="subprojects/httpclient-cache-4.3.4.jar"/>
+	<classpathentry kind="lib" path="subprojects/httpcore-4.3.2.jar"/>
+	<classpathentry kind="lib" path="subprojects/httpmime-4.3.4.jar"/>
+	<classpathentry kind="lib" path="subprojects/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
