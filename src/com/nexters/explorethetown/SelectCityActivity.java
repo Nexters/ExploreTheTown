@@ -85,5 +85,9 @@ public class SelectCityActivity  extends ActionBarActivity{
 		});
 		
 		
+	}	
+	@Override
+	public void onBackPressed() {
+		this.finish();
 	}
 }

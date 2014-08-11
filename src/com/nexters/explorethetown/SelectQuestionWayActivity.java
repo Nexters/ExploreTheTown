@@ -180,4 +180,8 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 		}
 		return false;
 	}
+	@Override
+	public void onBackPressed() {
+		this.finish();
+	}
 }

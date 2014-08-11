@@ -38,6 +38,7 @@
         <activity android:name="FirstAnswerMapActivity"></activity>
         <activity android:name="QuestionHouseActivity"></activity>
         <activity android:name="QuestionNeighborActivity"></activity>
+        <activity android:name="ResultActivity"></activity>
     </application>
 
 </manifest>

@@ -3,6 +3,7 @@ package com.nexters.explorethetown;
 import com.nexters.explorethetown.R;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -394,10 +395,17 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				Intent iIntent = new Intent(QuestionHouseActivity.this,
+						ResultActivity.class);
+
+				startActivity(iIntent);
 			}
 		});
 		
 		
 	}
-
+	@Override
+	public void onBackPressed() {
+		this.finish();
+	}
 }

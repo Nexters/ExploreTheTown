@@ -52,7 +52,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
    public void onWindowFocusChanged(boolean hasFocus) {
 	   super.onWindowFocusChanged(hasFocus);
         // TODO Auto-generated method stub
-        // ���⼭ width�� ���� ���� ����� ��µȴ�.
+        // 占쏙옙占썩서 width占쏙옙 占쏙옙咀몌옙占� 占쏙옙占쏙옙 占쏙옙占쏙옙占� 占쏙옙쨉홱占�.
 	   ImageView imgBgLine = (ImageView)findViewById(R.id.img_question_neighbor_linebg);
 	   drawGraph(imgBgLine.getLeft(), imgBgLine.getRight(), imgBgLine.getTop(), imgBgLine.getBottom());
    }
@@ -167,6 +167,9 @@ public class QuestionNeighborActivity extends ActionBarActivity {
 	   
 	   
    }
-   
+	@Override
+	public void onBackPressed() {
+		this.finish();
+	}
 }
    

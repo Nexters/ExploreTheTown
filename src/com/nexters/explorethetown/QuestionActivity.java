@@ -238,7 +238,10 @@ public class QuestionActivity extends ActionBarActivity{
 		beforeClickAnswerNum = -1;
 	}
 
-	
+	@Override
+	public void onBackPressed() {
+		this.finish();
+	}
 
 	
 	
