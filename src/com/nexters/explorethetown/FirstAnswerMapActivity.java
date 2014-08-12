@@ -81,13 +81,35 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 				@Override
 				public void onSuccess(int statusCode, Header[] headers,
 						JSONObject response) {
-					/*
-					resultData = RequestManager.responseParser(response);
-					colormapdraw(resultData.rigions[0].coords);
-					Toast toast = Toast.makeText(FirstAnswerMapActivity.this, "Good!", Toast.LENGTH_LONG);
-					toast.show();
+					
+					try {
+						resultData = RequestManager.responseParser(response);
+						int a = 0 ; 
+						 a = 10 ; 
+						for(int i = 0 ; i < resultData.rigions.length ; i++){
+							Log.i("haha", Double.toString(resultData.rigions[i].ratio));
+							int fill_color = Color.WHITE;
+							if(resultData.rigions[i].ratio <= 10.0){
+								fill_color = 0xFFFF9900;
+							}else if(resultData.rigions[i].ratio <= 20.0){
+								fill_color = 0xFFFFCC00;
+							}else if(resultData.rigions[i].ratio <= 30.0){
+								fill_color = 0xFFFFFF33;
+							}else if(resultData.rigions[i].ratio <= 40.0){
+								fill_color = 0XFFFFFF66;
+							}else {
+								fill_color = 0xFFFFFF99;
+							}
+							colormapdraw(resultData.rigions[i].coords,fill_color);
+						}
+						Toast toast = Toast.makeText(FirstAnswerMapActivity.this, "Good!", Toast.LENGTH_LONG);
+						toast.show();
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 
-					 */
+					 
 					
 				}});
 		} catch (JSONException e) {
@@ -128,14 +150,14 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 		}
 	}
 	
-	public void colormapdraw(PointF[] inPoint){
+	public void colormapdraw(PointF[] inPoint,int fill_color){
 		PolygonOptions options = new PolygonOptions();
 		for(int i = 0 ; i < inPoint.length ; i++){
 			options.add(new LatLng(inPoint[i].x, inPoint[i].y));
 			
 		}
-
-		options.strokeColor(Color.RED).fillColor(0x99fff5EE);
+		
+		options.strokeColor(Color.WHITE).fillColor(fill_color);
 		mmap.addPolygon(options);
 	}
 

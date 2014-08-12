@@ -307,7 +307,7 @@ public class Question {
 				answersCode.add("item_34");
 				break;
 			case 26:
-				answersCode.add("literay_art_hall");
+				answersCode.add("literary_art_hall");
 				break;
 			case 32:
 				answersCode.add("item_43");

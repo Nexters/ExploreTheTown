@@ -63,9 +63,9 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			answerImgBtn[0] = (ImageButton)findViewById(R.id.imgBtn_question_house_answer1);
 			answerImgBtn[0].setImageResource(R.drawable.g_answer_house_2_1_btn);
 			answerImgBtn[1] = (ImageButton)findViewById(R.id.imgBtn_question_house_answer2);
-			answerImgBtn[0].setImageResource(R.drawable.g_answer_house_2_2_btn);
+			answerImgBtn[1].setImageResource(R.drawable.g_answer_house_2_2_btn);
 			answerImgBtn[2] = (ImageButton)findViewById(R.id.imgBtn_question_house_answer3);
-			answerImgBtn[0].setImageResource(R.drawable.g_answer_house_2_3_btn);
+			answerImgBtn[2].setImageResource(R.drawable.g_answer_house_2_3_btn);
 			answerImgBtn[3] = (ImageButton)findViewById(R.id.imgBtn_question_house_answer4);
 			answerImgBtn[3].setVisibility(View.INVISIBLE);
 			answerImgBtn[4] = (ImageButton)findViewById(R.id.imgBtn_question_house_answer5);

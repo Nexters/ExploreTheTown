@@ -23,10 +23,12 @@ public class FirstMapRequestData {
 			
 			rigions = new RegionData[region_data_arr.length()];
 			
-			for(int i = 0 ; i < 1 ; i++){
+			for(int i = 0 ; i < region_data_arr.length() ; i++){
 				rigions[i] = new RegionData();
 				JSONObject objJSON = region_data_arr.getJSONObject(i);
 				rigions[i].cd = objJSON.getString("_cd");
+				rigions[i].ratio = objJSON.getDouble("_ratio");
+				rigions[i].rank = objJSON.getInt("_rank");
 				String location = objJSON.getString("_location");
 				parseCoord(location,i);
 				
@@ -48,7 +50,7 @@ public class FirstMapRequestData {
 			JSONArray nowCoord = coordsArrJson.getJSONArray(i);
 			double mx = nowCoord.getDouble(0);
 			double my = nowCoord.getDouble(1);
-			rigions[inI].coords[i] = CoordConverter.m2wgs(mx, my);
+			rigions[inI].coords[i] = new PointF(mx, my);
 		}
 	}
 }

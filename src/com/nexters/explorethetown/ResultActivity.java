@@ -10,6 +10,9 @@ import com.google.android.gms.maps.model.Marker;
 import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 public class ResultActivity extends ActionBarActivity implements OnMarkerClickListener{
 
@@ -23,6 +26,21 @@ public class ResultActivity extends ActionBarActivity implements OnMarkerClickLi
 		// Hidden Action Bar
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
+		
+		setOnClickListener();
+	}
+	
+	public void setOnClickListener(){
+		ImageButton myImgBtn = (ImageButton)findViewById(R.id.imgBtn_result_my);
+		myImgBtn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				RelativeLayout myRelative = (RelativeLayout)findViewById(R.id.layout_result_my_popup);
+				myRelative.setVisibility(View.VISIBLE);
+			}
+		});
 	}
 	@Override
 	public void onBackPressed() {

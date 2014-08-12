@@ -89,5 +89,28 @@
         android:layout_above="@+id/img_first_answer_bigInfobg"
         android:layout_below="@+id/img_first_answer_topbg"
         class="com.google.android.gms.maps.MapFragment" />
+    
+    
+    <!-- popup -->
+	<RelativeLayout 
+	    android:layout_width="264.67dp"
+	    android:layout_height="136dp"
+	    android:layout_alignBottom="@+id/map"
+	    android:layout_alignLeft="@+id/map"
+	    android:background="@drawable/e_bg_box_info"
+	    android:id="@+id/layout_first_answer_popup">
+
+		<TextView
+		    android:id="@+id/textview_first_answer_cityName"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentLeft="true"
+		    android:layout_alignParentTop="true"
+		    android:layout_marginLeft="14dp"
+		    android:layout_marginTop="17dp"
+		    android:text="서울시 강남구 강남동" />
+	    
+	</RelativeLayout>
+
 
 </RelativeLayout>
