@@ -139,8 +139,8 @@
     
     <ImageView
         android:id="@+id/img_question_neighbor_question"
-        android:layout_width="232.33dp"
-        android:layout_height="wrap_content"
+        android:layout_width="283dp"
+        android:layout_height="56.67dp"
         android:layout_above="@+id/img_question_neighbor_whitebg"
 		android:layout_alignLeft="@+id/img_question_neighbor_navi"
         android:scaleType="fitXY"
@@ -181,11 +181,7 @@
         android:layout_alignTop="@+id/img_question_neighbor_linebg"
         android:layout_alignBottom="@+id/img_question_neighbor_linebg"
         android:layout_alignLeft="@+id/img_question_neighbor_linebg"
-        android:layout_alignRight="@+id/img_question_neighbor_linebg"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp">
+        android:layout_alignRight="@+id/img_question_neighbor_linebg">
         
     </RelativeLayout>
 

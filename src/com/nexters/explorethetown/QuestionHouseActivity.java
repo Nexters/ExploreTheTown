@@ -1,28 +1,45 @@
 package com.nexters.explorethetown;
 
+import org.json.JSONArray;
+
+import com.nexters.custom.CityName;
 import com.nexters.explorethetown.R;
 
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class QuestionHouseActivity extends ActionBarActivity {
 
 	
 	int questionNumber;
 	boolean[] answerchk;
+	
+	String neighbor_resultStr;
+	JSONArray houseResult;
+	String top30Cds;
+	String firstCond;
+	CityName selectCityName;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
         answerchk = new boolean[9];
         
-        
+        Intent iIntent = getIntent();
+        neighbor_resultStr = iIntent.getStringExtra("NEIGHBOR_RESULT");
+        top30Cds = iIntent.getStringExtra("YELLOW_TOP30_CD");
+        firstCond = iIntent.getStringExtra("FIRST_COND");
+		selectCityName = (CityName) iIntent.getSerializableExtra("SELECT_CITY");
+ 
+		houseResult = new JSONArray();
 		questionNumber = 0;
 		setImgsDefault();
 			
@@ -170,8 +187,27 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				questionNumber++;
-				setImgsDefault();
+				int endchk = 0 ;
+				for(int i = 0 ; i < 5 ; i++){
+					if(answerchk[i] == true){
+						endchk++;
+					}
+				}
+				if(endchk == 0){
+					Toast toast = Toast.makeText(QuestionHouseActivity.this, "Please select answer", Toast.LENGTH_LONG);
+					toast.show();
+				}else{
+					for(int i = 0 ; i < 5  ;i++){
+						if(answerchk[i] ){
+							String tmpStr = "house_0"+(i+1);
+							houseResult.put(tmpStr);
+							Log.i("house put",tmpStr);
+						}
+					}
+					questionNumber++;
+					setImgsDefault();
+
+				}
 			}
 		});
 		
@@ -233,8 +269,27 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				questionNumber++;
-				setImgsDefault();
+				int endchk = 0 ;
+				for(int i = 0 ; i < 3 ; i++){
+					if(answerchk[i] == true){
+						endchk++;
+					}
+				}
+				if(endchk == 0){
+					Toast toast = Toast.makeText(QuestionHouseActivity.this, "Please select answer", Toast.LENGTH_LONG);
+					toast.show();
+				}else{
+					for(int i = 0 ; i < 3  ;i++){
+						if(answerchk[i] ){
+							String tmpStr = "year_0"+i;
+							houseResult.put(tmpStr);
+							Log.i("house put",tmpStr);
+						}
+					}
+					questionNumber++;
+					setImgsDefault();
+
+				}
 			}
 		});
 		
@@ -395,10 +450,37 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent iIntent = new Intent(QuestionHouseActivity.this,
-						ResultActivity.class);
+				int endchk = 0 ;
+				for(int i = 0 ; i < 9 ; i++){
+					if(answerchk[i] == true){
+						endchk++;
+					}
+				}
+				if(endchk == 0){
+					Toast toast = Toast.makeText(QuestionHouseActivity.this, "Please select answer", Toast.LENGTH_LONG);
+					toast.show();
+				}else{
+					for(int i = 0 ; i < 9  ;i++){
+						if(answerchk[i] ){
+							String tmpStr = "area_0"+(i+1);
+							houseResult.put(tmpStr);
+							Log.i("house put",tmpStr);
+						}
+					}
+					Intent iIntent = new Intent(QuestionHouseActivity.this,
+							ResultActivity.class);
+					iIntent.putExtra("NEIGHBOR_RESULT", neighbor_resultStr);
+					iIntent.putExtra("HOUSE_RESULT", houseResult.toString());
+					iIntent.putExtra("YELLOW_TOP30_CD", top30Cds);
+					iIntent.putExtra("FIRST_COND", firstCond);
+					iIntent.putExtra("SELECT_CITY", selectCityName);
+					Log.i("neighbor check",neighbor_resultStr);
+					Log.i("house check",houseResult.toString());
+					Log.i("con check",firstCond);
+					startActivity(iIntent);
 
-				startActivity(iIntent);
+				}
+
 			}
 		});
 		

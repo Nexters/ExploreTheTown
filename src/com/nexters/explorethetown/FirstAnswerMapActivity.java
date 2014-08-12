@@ -8,6 +8,7 @@
 package com.nexters.explorethetown;
 
 import org.apache.http.Header;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -57,6 +58,8 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 	CityName selectCityName;
 	
 	FirstMapRequestData resultData;
+	
+	String requestCond;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,12 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 		Intent iIntent = getIntent();
 		selectCityName = (CityName) iIntent.getSerializableExtra("SELECT_CITY");
 		String[] getIntentStr = iIntent.getStringArrayExtra("SELECT_RESULT");
+		JSONArray condArr = new JSONArray();
+		for(int i = 0 ; i < getIntentStr.length ; i++){
+			condArr.put(getIntentStr[i]);
+		}
+		requestCond = condArr.toString();
+		Log.i("request cond",requestCond);
 		
 		FirstMapAnswerData answerData = new FirstMapAnswerData();
 		answerData.cd = "11";
@@ -135,15 +144,14 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 		// Server Request
 
 		try {
-			RequestManager.sendRequest("house_gateway", answerData , new JsonHttpResponseHandler() {
+			RequestManager.sendRequestForFirstMap("house_gateway", answerData , new JsonHttpResponseHandler() {
 				@Override
 				public void onSuccess(int statusCode, Header[] headers,
 						JSONObject response) {
 					
 					try {
-						resultData = RequestManager.responseParser(response);
-						int a = 0 ; 
-						 a = 10 ; 
+						resultData = RequestManager.responseParserFirstMap(response);
+
 							PolygonOptions tmp = new PolygonOptions();
 							tmp.add(new LatLng(30,120), new LatLng(50,120), new LatLng(50,140), new LatLng(30,140));
 							tmp.strokeColor(Color.WHITE).fillColor(0x99FFFFFF);
@@ -194,7 +202,9 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 				// TODO Auto-generated method stub
 				Intent iIntent = new Intent(FirstAnswerMapActivity.this,
 						QuestionNeighborActivity.class);
-
+				iIntent.putExtra("YELLOW_TOP30_CD", resultData.top30CdStr);
+				iIntent.putExtra("FIRST_COND", requestCond);
+				iIntent.putExtra("SELECT_CITY", selectCityName);
 				startActivity(iIntent);
 				finish();
 

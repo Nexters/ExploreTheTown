@@ -5,7 +5,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class SeekbarControl implements OnSeekBarChangeListener {
 
-   
+   public float nowSeekbarPercent;
    SeekBarType type;
    GraphView graph;
 
@@ -18,6 +18,7 @@ public class SeekbarControl implements OnSeekBarChangeListener {
    public void onProgressChanged(SeekBar bar, int progress, boolean fromUser) {
       GraphData data = graph.data;
       float nowProgress = progress/(float)bar.getMax();
+      nowSeekbarPercent = nowProgress;
       switch (type) {
       case CNT:
     	  graph.setPeopleCntColor(nowProgress);
@@ -44,7 +45,7 @@ public class SeekbarControl implements OnSeekBarChangeListener {
 
       }
 
-      // 域밸챶�삋占쎈늄�몴占� 占쎈뼄占쎈뻻 域밸챶�젻餓ο옙占쎈뼄.
+      // �윜諛몄굡占쎌굥�뜝�럥�뒆占쎈ご�뜝占� �뜝�럥堉꾢뜝�럥六� �윜諛몄굡占쎌졎繞벿우삕�뜝�럥堉�.
       graph.invalidate();
 
    }
