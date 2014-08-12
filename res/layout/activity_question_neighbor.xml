@@ -140,30 +140,52 @@
     <ImageView
         android:id="@+id/img_question_neighbor_question"
         android:layout_width="232.33dp"
-        android:layout_height="77.67dp"
-		android:layout_marginLeft="37.67dp"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/img_question_neighbor_whitebg"
-        android:layout_centerVertical="true"
+		android:layout_alignLeft="@+id/img_question_neighbor_navi"
         android:scaleType="fitXY"
         android:src="@drawable/f_question" />
-
-    <ImageView
-        android:id="@+id/img_question_neighbor_linebg"
+    
+        <ImageView
+        android:id="@+id/img_question_neighbor_textbg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_above="@+id/img_question_neighbor_question"
         android:layout_below="@+id/img_question_neighbor_topbg"
+        android:src="@drawable/f_bg_text" />
+
+    <ImageView
+        android:id="@+id/img_question_neighbor_linebg"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+		android:layout_alignTop="@+id/img_question_neighbor_textbg"
+		android:layout_alignBottom="@+id/img_question_neighbor_textbg"
+		android:layout_alignLeft="@+id/img_question_neighbor_textbg"
+		android:layout_alignRight="@+id/img_question_neighbor_textbg"
+		android:layout_marginTop="10dp"
+		android:layout_marginBottom="10dp"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
         android:src="@drawable/f_bg_line" />
-    
+        
     <RelativeLayout 
         android:id="@+id/main_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_alignTop="@+id/img_question_neighbor_linebg"
         android:layout_alignBottom="@+id/img_question_neighbor_linebg"
         android:layout_alignLeft="@+id/img_question_neighbor_linebg"
-        android:layout_alignRight="@+id/img_question_neighbor_linebg">
+        android:layout_alignRight="@+id/img_question_neighbor_linebg"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp">
         
     </RelativeLayout>
 

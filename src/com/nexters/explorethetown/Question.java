@@ -53,6 +53,13 @@ public class Question {
 	public void nextQuestion(){
 		setQuestionNumber(++questionNumber);
 	}
+	public void beforeQuestion(int finishList){
+		if((questionNumber%10) == 1){
+			setQuestionNumber((finishList%10)*10+1);
+		}else{
+			setQuestionNumber(--questionNumber);
+		}
+	}
 
 	public int getQuestionNumber(){
 		return questionNumber;
@@ -400,6 +407,82 @@ public class Question {
 			}
 		}
 	}
+	
+
+	// delete answer list
+	public void deleteAnswerCode(boolean chk){
+		if(chk == true){
+			switch(questionNumber){
+			case 11:
+			case 12:
+			case 21:
+			case 23:
+			case 24:
+			case 25:
+			case 26:
+			case 32:
+			case 41:
+			case 62:
+			case 63:
+				answersCode.remove(answersCode.size());
+				break;
+			case 22:
+			case 61:
+				answersCode.remove(answersCode.size());
+				answersCode.remove(answersCode.size());
+				break;
+			}
+		}
+	}
+	public void deletetAnswerCode(boolean[] chk){
+		if(chk[0]){
+			switch(questionNumber){
+			case 13:
+			case 31:
+			case 42:
+			case 43:
+			case 44:
+			case 51:
+				answersCode.remove(answersCode.size());
+				break;
+			}
+		}else if(chk[1]){
+			switch(questionNumber){
+			case 13:
+			case 31:
+			case 42:
+			case 43:
+			case 44:
+			case 51:
+				answersCode.remove(answersCode.size());
+				break;
+			}
+		}else if(chk[2]){
+			switch(questionNumber){
+			case 13:
+			case 42:
+			case 43:
+				answersCode.remove(answersCode.size());
+			case 51:
+				answersCode.remove(answersCode.size());
+				answersCode.remove(answersCode.size());
+				answersCode.remove(answersCode.size());
+				answersCode.remove(answersCode.size());
+				break;
+			}
+		}else if(chk[3]){
+			switch(questionNumber){
+			case 13:
+			case 43:
+				answersCode.remove(answersCode.size());
+				break;
+			case 51:
+				answersCode.remove(answersCode.size());
+				break;
+			}
+		}
+	}
+	
 	public String[] getAnswerCode(){
 		String[] returnStr = new String[answersCode.size()];
 		for(int i = 0 ; i < returnStr.length ; i++){

@@ -97,6 +97,7 @@
 	    android:layout_height="136dp"
 	    android:layout_alignBottom="@+id/map"
 	    android:layout_alignLeft="@+id/map"
+	    android:visibility="invisible"
 	    android:background="@drawable/e_bg_box_info"
 	    android:id="@+id/layout_first_answer_popup">
 
@@ -111,6 +112,22 @@
 		    android:text="서울시 강남구 강남동" />
 	    
 	</RelativeLayout>
+	
+	<!-- Loading page -->
+	<RelativeLayout
+	    android:id="@+id/layout_loading_page"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="@drawable/f_bg_black">
 
+		<ProgressBar
+		    android:id="@+id/progressBar_first_answer"
+		    style="?android:attr/progressBarStyleLarge"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_centerHorizontal="true"
+		    android:layout_centerVertical="true" />
+	    
+	</RelativeLayout>
 
 </RelativeLayout>

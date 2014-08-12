@@ -68,6 +68,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
             // TODO Auto-generated method stub
             Intent iIntent = new Intent(QuestionNeighborActivity.this, QuestionHouseActivity.class);
             startActivity(iIntent);
+            finish();
          }
       });
       

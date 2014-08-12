@@ -109,5 +109,4 @@
         android:background="@android:color/transparent"
         android:src="@drawable/d_answer_health_1_2" />
 
-
 </RelativeLayout>

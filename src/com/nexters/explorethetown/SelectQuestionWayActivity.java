@@ -1,5 +1,9 @@
+/**
+ * 나들이 동네, 등등을 선택하는 페이지
+ */
 package com.nexters.explorethetown;
 
+import com.nexters.custom.CityName;
 import com.nexters.explorethetown.R;
 
 import android.annotation.SuppressLint;
@@ -16,6 +20,7 @@ import android.widget.Toast;
 @SuppressLint("NewApi")
 public class SelectQuestionWayActivity extends ActionBarActivity {
 
+	CityName selectCityName;
 	boolean isClicked[] = new boolean[6];
 	ImageView imgCenterBig ;
 	@SuppressLint("NewApi")
@@ -23,6 +28,11 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_question_way);
+		
+		Intent iIntent = getIntent();
+		selectCityName = (CityName)iIntent.getSerializableExtra("SELECT_CITY");
+		
+		
 		imgCenterBig = (ImageView)findViewById(R.id.img_question_way_center);
 		// init
 		for(int i = 0 ; i < 6 ; i++){
@@ -160,6 +170,7 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 				}else{
 					Intent iIntent = new Intent(SelectQuestionWayActivity.this, QuestionActivity.class);
 					iIntent.putExtra("CLICKEDQUESTION", isClicked);
+					iIntent.putExtra("SELECT_CITY", selectCityName);
 					startActivity(iIntent);
 					//finish();
 				}

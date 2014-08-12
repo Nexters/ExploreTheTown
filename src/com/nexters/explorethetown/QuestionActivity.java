@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.nexters.explorethetown.R;
+import com.nexters.custom.CityName;
 import com.nexters.custom.QuestionType;
 
 public class QuestionActivity extends ActionBarActivity{
@@ -31,10 +32,10 @@ public class QuestionActivity extends ActionBarActivity{
 	QuestionType nowQuestionType;				// YES OR NO / Check Box
 	boolean townClicked[] = new boolean[6];		// get clicked town list
 	int clickedTownsInt;							// �룄�떆 �삎�깭 �꽑�깮�븳嫄� ���옣�빐�넃�뒗 蹂��닔
+	int finishTownsInt;							// 이미 설문 완료한거 저장
+	int nowTownsInt;							// 현재 진행중인거 저장
 	
-	
-	
-	
+	CityName selectCityName;					// 앞에서 선택한 지역명 받아옴
 	
 	@SuppressLint("NewApi")
 	@Override
@@ -48,15 +49,17 @@ public class QuestionActivity extends ActionBarActivity{
 		
 		// get Intent 
 		Intent intent = getIntent();
+		selectCityName = (CityName)intent.getSerializableExtra("SELECT_CITY");
 		townClicked = intent.getBooleanArrayExtra("CLICKEDQUESTION");
 		clickedTownsInt = 0;
+		finishTownsInt = 0;
 		for(int i = 5 ; i >= 0 ; i--){
 			if(townClicked[i]){
 				clickedTownsInt = (clickedTownsInt)*10+(i+1);
 			}
 		}
 		
-		
+		nowTownsInt = clickedTownsInt%10;
 		question = new Question((clickedTownsInt%10) * 10 +1);
 		clickedTownsInt /= 10;
 	
@@ -192,11 +195,14 @@ public class QuestionActivity extends ActionBarActivity{
 					if(question.isEndQuestion()){
 						if(clickedTownsInt == 0){
 							Intent iIntent = new Intent(QuestionActivity.this,FirstAnswerMapActivity.class);
+							iIntent.putExtra("SELECT_CITY", selectCityName);
 							iIntent.putExtra("SELECT_RESULT", question.getAnswerCode());
 							startActivity(iIntent);
 							finish();
 						}else{
+							finishTownsInt = finishTownsInt*10+nowTownsInt;
 							question.setQuestionNumber((clickedTownsInt%10)*10+1);
+							nowTownsInt = clickedTownsInt%10;
 							clickedTownsInt /= 10;
 							showImgs();
 						}
@@ -207,6 +213,8 @@ public class QuestionActivity extends ActionBarActivity{
 				}
 			}
 		});
+		
+
 		
 	}
 	// show images
@@ -241,6 +249,10 @@ public class QuestionActivity extends ActionBarActivity{
 	@Override
 	public void onBackPressed() {
 		this.finish();
+		//townClicked
+		//clickedTownInt
+
+		
 	}
 
 	

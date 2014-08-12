@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import com.nexters.coord.CoordConverter;
 import com.nexters.coord.PointF;
+import com.nexters.custom.CityName;
 import com.nexters.custom.FirstMapAnswerData;
 import com.nexters.custom.FirstMapRequestData;
 import com.google.android.gms.maps.GoogleMap;
@@ -41,6 +42,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.nexters.explorethetown.R;
@@ -49,8 +52,9 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 		OnMarkerClickListener {
 	private GoogleMap mmap;
 	MapFragment fragment;
-
+	ProgressBar loadingBar;
 	private Marker nowMarker;
+	CityName selectCityName;
 	
 	FirstMapRequestData resultData;
 
@@ -59,11 +63,14 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_first_answer_map);
 
+		loadingBar = (ProgressBar)findViewById(R.id.progressBar_first_answer);
+		
 		// Hidden Action Bar
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 
 		Intent iIntent = getIntent();
+		selectCityName = (CityName) iIntent.getSerializableExtra("SELECT_CITY");
 		String[] getIntentStr = iIntent.getStringArrayExtra("SELECT_RESULT");
 		
 		FirstMapAnswerData answerData = new FirstMapAnswerData();
@@ -71,6 +78,57 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 		answerData.req_svc = "LC0005";
 		answerData.requestData = getIntentStr;
 		
+		switch(selectCityName){
+		case SEOUL :
+			answerData.cd = "11";
+			break;
+		case INCHEON :
+			answerData.cd = "23";
+			break;
+		case GYEONGGI_DO :
+			answerData.cd = "31";
+			break;
+		case GANGWON_DO :
+			answerData.cd = "32";
+			break;
+		case SEJONG : 
+		case CHUNGCHEONGNAM_DO : 
+			answerData.cd = "34";
+			break;
+		case DAEJEON :  
+			answerData.cd = "25";
+			break;
+		case CHUNGCHEONGBUK_DO :
+			answerData.cd = "33";
+			break;
+		case JEOLLABUK_DO :
+			answerData.cd = "35";
+			break;
+		case JEOLLANAM_DO : 
+			answerData.cd = "36";
+			break;
+		case GWANGJU :
+			answerData.cd = "24";
+			break;
+		case JEJU :
+			answerData.cd = "39";
+			break;
+		case GYEONGBUK:
+			answerData.cd = "37";
+			break;
+		case DAEGU : 
+			answerData.cd = "22";
+			break;
+		case ULSAN : 
+			answerData.cd = "26";
+			break;
+		case GYEONGSANGNAM_DO :
+			answerData.cd = "38";
+			break;
+		case BUSAN :
+			answerData.cd = "21";
+			break;
+		}
 		
 		setOnClickListener();
 
@@ -86,24 +144,28 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 						resultData = RequestManager.responseParser(response);
 						int a = 0 ; 
 						 a = 10 ; 
+							PolygonOptions tmp = new PolygonOptions();
+							tmp.add(new LatLng(30,120), new LatLng(50,120), new LatLng(50,140), new LatLng(30,140));
+							tmp.strokeColor(Color.WHITE).fillColor(0x99FFFFFF);
+							mmap.addPolygon(tmp);
 						for(int i = 0 ; i < resultData.rigions.length ; i++){
-							Log.i("haha", Double.toString(resultData.rigions[i].ratio));
+							//Log.i("haha", Double.toString(resultData.rigions[i].ratio));
 							int fill_color = Color.WHITE;
 							if(resultData.rigions[i].ratio <= 10.0){
-								fill_color = 0xFFFF9900;
+								fill_color = 0xAAFF9900;
 							}else if(resultData.rigions[i].ratio <= 20.0){
-								fill_color = 0xFFFFCC00;
+								fill_color = 0x99FFCC00;
 							}else if(resultData.rigions[i].ratio <= 30.0){
-								fill_color = 0xFFFFFF33;
+								fill_color = 0x90FFFF33;
 							}else if(resultData.rigions[i].ratio <= 40.0){
-								fill_color = 0XFFFFFF66;
+								fill_color = 0X89FFFF66;
 							}else {
-								fill_color = 0xFFFFFF99;
+								fill_color = 0x88FFFF99;
 							}
 							colormapdraw(resultData.rigions[i].coords,fill_color);
 						}
-						Toast toast = Toast.makeText(FirstAnswerMapActivity.this, "Good!", Toast.LENGTH_LONG);
-						toast.show();
+						RelativeLayout loadingLayout = (RelativeLayout)findViewById(R.id.layout_loading_page);
+						loadingLayout.setVisibility(View.INVISIBLE);
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -119,6 +181,8 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 
 	}
 
+	
+
 	// Go to Next
 	public void setOnClickListener() {
 		Button imgBtnNext = (Button) findViewById(R.id.imgBtn_first_answer_Next);
@@ -132,6 +196,7 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 						QuestionNeighborActivity.class);
 
 				startActivity(iIntent);
+				finish();
 
 			}
 		});
@@ -157,8 +222,9 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 			
 		}
 		
-		options.strokeColor(Color.WHITE).fillColor(fill_color);
+		options.strokeColor(Color.WHITE).strokeWidth((float) 3.0).fillColor(fill_color);
 		mmap.addPolygon(options);
+		options = null;
 	}
 
 	@Override
@@ -184,12 +250,82 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 					R.id.map);
 			mmap = fragment.getMap();
 
-			// �뜝�럥六삣뜝�럩�굚 �뜝�럩留꾤뇖�궪�삕 �뜝�럩�젧�뜝�럥由��뼨�먯삕!!!
-			LatLng startingPoint = new LatLng(37.37221, 126.94341);
-			// �뜝�럥六삣뜝�럩�굚 �뛾�룄�ｏ옙紐� �뜝�럩�젧�뜝�럥由��뼨�먯삕!!
-			mmap.moveCamera(CameraUpdateFactory
-					.newLatLngZoom(startingPoint, 16));
+			setMapCamera();
 
+		}
+	}
+	
+	private void setMapCamera(){
+		LatLng startingPoint = null;
+		switch(selectCityName){
+		case SEOUL :
+			startingPoint = new LatLng(37.561241, 126.979582);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case INCHEON :
+			startingPoint = new LatLng(37.501329, 126.667484);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case GYEONGGI_DO :
+			startingPoint = new LatLng(37.268678, 127.021473);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case GANGWON_DO :
+			startingPoint = new LatLng(37.913123, 127.897661);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case SEJONG : 
+			startingPoint = new LatLng(36.601181, 127.294313);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case CHUNGCHEONGNAM_DO : 
+			startingPoint = new LatLng(36.642577, 126.663617);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case DAEJEON :  
+			startingPoint = new LatLng(36.343795, 127.401412);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case CHUNGCHEONGBUK_DO :
+			startingPoint = new LatLng(36.639403, 127.487243);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case JEOLLABUK_DO :
+			startingPoint = new LatLng(35.818202, 127.487243);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case JEOLLANAM_DO : 
+			startingPoint = new LatLng(34.808654, 126.432053);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case GWANGJU :
+			startingPoint = new LatLng(35.171488, 126.864640);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case JEJU :
+			startingPoint = new LatLng(33.368577, 126.533320);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case GYEONGBUK:
+			startingPoint = new LatLng(36.418275, 129.013365);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case DAEGU : 
+			startingPoint = new LatLng(35.870444, 128.586272);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case ULSAN : 
+			startingPoint = new LatLng(35.542595, 129.329222);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case GYEONGSANGNAM_DO :
+			startingPoint = new LatLng(35.225473, 128.676697);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
+		case BUSAN :
+			startingPoint = new LatLng(35.177563, 129.078762);
+			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
+			break;
 		}
 	}
 
@@ -205,5 +341,6 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 		return false;
 	}
 	
+
 
 }

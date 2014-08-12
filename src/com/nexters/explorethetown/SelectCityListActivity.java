@@ -16,8 +16,6 @@ import com.nexters.custom.*;
 
 public class SelectCityListActivity extends ActionBarActivity{
 	
-	
-	
 	ImageButton beforeClickedButton;
 	CityName clickedCityName;
 	
@@ -434,6 +432,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent iIntent = new Intent(SelectCityListActivity.this, SelectQuestionWayActivity.class);
+				iIntent.putExtra("SELECT_CITY", clickedCityName);
 				startActivity(iIntent);
 			}
 		});
