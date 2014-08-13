@@ -9,13 +9,16 @@ import org.json.JSONObject;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -133,8 +136,31 @@ public class ResultActivity extends ActionBarActivity implements
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		setFont();
 	}
 
+	
+	public void setFont(){
+		TextView tv = (TextView)findViewById(R.id.text_result_mypopup_topleft);
+		tv.setTypeface(Typeface.createFromAsset(getAssets(), "NanumBarunGothic.ttf"));		
+		tv = (TextView)findViewById(R.id.text_result_mypopup_topNum);
+		tv.setTypeface(Typeface.createFromAsset(getAssets(), "NanumBarunGothic.ttf"));
+		tv = (TextView)findViewById(R.id.text_result_mypopup_topRight);
+		tv.setTypeface(Typeface.createFromAsset(getAssets(), "NanumBarunGothic.ttf"));		
+		tv = (TextView)findViewById(R.id.text_result_mypopup_bottomNum);
+		tv.setTypeface(Typeface.createFromAsset(getAssets(), "NanumBarunGothic.ttf"));
+		tv = (TextView)findViewById(R.id.text_result_mypopup_bottomRight);
+		tv.setTypeface(Typeface.createFromAsset(getAssets(), "NanumBarunGothic.ttf"));
+		tv = (TextView)findViewById(R.id.text_result_mypopup_first);
+		tv.setTypeface(Typeface.createFromAsset(getAssets(), "NanumBarunGothic.ttf"));
+		tv = (TextView)findViewById(R.id.text_result_mypopup_second);
+		tv.setTypeface(Typeface.createFromAsset(getAssets(), "NanumBarunGothic.ttf"));		
+		tv = (TextView)findViewById(R.id.text_result_mypopup_third);
+		tv.setTypeface(Typeface.createFromAsset(getAssets(), "NanumBarunGothic.ttf"));
+		
+		
+	}
 	public void setOnClickListener() {
 		Log.i("test", "sleepy..");
 		ImageButton myImgBtn = (ImageButton) findViewById(R.id.imgBtn_result_my);
@@ -145,6 +171,20 @@ public class ResultActivity extends ActionBarActivity implements
 				// TODO Auto-generated method stub
 				RelativeLayout myRelative = (RelativeLayout) findViewById(R.id.layout_result_my_popup);
 				myRelative.setVisibility(View.VISIBLE);
+			}
+		});
+	}
+	
+	public void setPopupClickListener(){
+		Button popupNext = (Button)findViewById(R.id.imgBtn_result_mypopup_result);
+		popupNext.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				RelativeLayout myRelative = (RelativeLayout) findViewById(R.id.layout_result_my_popup);
+				myRelative.setVisibility(View.INVISIBLE);
+				
 			}
 		});
 	}
@@ -184,6 +224,8 @@ public class ResultActivity extends ActionBarActivity implements
 			fragment = (MapFragment) getFragmentManager().findFragmentById(
 					R.id.result_map);
 			mmap = fragment.getMap();
+			
+			setMapCamera();
 
 		}
 	}

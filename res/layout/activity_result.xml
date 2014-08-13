@@ -123,16 +123,7 @@
 	</RelativeLayout>
 	
 	
-	<!-- my popup -->
-	<RelativeLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:visibility="invisible"
-	    android:background="@drawable/e_bg_box_info"
-	    android:id="@+id/layout_result_my_popup">
-		
-	    
-	</RelativeLayout>
+
 	
 		<!-- Loading page -->
 	<RelativeLayout
@@ -148,6 +139,149 @@
 		    android:layout_height="wrap_content"
 		    android:layout_centerHorizontal="true"
 		    android:layout_centerVertical="true" />
+	<ImageView
+	    android:id="@+id/loading_img"
+	    android:layout_width="170.67dp"
+	    android:layout_height="100dp"
+	    android:layout_centerHorizontal="true"
+		android:layout_above="@+id/progressBar_first_answer"
+	    android:src="@drawable/loading" />
+	    
+	</RelativeLayout>
+	
+		<!-- my popup -->
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="@drawable/f_bg_black"
+	    android:id="@+id/layout_result_my_popup">
+	
+	    <ImageView
+		    android:id="@+id/img_result_mypopup_bg"
+		    android:layout_width="342.67dp"
+		    android:layout_height="538.33dp"
+		    android:layout_centerHorizontal="true"
+		    android:layout_centerVertical="true"
+		    android:src="@drawable/h_popup_bg_text" />
+
+		<Button
+		    android:id="@+id/imgBtn_result_mypopup_result"
+		    android:layout_width="336.67dp"
+		    android:layout_height="58dp"
+			android:layout_alignBottom="@+id/img_result_mypopup_bg"
+			android:layout_marginBottom="4.33dp"
+		    android:layout_centerHorizontal="true"
+		    android:background="@drawable/h_popup_btn_btn" />
+
+		<ImageButton
+		    android:id="@+id/imgBtn_result_mypopup_share"
+		    android:layout_width="32.67dp"
+		    android:layout_height="43dp"
+		    android:layout_above="@+id/imgBtn_result_mypopup_result"
+			android:layout_centerHorizontal="true"
+			android:layout_marginBottom="10dp"
+			android:background="@android:color/transparent"
+		    android:src="@drawable/h_popup_share" />
+						
+		<TextView
+		    android:id="@+id/text_result_mypopup_topleft"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignTop="@+id/img_result_mypopup_bg"
+		    android:layout_alignLeft="@+id/img_result_mypopup_bg"
+		    android:layout_marginTop="159.67dp"
+		    android:layout_marginLeft="67dp"
+		    android:textSize="60.02px"
+		    android:textColor="#666666"
+		    android:text="서울 지역 총 " />
+		
+		<TextView
+		    android:id="@+id/text_result_mypopup_topNum"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_toRightOf="@+id/text_result_mypopup_topleft"
+		    android:layout_alignTop="@+id/text_result_mypopup_topleft"
+		    android:textSize="60.02px"
+		    android:text="143" />
+		
+		<TextView
+		    android:id="@+id/text_result_mypopup_topRight"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_toRightOf="@+id/text_result_mypopup_topNum"
+		    android:layout_alignTop="@+id/text_result_mypopup_topNum"
+		    android:textSize="60.02px"
+		    android:textColor="#666666"
+		    android:text=" 곳 중에" />
+
+		<TextView
+		    android:id="@+id/text_result_mypopup_bottomNum"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:layout_below="@+id/text_result_mypopup_topleft"
+			android:layout_alignRight="@+id/text_result_mypopup_topleft"
+		    android:textSize="60.02px"
+		    android:text="50" />
+		
+		<TextView
+		    android:id="@+id/text_result_mypopup_bottomRight"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignTop="@+id/text_result_mypopup_bottomNum"
+		    android:layout_toRightOf="@+id/text_result_mypopup_bottomNum"
+		    android:textSize="60.02px"
+		    android:textColor="#666666"
+		    android:text="곳!" />
+
+		<ImageView
+		    android:id="@+id/img_result_mypopup_text"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_below="@+id/text_result_mypopup_bottomRight"
+		    android:layout_centerHorizontal="true"
+		    android:layout_marginTop="46dp"
+		    android:src="@drawable/h_popup_text_1" />
+
+
+
+		<ImageView
+		    android:id="@+id/img_result_mypopup_yelloBg"
+		    android:layout_width="220dp"
+		    android:layout_height="85dp"
+		    android:layout_centerHorizontal="true"
+		    android:layout_below="@+id/img_result_mypopup_text"
+		    android:layout_marginTop="3dp"
+		    android:src="@drawable/h_popup_bg_yellow" />
+		
+		<TextView
+		    android:id="@+id/text_result_mypopup_first"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignTop="@+id/img_result_mypopup_yelloBg"
+		    android:layout_centerHorizontal="true"
+		    android:textSize="65px"
+		    android:textColor="#660066"
+		    android:text="1위 송파1동" />
+
+		<TextView
+		    android:id="@+id/text_result_mypopup_second"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_below="@+id/text_result_mypopup_first"
+		    android:layout_centerHorizontal="true"
+		    android:textSize="65px"
+		    android:textColor="#660066"
+		    android:text="2위 서울시 송파구" />
+		
+		<TextView
+		    android:id="@+id/text_result_mypopup_third"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_below="@+id/text_result_mypopup_second"
+		    android:layout_centerHorizontal="true"
+		    android:textSize="65px"
+		    android:textColor="#660066"
+		    android:text="3위 서울시 송파구" />
 	    
 	</RelativeLayout>
 </RelativeLayout>
