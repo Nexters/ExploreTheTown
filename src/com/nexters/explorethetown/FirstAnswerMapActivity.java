@@ -25,13 +25,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nexters.coord.PointF;
@@ -47,6 +50,9 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 	ProgressBar loadingBar;
 	private Marker nowMarker;
 	CityName selectCityName;
+	
+
+	Marker[] cityMarker;
 
 	FirstMapRequestData resultData;
 
@@ -135,6 +141,8 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 
 		setOnClickListener();
 
+
+		
 		// Server Request
 
 		try {
@@ -221,8 +229,17 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 			fragment = (MapFragment) getFragmentManager().findFragmentById(
 					R.id.map);
 			mmap = fragment.getMap();
-
+			mmap.setOnMarkerClickListener(this);
 			setMapCamera();
+			
+			PolygonOptions tmp; // background
+			// 일단 배경을 흰색으로 칠함
+			tmp = new PolygonOptions();
+			tmp.add(new LatLng(30, 120), new LatLng(50, 120), new LatLng(50,
+					140), new LatLng(30, 140));
+			tmp.strokeColor(Color.WHITE).fillColor(0x99FFFFFF);
+			// view는 메인 쓰레드에서만 조작할 수 있기 때문에 이렇게 만든거.
+			mmap.addPolygon(tmp);
 
 		}
 	}
@@ -327,6 +344,15 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 	@Override
 	public boolean onMarkerClick(Marker arg0) {
 		// TODO Auto-generated method stub
+		for(int i =0 ; i < resultData.rigions.length ; i++){
+			if(arg0.equals(cityMarker[i])){
+				Toast toast = Toast.makeText(FirstAnswerMapActivity.this, resultData.rigions[i].address, Toast.LENGTH_SHORT);
+				toast.show();
+				break;
+			}
+		}
+		
+		
 		return false;
 	}
 
@@ -334,7 +360,7 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 			AsyncTask<Object, String, String> {
 
 		JSONObject response;// 서버에서 받아온 문자열
-		PolygonOptions tmp; // background
+
 
 		public BackgroundParsingData(JSONObject response) {
 			this.response = response;
@@ -348,7 +374,7 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 			try {
 				// 파싱하는데 시간과 메모리가 많이 소요된다.
 				resultData = RequestManager.responseParserFirstMap(response);
-
+				cityMarker = new Marker[resultData.rigions.length];
 				// 지역 경계를 그린다.
 				threadCnt = new AtomicInteger(resultData.rigions.length);
 				for (int i = 0; i < resultData.rigions.length; i++) {
@@ -369,7 +395,7 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 
 					// 지역 폴리곤을 그리는데 시간이 많이 걸리므로 이것 역시 새로운 쓰레드를 이용한다.
 					new BackgroundDrawRegion(resultData.rigions[i].coords,
-							fill_color).execute();
+							fill_color, resultData.rigions[i].centerLatLng).execute();
 				}
 
 			} catch (JSONException e) {
@@ -385,13 +411,7 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 		@Override
 		protected void onPostExecute(String result) {
 
-			// 배경그리기
-			tmp = new PolygonOptions();
-			tmp.add(new LatLng(30, 120), new LatLng(50, 120), new LatLng(50,
-					140), new LatLng(30, 140));
-			tmp.strokeColor(Color.WHITE).fillColor(0x99FFFFFF);
-			// view는 메인 쓰레드에서만 조작할 수 있기 때문에 이렇게 만든거.
-			mmap.addPolygon(tmp);
+
 
 			/** END!!! */
 		}
@@ -409,21 +429,32 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 		int fill_color; // color
 		PointF[] point; // point
 		PolygonOptions region; // region
+		LatLng centerLatLng;
+		MarkerOptions optSecond;
 
-		public BackgroundDrawRegion(PointF[] point, int fill_color) {
+		public BackgroundDrawRegion(PointF[] point, int fill_color, LatLng inLatLng) {
 			this.point = point;
 			this.fill_color = fill_color;
+			centerLatLng = inLatLng;
 		}
-
 		@Override
 		protected String doInBackground(Object... params) {
 			region = getColormapOptions(point, fill_color);
+
 			return null;
 		}
 
 		protected void onPostExecute(String result) {
 			// view는 메인 쓰레드에서만 조작할 수 있기 때문에 이렇게 만든거.
+			Log.i("count test"," " + (resultData.rigions.length - threadCnt.intValue()));
 			mmap.addPolygon(region);
+			// marker 추가하기
+			optSecond = new MarkerOptions();
+			optSecond.position(centerLatLng);
+			optSecond.icon(BitmapDescriptorFactory
+					.fromResource(R.drawable.h_marker_empty));
+			cityMarker[resultData.rigions.length - threadCnt.intValue()] = mmap.addMarker(optSecond);
+			//TODO
 			//모든 쓰레드를 처리한 상황을 체크해고, 모든 쓰레드가 끝났으면 
 			if (threadCnt.decrementAndGet() == 0) {
 				// view는 메인 쓰레드에서만 조작할 수 있기 때문에 이렇게 만든거.

@@ -35,6 +35,7 @@ public class SecondMapResponseData {
 				rigions[i].ratio = objJSON.getDouble("_ratio");
 				rigions[i].rank = objJSON.getInt("_rank");
 				String location = objJSON.getString("_location");
+				rigions[i].address = objJSON.getString("_address");
 				parseCoord(location,i);
 
 			}
@@ -49,6 +50,7 @@ public class SecondMapResponseData {
 				oldRigions[i].cd = objJSON.getString("_cd");
 				oldRigions[i].ratio = objJSON.getDouble("_ratio");
 				oldRigions[i].rank = objJSON.getInt("_rank");
+				oldRigions[i].address = objJSON.getString("_address");
 				String location = objJSON.getString("_location");
 				parseCoordOld(location,i);
 
@@ -82,13 +84,19 @@ public class SecondMapResponseData {
 	private void parseCoordOld(String inStr, int inI) throws JSONException{
 		JSONArray jsonArr = new JSONArray(inStr);
 		JSONArray coordsArrJson = jsonArr.getJSONArray(0);
+		double mxSum = 0;
+		double mySum = 0;
 		
 		oldRigions[inI].coords = new PointF[coordsArrJson.length()];
 		for(int i = 0 ; i < oldRigions[inI].coords.length ; i++){
 			JSONArray nowCoord = coordsArrJson.getJSONArray(i);
 			double mx = nowCoord.getDouble(0);
 			double my = nowCoord.getDouble(1);
+			mxSum += mx;
+			mySum += my;
 			oldRigions[inI].coords[i] = new PointF(mx, my);
 		}
+		int size = coordsArrJson.length();
+		oldRigions[inI].centerLatLng = new LatLng(mxSum/size, mySum/size);
 	}
 }

@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
 		android:layout_alignLeft="@+id/img_question_house_navi"
 		android:layout_below="@+id/img_question_house_title"
-		android:layout_marginTop="30dp"
+       android:layout_marginTop="16dp"
         android:src="@drawable/g_question_house_1" />
 
 

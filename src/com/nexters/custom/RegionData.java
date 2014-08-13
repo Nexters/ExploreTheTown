@@ -15,7 +15,7 @@ public class RegionData {
 	public PointF[] coords;
 	public int rank;
 	public LatLng centerLatLng;
-
+	public String address;
 	public void setCD(String cd){
 		this.cd = cd;
 	}

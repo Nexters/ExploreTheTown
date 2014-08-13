@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.nexters.coord.CoordConverter;
 import com.nexters.coord.PointF;
 
@@ -31,6 +32,7 @@ public class FirstMapRequestData {
 				JSONObject objJSON = region_data_arr.getJSONObject(i);
 				rigions[i].cd = objJSON.getString("_cd");
 				rigions[i].ratio = objJSON.getDouble("_ratio");
+				rigions[i].address = objJSON.getString("_address");
 				if(rigions[i].ratio <= 30){
 					top30Cds.put(rigions[i].cd);
 				}
@@ -50,13 +52,19 @@ public class FirstMapRequestData {
 	private void parseCoord(String inStr, int inI) throws JSONException{
 		JSONArray jsonArr = new JSONArray(inStr);
 		JSONArray coordsArrJson = jsonArr.getJSONArray(0);
+		double mxSum = 0;
+		double mySum = 0;
 		
 		rigions[inI].coords = new PointF[coordsArrJson.length()];
 		for(int i = 0 ; i < rigions[inI].coords.length ; i++){
 			JSONArray nowCoord = coordsArrJson.getJSONArray(i);
 			double mx = nowCoord.getDouble(0);
 			double my = nowCoord.getDouble(1);
+			mxSum += mx;
+			mySum += my;
 			rigions[inI].coords[i] = new PointF(mx, my);
 		}
+		int size = coordsArrJson.length();
+		rigions[inI].centerLatLng = new LatLng(mxSum/size, mySum/size);
 	}
 }

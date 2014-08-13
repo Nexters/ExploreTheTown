@@ -74,6 +74,8 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			
 		}else if(questionNumber == 1){
 			setContentView(R.layout.activity_question_house);
+			ImageView progressImg = (ImageView)findViewById(R.id.img_question_house_progressView);
+			progressImg.setImageResource(R.drawable.d_view_young_two);
 			ImageView titleImg = (ImageView)findViewById(R.id.img_question_house_body);
 			titleImg.setImageResource(R.drawable.g_question_house_2);
 			ImageButton[] answerImgBtn = new ImageButton[5];
@@ -205,6 +207,7 @@ public class QuestionHouseActivity extends ActionBarActivity {
 						}
 					}
 					questionNumber++;
+
 					setImgsDefault();
 
 				}

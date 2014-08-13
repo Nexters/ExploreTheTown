@@ -73,6 +73,7 @@
         android:scaleType="fitXY"
         android:layout_alignRight="@+id/img_question_neighbor_barbg"
         android:layout_above="@+id/img_question_neighbor_bottombg"
+        android:background="@android:color/transparent"
    		android:src="@drawable/f_question_empty" />
     
     <SeekBar
@@ -181,6 +182,8 @@
         android:layout_alignTop="@+id/img_question_neighbor_linebg"
         android:layout_alignBottom="@+id/img_question_neighbor_linebg"
         android:layout_alignLeft="@+id/img_question_neighbor_linebg"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
         android:layout_alignRight="@+id/img_question_neighbor_linebg">
         
     </RelativeLayout>

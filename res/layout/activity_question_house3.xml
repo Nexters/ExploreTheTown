@@ -56,16 +56,7 @@
 		android:layout_alignParentRight="true"
         android:layout_marginRight="12dp"
         android:layout_marginTop="15dp"
-        android:src="@drawable/d_view_young_one" />
-    
-    <ImageView
-        android:id="@+id/img_question_house_body_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		android:layout_alignLeft="@+id/img_question_house_navi_3"
-		android:layout_below="@+id/img_question_house_title_3"
-		android:layout_marginTop="30dp"
-        android:src="@drawable/g_question_house_1" />
+        android:src="@drawable/d_view_young_three" />
     
     <ImageButton
         android:id="@+id/imgBtn_question_house_answer3_2"
@@ -73,7 +64,6 @@
         android:layout_height="94.33dp"
         android:layout_below="@+id/img_question_house_body_3"
 		android:layout_centerHorizontal="true"
-        android:layout_marginTop="10.33dp"
         android:background="@android:color/transparent"
         android:src="@drawable/g_answer_house_3_2_btn" />
     
@@ -131,6 +121,7 @@
 	    android:layout_height="94.33dp"
 	    android:layout_below="@+id/imgBtn_question_house_answer3_5"
 	    android:layout_alignLeft="@+id/imgBtn_question_house_answer3_5"
+        android:layout_above="@+id/img_question_house_bottomBg_3"
 	    android:layout_marginTop="19dp"
 	    android:background="@android:color/transparent"
 	    android:src="@drawable/g_answer_house_3_8_btn" />   
@@ -141,6 +132,7 @@
         android:layout_height="94.33dp"
         android:layout_alignTop="@+id/imgBtn_question_house_answer3_8"
         android:layout_alignRight="@+id/imgBtn_question_house_answer3_1"
+        android:layout_above="@+id/img_question_house_bottomBg_3"
         android:background="@android:color/transparent"
         android:src="@drawable/g_answer_house_3_7_btn" />
     
@@ -150,10 +142,17 @@
         android:layout_height="94.33dp"
         android:layout_alignTop="@+id/imgBtn_question_house_answer3_8"
         android:layout_alignLeft="@+id/imgBtn_question_house_answer3_3"
+        android:layout_above="@+id/img_question_house_bottomBg_3"
         android:background="@android:color/transparent"
-        android:src="@drawable/g_answer_house_3_9_btn" />  
-    
+        android:src="@drawable/g_answer_house_3_9_btn" />
 
-
+   <ImageView
+       android:id="@+id/img_question_house_body_3"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/img_question_house_navi_3"
+       android:layout_below="@+id/img_question_house_title_3"
+       android:layout_marginTop="16dp"
+       android:src="@drawable/g_question_house_1" />
 
 </RelativeLayout>
