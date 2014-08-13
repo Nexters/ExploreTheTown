@@ -8,8 +8,10 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nexters.coord.PointF;
@@ -124,13 +126,26 @@ public class ResultActivity extends ActionBarActivity implements OnMarkerClickLi
 						JSONObject response) {
 					
 					try {
-						Log.i("test","ccc");
 						resultData = RequestManager.responseParserSecondMap(response);
-						Log.i("test","bbbb");
+						/** HERE!!! */
 							PolygonOptions tmp = new PolygonOptions();
 							tmp.add(new LatLng(30,120), new LatLng(50,120), new LatLng(50,140), new LatLng(30,140));
 							tmp.strokeColor(Color.WHITE).fillColor(0x99FFFFFF);
 							mmap.addPolygon(tmp);
+							
+							// 1,2,3위 marker
+							MarkerOptions optSecond = new MarkerOptions();
+							optSecond.position(resultData.rigions[1].centerLatLng);
+							optSecond.icon(BitmapDescriptorFactory.fromResource(R.drawable.h_marker_1));
+							mmap.addMarker(optSecond).showInfoWindow();
+
+							optSecond.position(resultData.rigions[2].centerLatLng);
+							optSecond.icon(BitmapDescriptorFactory.fromResource(R.drawable.h_maarker_2));
+							mmap.addMarker(optSecond).showInfoWindow();
+								
+							optSecond.position(resultData.rigions[3].centerLatLng);
+							optSecond.icon(BitmapDescriptorFactory.fromResource(R.drawable.h_maarker_3));
+							mmap.addMarker(optSecond).showInfoWindow();
 							// 자주색 지역 칠하기
 						for(int i = 0 ; i < resultData.rigions.length ; i++){
 							Log.i("test","" + i);
@@ -160,8 +175,9 @@ public class ResultActivity extends ActionBarActivity implements OnMarkerClickLi
 							}
 						
 						}
-						
-						
+						mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(resultData.rigions[1].centerLatLng, 10));
+
+						/** END!!! */
 						
 						RelativeLayout loadingLayout = (RelativeLayout)findViewById(R.id.layout_result_loading_page);
 						loadingLayout.setVisibility(View.INVISIBLE);
@@ -231,13 +247,14 @@ public class ResultActivity extends ActionBarActivity implements OnMarkerClickLi
 					R.id.result_map);
 			mmap = fragment.getMap();
 
-			setMapCamera();
+			
 
 		}
 	}
 
 	private void setMapCamera(){
 		LatLng startingPoint = null;
+
 		switch(selectCityName){
 		case SEOUL :
 			startingPoint = new LatLng(37.561241, 126.979582);
@@ -308,6 +325,7 @@ public class ResultActivity extends ActionBarActivity implements OnMarkerClickLi
 			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(startingPoint, 10));
 			break;
 		}
+
 	}
 
 	private void setUpMap() {

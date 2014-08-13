@@ -95,7 +95,7 @@
         android:layout_toRightOf="@+id/imgBtn_selectCityListThird_gwangju"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:src="@drawable/b_small_gangwon_btn" />     
+        android:src="@drawable/b_small_jeju_btn" />     
         
     <ImageView
         android:id="@+id/img_selectCityListThird_City"

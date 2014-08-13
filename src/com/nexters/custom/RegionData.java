@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.nexters.coord.CoordConverter;
 import com.nexters.coord.PointF;
 
@@ -13,6 +14,7 @@ public class RegionData {
 	public double sum = 0;
 	public PointF[] coords;
 	public int rank;
+	public LatLng centerLatLng;
 
 	public void setCD(String cd){
 		this.cd = cd;

@@ -119,7 +119,6 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:background="@drawable/f_bg_black">
-
 		<ProgressBar
 		    android:id="@+id/progressBar_first_answer"
 		    style="?android:attr/progressBarStyleLarge"
@@ -127,6 +126,13 @@
 		    android:layout_height="wrap_content"
 		    android:layout_centerHorizontal="true"
 		    android:layout_centerVertical="true" />
+	<ImageView
+	    android:id="@+id/loading_img"
+	    android:layout_width="170.67dp"
+	    android:layout_height="100dp"
+	    android:layout_centerHorizontal="true"
+		android:layout_above="@+id/progressBar_first_answer"
+	    android:src="@drawable/loading" />
 	    
 	</RelativeLayout>
 

@@ -152,6 +152,8 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 					try {
 						resultData = RequestManager.responseParserFirstMap(response);
 
+						
+						/** HERE!!! */
 							PolygonOptions tmp = new PolygonOptions();
 							tmp.add(new LatLng(30,120), new LatLng(50,120), new LatLng(50,140), new LatLng(30,140));
 							tmp.strokeColor(Color.WHITE).fillColor(0x99FFFFFF);
@@ -172,6 +174,7 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 							}
 							colormapdraw(resultData.rigions[i].coords,fill_color);
 						}
+						/** END!!! */
 						RelativeLayout loadingLayout = (RelativeLayout)findViewById(R.id.layout_loading_page);
 						loadingLayout.setVisibility(View.INVISIBLE);
 					} catch (JSONException e) {

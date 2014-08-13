@@ -104,7 +104,7 @@
         android:layout_below="@+id/img_selectCityListSecond_naviBar"
         android:layout_above="@+id/imgBtn_selectCityListSecond_chungcheongbukdo"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/b_big_chungcheongbukdo" />
+        android:src="@drawable/b_big_chungcheongnamdo" />
     
     <ImageButton
         android:id="@+id/imgBtn_selectCityListSecond_left"
