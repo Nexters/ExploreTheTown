@@ -3,30 +3,27 @@ package com.nexters.explorethetown;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.nexters.custom.CityName;
-import com.nexters.explorethetown.R;
-import com.nexters.spider_graph_test.GraphData;
-import com.nexters.spider_graph_test.GraphView;
-import com.nexters.spider_graph_test.SeekBarType;
-import com.nexters.spider_graph_test.SeekbarControl;
-
 import android.app.ActionBar;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.widget.ImageView.ScaleType;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
-import android.widget.LinearLayout.LayoutParams;
+
+import com.nexters.custom.CityName;
+import com.nexters.spider_graph_test.GraphData;
+import com.nexters.spider_graph_test.GraphView;
+import com.nexters.spider_graph_test.SeekBarType;
+import com.nexters.spider_graph_test.SeekbarControl;
 
 public class QuestionNeighborActivity extends ActionBarActivity {
 
@@ -74,6 +71,9 @@ public class QuestionNeighborActivity extends ActionBarActivity {
         // 占쏙옙占썩서 width占쏙옙 占쏙옙咀몌옙占� 占쏙옙占쏙옙 占쏙옙占쏙옙占� 占쏙옙쨉홱占�.
 	   ImageView imgBgLine = (ImageView)findViewById(R.id.img_question_neighbor_linebg);
 	   drawGraph(imgBgLine.getLeft(), imgBgLine.getRight(), imgBgLine.getTop(), imgBgLine.getBottom());
+	   
+	   //RelativeLayout vg = (RelativeLayout) findViewById(R.id.main_layout);
+	   //drawGraph(vg.getLeft(), vg.getRight(), vg.getTop(), vg.getBottom());
    }
    
    
@@ -137,11 +137,16 @@ public class QuestionNeighborActivity extends ActionBarActivity {
 
 
       RelativeLayout vg = (RelativeLayout) findViewById(R.id.main_layout);
+
+      int centerX = Math.abs(right-left)/2;
+      int centerY = Math.abs(top-bottom)/2;
       
-      
-      GraphData data = new GraphData();
-      graph = new GraphView(getApplicationContext(), data, 0 , 0 );
-      vg.addView(graph, new LayoutParams(800, 700));
+      GraphData data = new GraphData(centerX, centerY);
+      graph = new GraphView(getApplicationContext(), data, centerX , centerY );
+      RelativeLayout.LayoutParams graphLayoutParam =new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+      graphLayoutParam.addRule(RelativeLayout.CENTER_IN_PARENT);
+      //vg.setGravity(Gravity.CENTER_VERTICAL | Gravity.TOP);
+      vg.addView(graph, graphLayoutParam);
       // top
       seek_top = (SeekBar) findViewById(R.id.seek_question_neighbor_peopleCnt);
       seek_top.setMax(200);

@@ -3,6 +3,11 @@ package com.nexters.spider_graph_test;
 public class GraphXY {
    public int X;
    public int Y;
+   
+   public GraphXY(){
+	      X = 0;
+	      Y = 0;
+	   }
    public GraphXY(int x, int y){
       X = x;
       Y = y;

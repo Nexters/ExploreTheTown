@@ -1,70 +1,77 @@
 package com.nexters.spider_graph_test;
 
 public class GraphData {
-   
-   private int width = 200;
-   private int height = 200;
-   
-   
-   GraphXY top = new GraphXY(100,100);
-   GraphXY rightUp = new GraphXY(100,100);
-   GraphXY rightDown = new GraphXY(100,100);
-   GraphXY leftUp = new GraphXY(100,100);
-   GraphXY leftDown = new GraphXY(100,100);
-   
-   
-   public GraphData(){
-      setCnt(0.5f);
-      setAge(0.5f);
-      setGender(0.5f);
-      setStudy(0.5f);
-      setForigner(0.5f);
-   }
-   
-   public GraphXY getCnt() {
-      return top;
-   }
 
-   public void setCnt(float progressPercent) {
-      this.top.setX((int)(width + width*0.309016*progressPercent));
-      this.top.setY((int)(height - height*0.951056*progressPercent));
-   }
+	private int width;
+	private int height;
 
-   public GraphXY getAge() {
-      return rightUp;
-   }
+	GraphXY top;
+	GraphXY rightUp;
+	GraphXY rightDown;
+	GraphXY leftUp;
+	GraphXY leftDown;
 
-   public void setAge(float progressPercent) {
-      this.rightUp.setX((int)(width + width*progressPercent));
-      this.rightUp.setY((int)(height));
-   }
+	public GraphData(int width, int height) {
+		this.width = width;
+		this.height = height;
 
-   public GraphXY getGender() {
-      return rightDown;
-   }
+		top = new GraphXY();
+		rightUp = new GraphXY();
+		rightDown = new GraphXY();
+		leftUp = new GraphXY();
+		leftDown = new GraphXY();
 
-   public void setGender(float progressPercent) {
-      this.rightDown.setX((int)(width + width*0.309016*progressPercent));
-      this.rightDown.setY((int)(height + height*0.951056*progressPercent));
-   }
+		setCnt(0.5f);
+		setAge(0.5f);
+		setGender(0.5f);
+		setStudy(0.5f);
+		setForigner(0.5f);
+	}
 
-   public GraphXY getStudy() {
-      return leftDown;
-   }
+	public GraphXY getCnt() {
+		return top;
+	}
 
-   public void setStudy(float progressPercent) {
-      this.leftDown.setX((int)(width - width*0.809016*progressPercent));
-      this.leftDown.setY((int)(height + height*0.587785*progressPercent));
-   }
-   
-   public GraphXY getForigner(){
-      return leftUp;
-   }
-   
-   public void setForigner(float progressPercent){
+	public void setCnt(float progressPercent) {
+		this.top.setX((int) (width * 0.8 * 0.309016 * progressPercent));
+		this.top.setY((int) (-height * 0.8 * 0.951056 * progressPercent));
+	}
 
-      this.leftUp.setX((int)(width - width*0.809016*progressPercent));
-      this.leftUp.setY((int)(height - height*0.587785*progressPercent));
-   }
+	public GraphXY getAge() {
+		return rightUp;
+	}
+
+	public void setAge(float progressPercent) {
+		this.rightUp.setX((int) (+width * 0.8 * progressPercent));
+		this.rightUp.setY((int) (0));
+	}
+
+	public GraphXY getGender() {
+		return rightDown;
+	}
+
+	public void setGender(float progressPercent) {
+		this.rightDown.setX((int) (width * 0.8 * 0.309016 * progressPercent));
+		this.rightDown.setY((int) (height * 0.8 * 0.951056 * progressPercent));
+	}
+
+	public GraphXY getStudy() {
+		return leftDown;
+	}
+
+	public void setStudy(float progressPercent) {
+		this.leftDown.setX((int) (-width * 0.8 * 0.809016 * progressPercent));
+		this.leftDown.setY((int) (height * 0.8 * 0.587785 * progressPercent));
+	}
+
+	public GraphXY getForigner() {
+		return leftUp;
+	}
+
+	public void setForigner(float progressPercent) {
+
+		this.leftUp.setX((int) (-width * 0.8 * 0.809016 * progressPercent));
+		this.leftUp.setY((int) (-height * 0.8 * 0.587785 * progressPercent));
+	}
 
 }
