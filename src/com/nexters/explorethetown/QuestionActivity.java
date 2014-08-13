@@ -6,6 +6,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -37,6 +38,7 @@ public class QuestionActivity extends ActionBarActivity{
 	
 	CityName selectCityName;					// 앞에서 선택한 지역명 받아옴
 	
+	Handler handler;
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -194,11 +196,21 @@ public class QuestionActivity extends ActionBarActivity{
 					
 					if(question.isEndQuestion()){
 						if(clickedTownsInt == 0){
+							if(question.answersCodeSize() != 0){
 							Intent iIntent = new Intent(QuestionActivity.this,FirstAnswerMapActivity.class);
 							iIntent.putExtra("SELECT_CITY", selectCityName);
-							iIntent.putExtra("SELECT_RESULT", question.getAnswerCode());
+							iIntent.putExtra("SELECT_RESULT", question.answersCode.toString());
+							iIntent.putExtra("NO_SELECT_RESULT",question.answersNoCode.toString());
 							startActivity(iIntent);
 							finish();
+							}else{
+						        // Change Page After Few Secs
+						        handler = new Handler();
+						        handler.postDelayed(noAnswerGoBack, 1000);		// change page after 1 sec
+						        Toast toast = Toast.makeText(QuestionActivity.this, "위 조건은 모든 동네가 해당됩니다. \n다시 답변해주세요.", Toast.LENGTH_LONG);
+							    toast.show();
+								
+							}
 						}else{
 							finishTownsInt = finishTownsInt*10+nowTownsInt;
 							question.setQuestionNumber((clickedTownsInt%10)*10+1);
@@ -217,6 +229,14 @@ public class QuestionActivity extends ActionBarActivity{
 
 		
 	}
+	
+	// after 4 secs go back
+	Runnable noAnswerGoBack = new Runnable(){
+		@Override
+		public void run(){
+	        finish();
+		}
+	};
 	// show images
 	private void showImgs(){
 		setInit();

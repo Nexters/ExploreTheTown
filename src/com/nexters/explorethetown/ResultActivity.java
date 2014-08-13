@@ -67,6 +67,7 @@ public class ResultActivity extends ActionBarActivity implements
 		top30Cds = iIntent.getStringExtra("YELLOW_TOP30_CD");
 
 		String firstCond = iIntent.getStringExtra("FIRST_COND");
+		String firstNeCond = iIntent.getStringExtra("FIRST_NE_COND");
 		selectCityName = (CityName) iIntent.getSerializableExtra("SELECT_CITY");
 
 		// Hidden Action Bar
@@ -166,13 +167,12 @@ public class ResultActivity extends ActionBarActivity implements
 		TextView tvCnt = (TextView)findViewById(R.id.text_result_mypopup_topNum);
 		tvCnt.setText(""+totalCnt);
 
-		setOnClickListener();
-		setPopupClickListener();
+
 		
 
 		try {
 			RequestManager.sendRequestForSecondMap("house_gateway",
-					neighbor_result, house_result, top30Cds, nowCd, firstCond,
+					neighbor_result, house_result, top30Cds, nowCd, firstCond, firstNeCond,
 					new JsonHttpResponseHandler() {
 						@Override
 						public void onSuccess(int statusCode, Header[] headers,
@@ -234,6 +234,17 @@ public class ResultActivity extends ActionBarActivity implements
 				RelativeLayout myRelative = (RelativeLayout) findViewById(R.id.layout_result_my_popup);
 				myRelative.setVisibility(View.INVISIBLE);
 				
+			}
+		});
+	}
+	public void setRePlayClickListener(){
+		Button returnBtn = (Button)findViewById(R.id.imgBtn_result_Next);
+		returnBtn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
 			}
 		});
 	}
@@ -444,9 +455,9 @@ public class ResultActivity extends ActionBarActivity implements
 					// Double.toString(resultData.rigions[i].ratio));
 					int fill_color = Color.BLACK;
 					if (resultData.rigions[i].ratio <= 33.3) {
-						fill_color = 0xAAFF4CB7;
-					} else if (resultData.rigions[i].ratio <= 66.6) {
 						fill_color = 0x99CC3399;
+					} else if (resultData.rigions[i].ratio <= 66.6) {
+						fill_color = 0xAAFF4CB7;
 					} else {
 						fill_color = 0x99990099;
 					}
@@ -574,6 +585,9 @@ public class ResultActivity extends ActionBarActivity implements
 				RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.layout_result_loading_page);
 				loadingLayout.setVisibility(View.INVISIBLE);
 				
+				setOnClickListener();
+				setPopupClickListener();
+				setRePlayClickListener();
 				// mypopup의 데이터 설정
 				int resultCnt = backData.resultData.rigions.length;
 //totalCnt

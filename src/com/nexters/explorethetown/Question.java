@@ -2,17 +2,21 @@ package com.nexters.explorethetown;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+
 import com.nexters.explorethetown.R;
 import com.nexters.custom.QuestionType;
 
 public class Question {
 	Question(){
 		questionNumber = 0;
-		answersCode = new ArrayList<String>();
+		answersCode = new JSONArray();
+		answersNoCode = new JSONArray();
 	}
 	public Question(int QNUM){
 		setQuestionNumber(QNUM);
-		answersCode = new ArrayList<String>();
+		answersCode = new JSONArray();
+		answersNoCode = new JSONArray();
 	}
 	public QuestionType getQuestionType(){
 		switch(questionNumber){
@@ -27,7 +31,9 @@ public class Question {
 			return QuestionType.YESORNO;
 		}
 	}
-	
+	public int answersCodeSize(){
+		return answersCode.length() + answersNoCode.length();
+	}
 	// Set Question Number and Set Question File Name
 	public void setQuestionNumber(int QUESTIONNUMBER){
 		questionNumber = QUESTIONNUMBER;
@@ -292,45 +298,45 @@ public class Question {
 		if(chk == true){
 			switch(questionNumber){
 			case 11:
-				answersCode.add("item_40");
+				answersCode.put("item_40");
 				break;
 			case 12:
-				answersCode.add("item_41");
+				answersCode.put("item_41");
 				break;
 			case 21:
-				answersCode.add("item_53");
+				answersCode.put("item_53");
 				break;
 			case 22:
-				answersCode.add("item_31");
-				answersCode.add("item_32");
+				answersCode.put("item_31");
+				answersCode.put("item_32");
 				break;
 			case 23:
-				answersCode.add("item_33");
+				answersCode.put("item_33");
 				break;
 			case 24:
-				answersCode.add("item_36");
+				answersCode.put("item_36");
 				break;
 			case 25:
-				answersCode.add("item_34");
+				answersCode.put("item_34");
 				break;
 			case 26:
-				answersCode.add("literary_art_hall");
+				answersCode.put("literary_art_hall");
 				break;
 			case 32:
-				answersCode.add("item_43");
+				answersCode.put("item_43");
 				break;
 			case 41:
-				answersCode.add("item_19");
+				answersCode.put("item_19");
 				break;
 			case 61:
-				answersCode.add("item_29");
-				answersCode.add("item_30");
+				answersCode.put("item_29");
+				answersCode.put("item_30");
 				break;
 			case 62:
-				answersCode.add("item_39");
+				answersCode.put("item_39");
 				break;
 			case 63:
-				answersCode.add("item_54");
+				answersCode.put("item_54");
 				break;
 			}
 		}
@@ -339,159 +345,83 @@ public class Question {
 		if(chk[0]){
 			switch(questionNumber){
 			case 13:
+				answersCode.put("athletic_field");
+				break;
 			case 31:
-				answersCode.add("trail");
+				answersCode.put("trail");
 				break;
 			case 42:
-				answersCode.add("item_20");
+				answersCode.put("item_20");
 				break;
 			case 43:
-				answersCode.add("item_23");
+				answersCode.put("item_23");
 				break;
 			case 44:
-				answersCode.add("item_35");
+				answersCode.put("item_35");
 				break;
 			case 51:
-				answersCode.add("item_54");
+				answersNoCode.put("item_54");
 				break;
 			}
 		}else if(chk[1]){
 			switch(questionNumber){
 			case 13:
-				answersCode.add("swimming_pool");
+				answersCode.put("swimming_pool");
 				break;
 			case 31:
-				answersCode.add("item_42");
+				answersCode.put("item_42");
 				break;
 			case 42:
-				answersCode.add("item_21");
+				answersCode.put("item_21");
 				break;
 			case 43:
-				answersCode.add("item_24");
+				answersCode.put("item_24");
 				break;
 			case 44:
-				answersCode.add("item_28");
+				answersCode.put("item_28");
 				break;
 			case 51:
-				answersCode.add("item_22");
+				answersNoCode.put("item_22");
 				break;
 			}
 		}else if(chk[2]){
 			switch(questionNumber){
 			case 13:
-				answersCode.add("roller_skating_rink");
+				answersCode.put("roller_skating_rink");
 				break;
 			case 42:
-				answersCode.add("item_22");
+				answersCode.put("item_22");
 				break;
 			case 43:
-				answersCode.add("item_25");
+				answersCode.put("item_25");
 				break;
 			case 51:
-				answersCode.add("item_23");
-				answersCode.add("item_24");
-				answersCode.add("item_25");
-				answersCode.add("item_26");
+				answersNoCode.put("item_23");
+				answersNoCode.put("item_24");
+				answersNoCode.put("item_25");
+				answersNoCode.put("item_26");
 				break;
 			}
 		}else if(chk[3]){
 			switch(questionNumber){
 			case 13:
+				answersCode.put("driving_range");
+				break;
 			case 43:
-				answersCode.add("item_26");
+				answersCode.put("item_26");
 				break;
 			case 51:
-				answersCode.add("item_29");
-				answersCode.add("item_30");
+				answersNoCode.put("item_29");
+				answersNoCode.put("item_30");
 				break;
 			}
 		}
 	}
 	
 
-	// delete answer list
-	public void deleteAnswerCode(boolean chk){
-		if(chk == true){
-			switch(questionNumber){
-			case 11:
-			case 12:
-			case 21:
-			case 23:
-			case 24:
-			case 25:
-			case 26:
-			case 32:
-			case 41:
-			case 62:
-			case 63:
-				answersCode.remove(answersCode.size());
-				break;
-			case 22:
-			case 61:
-				answersCode.remove(answersCode.size());
-				answersCode.remove(answersCode.size());
-				break;
-			}
-		}
-	}
-	public void deletetAnswerCode(boolean[] chk){
-		if(chk[0]){
-			switch(questionNumber){
-			case 13:
-			case 31:
-			case 42:
-			case 43:
-			case 44:
-			case 51:
-				answersCode.remove(answersCode.size());
-				break;
-			}
-		}else if(chk[1]){
-			switch(questionNumber){
-			case 13:
-			case 31:
-			case 42:
-			case 43:
-			case 44:
-			case 51:
-				answersCode.remove(answersCode.size());
-				break;
-			}
-		}else if(chk[2]){
-			switch(questionNumber){
-			case 13:
-			case 42:
-			case 43:
-				answersCode.remove(answersCode.size());
-			case 51:
-				answersCode.remove(answersCode.size());
-				answersCode.remove(answersCode.size());
-				answersCode.remove(answersCode.size());
-				answersCode.remove(answersCode.size());
-				break;
-			}
-		}else if(chk[3]){
-			switch(questionNumber){
-			case 13:
-			case 43:
-				answersCode.remove(answersCode.size());
-				break;
-			case 51:
-				answersCode.remove(answersCode.size());
-				break;
-			}
-		}
-	}
 	
-	public String[] getAnswerCode(){
-		String[] returnStr = new String[answersCode.size()];
-		for(int i = 0 ; i < returnStr.length ; i++){
-			returnStr[i] = answersCode.get(i);
-		}
-		return returnStr;
-	}
-	
-	private List<String> answersCode;			// 정답 요청 번호들 저장
+	public JSONArray answersCode;			// 정답 요청 번호들 저장
+	public JSONArray answersNoCode;			// 없는 조건 저장
 	private int questionNumber;		// 11 : Question1_1  21 : Question 2_1 Etc...
 	private String question;
 }

@@ -21,27 +21,23 @@ public class RequestManager {
 	private static String requestFormatterForFirstMap(String relUrl, FirstMapAnswerData answerData)
 			throws UnsupportedEncodingException, JSONException {
 		
-		String[] data = answerData.requestData;
+		
 		String cd = answerData.cd;
 		String req_svc = answerData.req_svc;
 		
 		JSONObject resultJson = new JSONObject();
 		JSONObject reqDataObject = new JSONObject();
-		JSONArray itemCodeArr = new JSONArray();
 		JSONArray reqDataArr = new JSONArray();
-		for(int i = 0 ; i < data.length ; i++){
-			itemCodeArr.put(data[i]);
-		}
-		
-		JSONArray tmp = new JSONArray();
+
+
 		reqDataObject.put("_cd", cd);
-		reqDataObject.put("_cond_cd", itemCodeArr);
-		reqDataObject.put("_ne_cond_cd", tmp);
+		reqDataObject.put("_cond_cd", answerData.answerCode);
+		reqDataObject.put("_ne_cond_cd", answerData.answerNoCode);
 		reqDataArr.put(reqDataObject);
 		resultJson.put("req_data", reqDataArr);
 		resultJson.put("req_svc", req_svc);
 		
-		
+		Log.i("request json check",resultJson.toString());
 		return relUrl
 				+ "/?JSONData="
 				+ URLEncoder.encode(resultJson.toString());
@@ -69,11 +65,11 @@ public class RequestManager {
 		return true;
 	}
 	
-	public static boolean sendRequestForSecondMap(String relUrl, String neighborStr, String houseStr, String areaStr, String cd, String oldCond,
+	public static boolean sendRequestForSecondMap(String relUrl, String neighborStr, String houseStr, String areaStr, String cd, String oldCond, String oldNeCond,
 			JsonHttpResponseHandler handler) throws JSONException{
 		String requestURL;
 		try {
-			requestURL = requestFormatterForSecondMap(relUrl, neighborStr, houseStr, areaStr, cd, oldCond);
+			requestURL = requestFormatterForSecondMap(relUrl, neighborStr, houseStr, areaStr, cd, oldCond, oldNeCond);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 			return false;
@@ -83,7 +79,7 @@ public class RequestManager {
 		return true;
 	}
 	
-	public static String requestFormatterForSecondMap(String relUrl, String neighborStr, String houseStr, String areaStr, String cd, String oldCond)
+	public static String requestFormatterForSecondMap(String relUrl, String neighborStr, String houseStr, String areaStr, String cd, String oldCond, String oldNeCond)
 				throws UnsupportedEncodingException, JSONException {	
 
 
@@ -93,9 +89,10 @@ public class RequestManager {
 		JSONObject old_reqObj = new JSONObject();
 		
 		JSONArray old_cnd = new JSONArray(oldCond);
+		JSONArray old_ne_cnd = new JSONArray(oldNeCond);
 		old_reqObj.put("_cd", cd);
 		old_reqObj.put("_cond_cd", old_cnd);
-		old_reqObj.put("_ne_cond_cd", new JSONArray());
+		old_reqObj.put("_ne_cond_cd", old_ne_cnd);
 		
 		JSONObject neighborObject = new JSONObject(neighborStr);
 		JSONArray cdArray = new JSONArray(areaStr);
@@ -113,6 +110,8 @@ public class RequestManager {
 		Log.i("test","formatter");
 		resultJson.put("req_data", req_dataArr);
 		resultJson.put("req_svc", "LC0006");
+		
+		
 		
 		Log.i("resultJSon", resultJson.toString());
 		return relUrl
