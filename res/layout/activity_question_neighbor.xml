@@ -182,8 +182,6 @@
         android:layout_alignTop="@+id/img_question_neighbor_linebg"
         android:layout_alignBottom="@+id/img_question_neighbor_linebg"
         android:layout_alignLeft="@+id/img_question_neighbor_linebg"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
         android:layout_alignRight="@+id/img_question_neighbor_linebg">
         
     </RelativeLayout>

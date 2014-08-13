@@ -27,7 +27,9 @@ public class Question {
 			return QuestionType.YESORNO;
 		}
 	}
-	
+	public int answersCodeSize(){
+		return answersCode.size();
+	}
 	// Set Question Number and Set Question File Name
 	public void setQuestionNumber(int QUESTIONNUMBER){
 		questionNumber = QUESTIONNUMBER;

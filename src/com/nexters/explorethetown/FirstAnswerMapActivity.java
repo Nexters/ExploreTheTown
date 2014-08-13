@@ -139,7 +139,7 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 			break;
 		}
 
-		setOnClickListener();
+
 
 
 		
@@ -460,6 +460,7 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 				// view는 메인 쓰레드에서만 조작할 수 있기 때문에 이렇게 만든거.
 				RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.layout_loading_page);
 				loadingLayout.setVisibility(View.INVISIBLE);
+				setOnClickListener();
 			}
 		}
 
