@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class QuestionHouseActivity extends ActionBarActivity {
@@ -216,6 +217,28 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			}
 		});
 		
+		ImageButton imgBtnHelp = (ImageButton)findViewById(R.id.img_question_house_helpBtn);
+		imgBtnHelp.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				RelativeLayout helpLayout = (RelativeLayout)findViewById(R.id.layout_quetion_house_help);
+				helpLayout.setVisibility(View.VISIBLE);
+				
+			}
+		});
+		ImageButton imgBtnHelpClose = (ImageButton)findViewById(R.id.imgBtn_question_house_help_close);
+		imgBtnHelpClose.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				RelativeLayout helpLayout = (RelativeLayout)findViewById(R.id.layout_quetion_house_help);
+				helpLayout.setVisibility(View.INVISIBLE);
+				
+			}
+		});		
 	}
 	public void setOnClickListenerSecond(){
 		final ImageButton[] answerImgBtn = new ImageButton[3];
@@ -295,6 +318,29 @@ public class QuestionHouseActivity extends ActionBarActivity {
 					setImgsDefault();
 
 				}
+			}
+		});
+		ImageButton imgBtnHelp = (ImageButton)findViewById(R.id.img_question_house_helpBtn);
+		imgBtnHelp.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				RelativeLayout helpLayout = (RelativeLayout)findViewById(R.id.layout_quetion_house_help);
+				helpLayout.setVisibility(View.VISIBLE);
+				
+			}
+		});
+		
+		ImageButton imgBtnHelpClose = (ImageButton)findViewById(R.id.imgBtn_question_house_help_close);
+		imgBtnHelpClose.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				RelativeLayout helpLayout = (RelativeLayout)findViewById(R.id.layout_quetion_house_help);
+				helpLayout.setVisibility(View.INVISIBLE);
+				
 			}
 		});
 		
@@ -492,6 +538,28 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			}
 		});
 		
+		ImageButton imgBtnHelp = (ImageButton)findViewById(R.id.img_question_house_helpBtn_3);
+		imgBtnHelp.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				RelativeLayout helpLayout = (RelativeLayout)findViewById(R.id.layout_quetion_house_help_3);
+				helpLayout.setVisibility(View.VISIBLE);
+				
+			}
+		});
+		ImageButton imgBtnHelpClose = (ImageButton)findViewById(R.id.imgBtn_question_house_help_close_3);
+		imgBtnHelpClose.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				RelativeLayout helpLayout = (RelativeLayout)findViewById(R.id.layout_quetion_house_help_3);
+				helpLayout.setVisibility(View.INVISIBLE);
+				
+			}
+		});		
 		
 	}
 	@Override

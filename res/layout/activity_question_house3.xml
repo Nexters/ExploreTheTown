@@ -48,6 +48,7 @@
         android:layout_marginTop="15dp"
         android:src="@drawable/g_text_top" />
     
+    
     <ImageView
         android:id="@+id/img_question_house_progressView_3"
         android:layout_width="wrap_content"
@@ -154,5 +155,62 @@
        android:layout_below="@+id/img_question_house_title_3"
        android:layout_marginTop="16dp"
        android:src="@drawable/g_question_house_1" />
-
+   
+       <ImageButton
+        android:id="@+id/img_question_house_helpBtn_3"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_alignTop="@+id/img_question_house_body_3"
+        android:layout_alignRight="@+id/img_question_house_body_3"
+        android:background="@android:color/transparent"
+        android:src="@drawable/h_marker_empty" />
+   
+    <!-- Help View -->
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="@drawable/f_bg_black"
+	    android:visibility="invisible"
+	    android:id="@+id/layout_quetion_house_help_3">
+	    <ImageView
+	        android:id="@+id/img_question_house_help_bg_3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:src="@drawable/f_bg_popup" />
+	    
+	    <ImageButton
+	        android:id="@+id/imgBtn_question_house_help_close_3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignTop="@+id/img_question_house_help_bg_3"
+	        android:layout_alignRight="@+id/img_question_house_help_bg_3"
+	        android:background="@android:color/transparent"
+	        android:src="@drawable/f_btn_delete" />
+	    
+	    <ScrollView 
+	        android:id="@+id/scrollview_question_house_help_3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignTop="@+id/img_question_house_help_bg_3"
+	        android:layout_alignBottom="@+id/img_question_house_help_bg_3"
+	        android:layout_alignRight="@+id/img_question_house_help_bg_3"
+	        android:layout_alignLeft="@+id/img_question_house_help_bg_3"
+	        android:layout_marginTop="55dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="7dp"
+	        android:layout_marginBottom="10dp">
+	    <ImageView
+	        android:id="@+id/img_question_house_helpImg_3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignTop="@+id/scrollview_question_house_help_3"
+	        android:layout_alignBottom="@+id/scrollview_question_house_help_3"
+	        android:layout_alignLeft="@+id/scrollview_question_house_help_3"
+	        android:layout_alignRight="@+id/scrollview_question_house_help_3"
+	        android:layout_marginRight="5dp"
+	        android:adjustViewBounds="true"
+	        android:background="@drawable/g_text_long" />
+	</ScrollView>
+	</RelativeLayout>
 </RelativeLayout>
