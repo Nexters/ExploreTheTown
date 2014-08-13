@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ExploreTheTown</string>
+    <string name="app_name">동네 탐험</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
