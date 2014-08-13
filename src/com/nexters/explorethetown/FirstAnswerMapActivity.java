@@ -56,8 +56,9 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 
 	FirstMapRequestData resultData;
 
-	String requestCond;
 
+	JSONArray answersCode = null;
+	JSONArray answersNoCode = null;
 	/* 지역경계를 그리기 위해 실행한 쓰레드 개수를 세고, 모든 쓰레드의 실행이 끝난 시점을 체크하기 위한 변수. */
 	public static AtomicInteger threadCnt;
 
@@ -74,18 +75,22 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 
 		Intent iIntent = getIntent();
 		selectCityName = (CityName) iIntent.getSerializableExtra("SELECT_CITY");
-		String[] getIntentStr = iIntent.getStringArrayExtra("SELECT_RESULT");
-		JSONArray condArr = new JSONArray();
-		for (int i = 0; i < getIntentStr.length; i++) {
-			condArr.put(getIntentStr[i]);
+
+		try {
+			answersCode = new JSONArray(iIntent.getStringExtra("SELECT_RESULT"));
+			answersNoCode = new JSONArray(iIntent.getStringExtra("NO_SELECT_RESULT"));
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-		requestCond = condArr.toString();
-		Log.i("request cond", requestCond);
+
+		
 
 		FirstMapAnswerData answerData = new FirstMapAnswerData();
 		answerData.cd = "11";
 		answerData.req_svc = "LC0005";
-		answerData.requestData = getIntentStr;
+		answerData.answerCode  = answersCode;
+		answerData.answerNoCode = answersNoCode;
 
 		switch (selectCityName) {
 		case SEOUL:
@@ -175,7 +180,8 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 				Intent iIntent = new Intent(FirstAnswerMapActivity.this,
 						QuestionNeighborActivity.class);
 				iIntent.putExtra("YELLOW_TOP30_CD", resultData.top30CdStr);
-				iIntent.putExtra("FIRST_COND", requestCond);
+				iIntent.putExtra("FIRST_COND", answersCode.toString());
+				iIntent.putExtra("FIRST_NE_COND", answersNoCode.toString());
 				iIntent.putExtra("SELECT_CITY", selectCityName);
 				startActivity(iIntent);
 				finish();
@@ -378,8 +384,6 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 				// 지역 경계를 그린다.
 				threadCnt = new AtomicInteger(resultData.rigions.length);
 				for (int i = 0; i < resultData.rigions.length; i++) {
-					// Log.i("haha",
-					// Double.toString(resultData.rigions[i].ratio));
 					int fill_color = Color.WHITE;
 					if (resultData.rigions[i].ratio <= 10.0) {
 						fill_color = 0xAAFF9900;
@@ -446,7 +450,6 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 
 		protected void onPostExecute(String result) {
 			// view는 메인 쓰레드에서만 조작할 수 있기 때문에 이렇게 만든거.
-			Log.i("count test"," " + (resultData.rigions.length - threadCnt.intValue()));
 			mmap.addPolygon(region);
 			// marker 추가하기
 			optSecond = new MarkerOptions();

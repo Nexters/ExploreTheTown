@@ -26,6 +26,7 @@ public class QuestionHouseActivity extends ActionBarActivity {
 	JSONArray houseResult;
 	String top30Cds;
 	String firstCond;
+	String firstNeCond;
 	CityName selectCityName;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class QuestionHouseActivity extends ActionBarActivity {
         neighbor_resultStr = iIntent.getStringExtra("NEIGHBOR_RESULT");
         top30Cds = iIntent.getStringExtra("YELLOW_TOP30_CD");
         firstCond = iIntent.getStringExtra("FIRST_COND");
+        firstNeCond = iIntent.getStringExtra("FIRST_NE_COND");
 		selectCityName = (CityName) iIntent.getSerializableExtra("SELECT_CITY");
  
 		houseResult = new JSONArray();
@@ -476,11 +478,14 @@ public class QuestionHouseActivity extends ActionBarActivity {
 					iIntent.putExtra("HOUSE_RESULT", houseResult.toString());
 					iIntent.putExtra("YELLOW_TOP30_CD", top30Cds);
 					iIntent.putExtra("FIRST_COND", firstCond);
+					iIntent.putExtra("FIRST_NE_COND",firstNeCond);
 					iIntent.putExtra("SELECT_CITY", selectCityName);
 					Log.i("neighbor check",neighbor_resultStr);
 					Log.i("house check",houseResult.toString());
 					Log.i("con check",firstCond);
+					Log.i("necon check",firstNeCond);
 					startActivity(iIntent);
+					finish();
 
 				}
 

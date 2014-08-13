@@ -67,6 +67,7 @@ public class ResultActivity extends ActionBarActivity implements
 		top30Cds = iIntent.getStringExtra("YELLOW_TOP30_CD");
 
 		String firstCond = iIntent.getStringExtra("FIRST_COND");
+		String firstNeCond = iIntent.getStringExtra("FIRST_NE_COND");
 		selectCityName = (CityName) iIntent.getSerializableExtra("SELECT_CITY");
 
 		// Hidden Action Bar
@@ -171,7 +172,7 @@ public class ResultActivity extends ActionBarActivity implements
 
 		try {
 			RequestManager.sendRequestForSecondMap("house_gateway",
-					neighbor_result, house_result, top30Cds, nowCd, firstCond,
+					neighbor_result, house_result, top30Cds, nowCd, firstCond, firstNeCond,
 					new JsonHttpResponseHandler() {
 						@Override
 						public void onSuccess(int statusCode, Header[] headers,
@@ -233,6 +234,17 @@ public class ResultActivity extends ActionBarActivity implements
 				RelativeLayout myRelative = (RelativeLayout) findViewById(R.id.layout_result_my_popup);
 				myRelative.setVisibility(View.INVISIBLE);
 				
+			}
+		});
+	}
+	public void setRePlayClickListener(){
+		Button returnBtn = (Button)findViewById(R.id.imgBtn_result_Next);
+		returnBtn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
 			}
 		});
 	}
@@ -575,6 +587,7 @@ public class ResultActivity extends ActionBarActivity implements
 				
 				setOnClickListener();
 				setPopupClickListener();
+				setRePlayClickListener();
 				// mypopup의 데이터 설정
 				int resultCnt = backData.resultData.rigions.length;
 //totalCnt

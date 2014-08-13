@@ -45,6 +45,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
    
    String top30Cds;
    String firstCond;
+   String firstNeCond;
    CityName selectCityName;
    
    @Override
@@ -56,6 +57,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
       Intent iIntent = getIntent();
       top30Cds = iIntent.getStringExtra("YELLOW_TOP30_CD");
       firstCond = iIntent.getStringExtra("FIRST_COND");
+      firstNeCond = iIntent.getStringExtra("FIRST_NE_COND");
 		selectCityName = (CityName) iIntent.getSerializableExtra("SELECT_CITY");
       // Hidden Action Bar
       ActionBar actionBar = getActionBar();
@@ -104,6 +106,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
             iIntent.putExtra("NEIGHBOR_RESULT", sendJson.toString());
             iIntent.putExtra("YELLOW_TOP30_CD", top30Cds);
             iIntent.putExtra("FIRST_COND", firstCond);
+            iIntent.putExtra("FIRST_NE_COND", firstNeCond);
             iIntent.putExtra("SELECT_CITY", selectCityName);
             startActivity(iIntent);
             finish();
@@ -140,7 +143,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
       
       
       GraphData data = new GraphData();
-      graph = new GraphView(getApplicationContext(), data, 0 , 0 );
+      graph = new GraphView(getApplicationContext(), data, 100 , 100 );
       vg.addView(graph, new LayoutParams(800, 700));
       // top
       seek_top = (SeekBar) findViewById(R.id.seek_question_neighbor_peopleCnt);
@@ -183,25 +186,6 @@ public class QuestionNeighborActivity extends ActionBarActivity {
 	   getWindowManager().getDefaultDisplay().getMetrics(metrics);
 	   int screenWidth = metrics.widthPixels;
 	   int screenHeight = metrics.heightPixels;
-	   
-	   
-	   ImageView imgView;
-	   
-	   imgView = (ImageView)findViewById(R.id.img_question_neighbor_topbg);
-	   imgView.getLayoutParams().height=  (int) (screenHeight * 0.101041);
-	   imgView.setScaleType(ScaleType.FIT_XY);
-	   
-	   imgView = (ImageView)findViewById(R.id.img_question_neighbor_navi);
-	   imgView.getLayoutParams().height = (int) (screenHeight*0.101041);
-	   imgView.getLayoutParams().width = (int) (screenWidth * 0.101041);
-	   imgView.setScaleType(ScaleType.FIT_XY);
-	   
-	   imgView = (ImageView)findViewById(R.id.img_question_neighbor_title);
-	   imgView.getLayoutParams().height = (int) (screenHeight*0.02708);
-	   imgView.getLayoutParams().width = (int) (screenWidth * 0.203703);
-	   imgView.setPadding((int) (screenWidth*0.01667), 0, 0, 0);
-	   imgView.setScaleType(ScaleType.FIT_XY);
-	   
 	   
 	   
 	   

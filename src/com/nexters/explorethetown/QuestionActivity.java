@@ -199,15 +199,16 @@ public class QuestionActivity extends ActionBarActivity{
 							if(question.answersCodeSize() != 0){
 							Intent iIntent = new Intent(QuestionActivity.this,FirstAnswerMapActivity.class);
 							iIntent.putExtra("SELECT_CITY", selectCityName);
-							iIntent.putExtra("SELECT_RESULT", question.getAnswerCode());
+							iIntent.putExtra("SELECT_RESULT", question.answersCode.toString());
+							iIntent.putExtra("NO_SELECT_RESULT",question.answersNoCode.toString());
 							startActivity(iIntent);
 							finish();
 							}else{
 						        // Change Page After Few Secs
 						        handler = new Handler();
 						        handler.postDelayed(noAnswerGoBack, 1000);		// change page after 1 sec
-						        Toast toast = Toast.makeText(QuestionActivity.this, "답변을 작성하세요", Toast.LENGTH_LONG);
-								toast.show();
+						        Toast toast = Toast.makeText(QuestionActivity.this, "위 조건은 모든 동네가 해당됩니다. \n다시 답변해주세요.", Toast.LENGTH_LONG);
+							    toast.show();
 								
 							}
 						}else{
