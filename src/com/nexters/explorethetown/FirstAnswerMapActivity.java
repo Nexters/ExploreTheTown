@@ -49,6 +49,7 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 	MapFragment fragment;
 	ProgressBar loadingBar;
 	private Marker nowMarker;
+	private Marker beforeMarker;
 	CityName selectCityName;
 	
 
@@ -352,6 +353,8 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 		// TODO Auto-generated method stub
 		for(int i =0 ; i < resultData.rigions.length ; i++){
 			if(arg0.equals(cityMarker[i])){
+				//cityMarker[i].setIcon(BitmapDescriptorFactory
+				//		.fromResource(R.drawable.h_marker_0));
 				Toast toast = Toast.makeText(FirstAnswerMapActivity.this, resultData.rigions[i].address, Toast.LENGTH_SHORT);
 				toast.show();
 				break;

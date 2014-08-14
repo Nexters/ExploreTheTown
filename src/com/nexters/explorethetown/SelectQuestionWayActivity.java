@@ -132,7 +132,7 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 				if(!isClicked[4]){
 					imageButton5.setImageResource(R.drawable.c_btn_young_pressed);
 					isClicked[4] = true;
-					imgCenterBig.setImageResource(R.drawable.c_btn_young);
+					imgCenterBig.setImageResource(R.drawable.c_big_young);
 				}else{
 					imageButton5.setImageResource(R.drawable.c_btn_young);
 					isClicked[4] = false;
@@ -151,7 +151,7 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 					isClicked[5] = true;
 					imgCenterBig.setImageResource(R.drawable.c_big_less);
 				}else{
-					imageButton6.setImageResource(R.drawable.c_big_less);
+					imageButton6.setImageResource(R.drawable.c_btn_less);
 					isClicked[5] = false;
 					if (checkNothingClicked()){
 						imgCenterBig.setImageResource(R.drawable.c_unselect);

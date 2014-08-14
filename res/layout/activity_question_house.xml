@@ -122,7 +122,6 @@
         android:layout_height="wrap_content"
 		android:layout_below="@+id/imgBtn_question_house_answer4"
 		android:layout_alignLeft="@+id/imgBtn_question_house_answer4"
-		android:layout_above="@+id/img_question_house_bottombg"
 		android:layout_marginTop="29.34dp"
         android:background="@android:color/transparent"
         android:src="@drawable/g_answer_house_1_5_btn" />

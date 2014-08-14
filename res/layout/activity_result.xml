@@ -154,7 +154,6 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:background="@drawable/f_bg_black"
-	    android:visibility="invisible"
 	    android:id="@+id/layout_result_my_popup">
 	
 	    <ImageView
@@ -183,27 +182,28 @@
 			android:layout_marginBottom="10dp"
 			android:background="@android:color/transparent"
 		    android:src="@drawable/h_popup_share" />
-						
-		<TextView
-		    android:id="@+id/text_result_mypopup_topleft"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignTop="@+id/img_result_mypopup_bg"
-		    android:layout_alignLeft="@+id/img_result_mypopup_bg"
-		    android:layout_marginTop="159.67dp"
-		    android:layout_marginLeft="67dp"
-		    android:textSize="60.02px"
-		    android:textColor="#666666"
-		    android:text="서울 지역 총 " />
 		
 		<TextView
 		    android:id="@+id/text_result_mypopup_topNum"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
-		    android:layout_toRightOf="@+id/text_result_mypopup_topleft"
-		    android:layout_alignTop="@+id/text_result_mypopup_topleft"
-		    android:textSize="60.02px"
+		    android:layout_marginTop="159.67dp"
+		    android:layout_alignTop="@+id/img_result_mypopup_bg"
+		    android:layout_centerHorizontal="true"
+		    android:textSize="20sp"
 		    android:text="143" />
+								
+		<TextView
+		    android:id="@+id/text_result_mypopup_topleft"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:layout_toLeftOf="@+id/text_result_mypopup_topNum"
+			android:layout_alignTop="@+id/text_result_mypopup_topNum"
+		    android:textSize="20sp"
+		    android:textColor="#666666"
+		    android:text="서울 지역 총 " />
+		
+
 		
 		<TextView
 		    android:id="@+id/text_result_mypopup_topRight"
@@ -211,7 +211,7 @@
 		    android:layout_height="wrap_content"
 		    android:layout_toRightOf="@+id/text_result_mypopup_topNum"
 		    android:layout_alignTop="@+id/text_result_mypopup_topNum"
-		    android:textSize="60.02px"
+		    android:textSize="20sp"
 		    android:textColor="#666666"
 		    android:text=" 곳 중에" />
 
@@ -221,7 +221,7 @@
 		    android:layout_height="wrap_content"
 			android:layout_below="@+id/text_result_mypopup_topleft"
 			android:layout_alignRight="@+id/text_result_mypopup_topleft"
-		    android:textSize="60.02px"
+		    android:textSize="20sp"
 		    android:text="50" />
 		
 		<TextView
@@ -230,7 +230,7 @@
 		    android:layout_height="wrap_content"
 		    android:layout_alignTop="@+id/text_result_mypopup_bottomNum"
 		    android:layout_toRightOf="@+id/text_result_mypopup_bottomNum"
-		    android:textSize="60.02px"
+		    android:textSize="20sp"
 		    android:textColor="#666666"
 		    android:text="곳!" />
 
@@ -244,23 +244,14 @@
 		    android:src="@drawable/h_popup_text_1" />
 
 
-
-		<ImageView
-		    android:id="@+id/img_result_mypopup_yelloBg"
-		    android:layout_width="220dp"
-		    android:layout_height="85dp"
-		    android:layout_centerHorizontal="true"
-		    android:layout_below="@+id/img_result_mypopup_text"
-		    android:layout_marginTop="3dp"
-		    android:src="@drawable/h_popup_bg_yellow" />
-		
 		<TextView
 		    android:id="@+id/text_result_mypopup_first"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
-		    android:layout_alignTop="@+id/img_result_mypopup_yelloBg"
+		    android:layout_below="@+id/img_result_mypopup_text"	    
+		    android:layout_marginTop="3dp"
 		    android:layout_centerHorizontal="true"
-		    android:textSize="65px"
+		    android:textSize="17sp"
 		    android:textColor="#660066"
 		    android:text="1위 송파1동" />
 
@@ -270,9 +261,9 @@
 		    android:layout_height="wrap_content"
 		    android:layout_below="@+id/text_result_mypopup_first"
 		    android:layout_centerHorizontal="true"
-		    android:textSize="65px"
+		    android:textSize="17sp"
 		    android:textColor="#660066"
-		    android:text="2위 서울시 송파구" />
+		    android:text="2위 인천광역시 인천광역군 인천광역시" />
 		
 		<TextView
 		    android:id="@+id/text_result_mypopup_third"
@@ -280,9 +271,22 @@
 		    android:layout_height="wrap_content"
 		    android:layout_below="@+id/text_result_mypopup_second"
 		    android:layout_centerHorizontal="true"
-		    android:textSize="65px"
+		    android:textSize="17sp"
 		    android:textColor="#660066"
-		    android:text="3위 서울시 송파구" />
-	    
+		    android:text="3위 인천광역시 남동구 구월1동" />
+		
+		<ImageView
+		    android:id="@+id/img_result_mypopup_yelloBg"
+		    android:layout_width="220dp"
+		    android:layout_height="85dp"
+		    android:layout_centerHorizontal="true"
+		    android:layout_alignTop="@+id/text_result_mypopup_first"
+		    android:layout_alignBottom="@+id/text_result_mypopup_thrid"
+		    android:layout_alignLeft="@+id/img_result_mypopup_bg"
+		    android:layout_alignRight="@+id/img_result_mypopup_bg"
+		    android:layout_marginLeft="15dp"
+		    android:layout_marginRight="15dp"	
+		    android:scaleType="fitXY"
+		    android:src="@drawable/h_popup_bg_yellow" />	    
 	</RelativeLayout>
 </RelativeLayout>
