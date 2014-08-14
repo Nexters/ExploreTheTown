@@ -154,7 +154,7 @@
        android:layout_alignLeft="@+id/img_question_house_navi_3"
        android:layout_below="@+id/img_question_house_title_3"
        android:layout_marginTop="16dp"
-       android:src="@drawable/g_question_house_1" />
+       android:src="@drawable/g_question_house_3" />
    
        <ImageButton
         android:id="@+id/img_question_house_helpBtn_3"

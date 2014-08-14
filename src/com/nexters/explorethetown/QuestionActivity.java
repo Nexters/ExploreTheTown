@@ -37,7 +37,8 @@ public class QuestionActivity extends ActionBarActivity{
 	int nowTownsInt;							// 현재 진행중인거 저장
 	
 	CityName selectCityName;					// 앞에서 선택한 지역명 받아옴
-	
+	boolean[] lessAnswerChk = new boolean[4];		
+
 	Handler handler;
 	@SuppressLint("NewApi")
 	@Override
@@ -60,7 +61,11 @@ public class QuestionActivity extends ActionBarActivity{
 				clickedTownsInt = (clickedTownsInt)*10+(i+1);
 			}
 		}
-		
+		// init
+		for(int i = 0 ; i < 4 ; i++){
+			lessAnswerChk[i] = false;
+		}
+				
 		nowTownsInt = clickedTownsInt%10;
 		question = new Question((clickedTownsInt%10) * 10 +1);
 		clickedTownsInt /= 10;
@@ -97,7 +102,10 @@ public class QuestionActivity extends ActionBarActivity{
 					answerImgBtn[0].setSelected(true);
 					beforeClickAnswerNum = 0;
 				}else if(nowQuestionType == QuestionType.CHECKBOX){
-					if(beforeClickAnswerList[0]){
+					if((question.getQuestionNumber() == 61) && lessAnswerChk[0]){
+						Toast toast = Toast.makeText(QuestionActivity.this, "You can't click this asnwer", Toast.LENGTH_SHORT);
+						toast.show();
+					}else if(beforeClickAnswerList[0]){
 						answerImgBtn[0].setSelected(false);
 						beforeClickAnswerList[0] = false;
 					}else{
@@ -121,7 +129,10 @@ public class QuestionActivity extends ActionBarActivity{
 					answerImgBtn[1].setSelected(true);
 					beforeClickAnswerNum = 1;
 				}else if(nowQuestionType == QuestionType.CHECKBOX){
-					if(beforeClickAnswerList[1]){
+					if((question.getQuestionNumber() == 61) && lessAnswerChk[1]){
+						Toast toast = Toast.makeText(QuestionActivity.this, "You can't click this asnwer", Toast.LENGTH_SHORT);
+						toast.show();
+					}else if(beforeClickAnswerList[1]){
 						answerImgBtn[1].setSelected(false);
 						beforeClickAnswerList[1] = false;
 					}else{
@@ -144,7 +155,10 @@ public class QuestionActivity extends ActionBarActivity{
 					answerImgBtn[2].setSelected(true);
 					beforeClickAnswerNum = 2;
 				}else if(nowQuestionType == QuestionType.CHECKBOX){
-					if(beforeClickAnswerList[2]){
+					if((question.getQuestionNumber() == 61) && lessAnswerChk[2]){
+						Toast toast = Toast.makeText(QuestionActivity.this, "You can't click this asnwer", Toast.LENGTH_SHORT);
+						toast.show();
+					}else if(beforeClickAnswerList[2]){
 						answerImgBtn[2].setSelected(false);
 						beforeClickAnswerList[2] = false;
 					}else{
@@ -166,7 +180,10 @@ public class QuestionActivity extends ActionBarActivity{
 					answerImgBtn[3].setSelected(true);
 					beforeClickAnswerNum = 3;
 				}else if(nowQuestionType == QuestionType.CHECKBOX){
-					if(beforeClickAnswerList[3]){
+					if((question.getQuestionNumber() == 61) && lessAnswerChk[3]){
+						Toast toast = Toast.makeText(QuestionActivity.this, "You can't click this asnwer", Toast.LENGTH_SHORT);
+						toast.show();
+					}else if(beforeClickAnswerList[3]){
 						answerImgBtn[3].setSelected(false);
 						beforeClickAnswerList[3] = false;
 					}else{
@@ -189,9 +206,11 @@ public class QuestionActivity extends ActionBarActivity{
 					switch(nowQuestionType){
 					case YESORNO:
 						question.setAnswerCode(chkYesOrNo);
+						checkLessAnswer();
 						break;
 					case CHECKBOX:
 						question.setAnswerCode(beforeClickAnswerList);
+						checkLessAnswer();
 					}
 					
 					if(question.isEndQuestion()){
@@ -237,6 +256,34 @@ public class QuestionActivity extends ActionBarActivity{
 	        finish();
 		}
 	};
+	
+	
+	public void checkLessAnswer(){
+		if(question.getQuestionNumber() == 51){
+			if(chkYesOrNo){
+				lessAnswerChk[3] = true;
+			}
+		}else if(question.getQuestionNumber() == 53){
+			if(chkYesOrNo){
+				lessAnswerChk[0] = true;
+			}
+		}else if(question.getQuestionNumber() == 42){
+			if(beforeClickAnswerList[2]){
+				lessAnswerChk[1] = true;
+			}
+		}else if(question.getQuestionNumber() == 43){
+			boolean chk = false;
+			for(int i = 0 ; i < 4 ; i++){
+				if(beforeClickAnswerList[i]){
+					chk = true;
+					break;
+				}
+			}
+			if(chk){
+				lessAnswerChk[2] = true;
+			}
+		}
+	}
 	// show images
 	private void showImgs(){
 		setInit();
@@ -250,6 +297,8 @@ public class QuestionActivity extends ActionBarActivity{
 				answerImgBtn[i].setImageResource(answerImgs[i]);
 			}
 		}
+		
+
 		
 		titleImg.setImageResource(question.getTitleImg());
 		bodyImg.setImageResource(question.getBodyImg());

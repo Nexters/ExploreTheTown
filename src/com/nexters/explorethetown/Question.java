@@ -25,7 +25,7 @@ public class Question {
 		case 42:
 		case 43:
 		case 44:
-		case 51:
+		case 61:
 			return QuestionType.CHECKBOX;
 		default:
 			return QuestionType.YESORNO;
@@ -48,8 +48,8 @@ public class Question {
 		case 26:
 		case 32:
 		case 44:
-		case 51:
-		case 63:
+		case 61:
+		case 53:
 			return true;
 		default:
 				return false;
@@ -82,9 +82,9 @@ public class Question {
 		case 4:
 			return R.drawable.d_text_top_study;
 		case 5:
-			return R.drawable.d_text_top_less;
-		case 6:
 			return R.drawable.d_text_top_young;
+		case 6:
+			return R.drawable.d_text_top_less;
 		}
 		return 0;
 		
@@ -131,14 +131,14 @@ public class Question {
 		case 44:
 			return R.drawable.d_question_study_4;
 		case 51:
-			return R.drawable.d_question_less_1;
-		case 61:
 			return R.drawable.d_question_young_1;
-		case 62:
+		case 52:
 			return R.drawable.d_question_young_2;
-		case 63:
+		case 53:
 			return R.drawable.d_question_young_3;
-		default:
+		case 61:
+			return R.drawable.d_question_less_1;
+		default:			
 			return 0;
 		}
 		
@@ -171,13 +171,13 @@ public class Question {
 		case 44:
 			return R.drawable.d_answer_study_4_1_btn;
 		case 51:
-			return R.drawable.d_answer_less_1_1_btn;
+			return R.drawable.d_answer_young_1_1_btn;
+		case 52:
+			return R.drawable.d_answer_young_1_1_btn;
+		case 53:
+			return R.drawable.d_answer_young_1_1_btn;
 		case 61:
-			return R.drawable.d_answer_young_1_1_btn;
-		case 62:
-			return R.drawable.d_answer_young_1_1_btn;
-		case 63:
-			return R.drawable.d_answer_young_1_1_btn;
+			return R.drawable.d_answer_less_1_1_btn;
 		default:
 			return 0;
 		}
@@ -210,13 +210,13 @@ public class Question {
 		case 44:
 			return R.drawable.d_answer_study_4_2_btn;
 		case 51:
-			return R.drawable.d_answer_less_1_2_btn;
+			return R.drawable.d_answer_young_1_2_btn;
+		case 52:
+			return R.drawable.d_answer_young_1_2_btn;
+		case 53:
+			return R.drawable.d_answer_young_1_2_btn;
 		case 61:
-			return R.drawable.d_answer_young_1_2_btn;
-		case 62:
-			return R.drawable.d_answer_young_1_2_btn;
-		case 63:
-			return R.drawable.d_answer_young_1_2_btn;
+			return R.drawable.d_answer_less_1_2_btn;
 		default:
 			return 0;
 		}
@@ -229,7 +229,7 @@ public class Question {
 			return R.drawable.d_answer_study_2_3_btn;
 		case 43:
 			return R.drawable.d_answer_study_3_3_btn;
-		case 51:
+		case 61:
 			return R.drawable.d_answer_less_1_3_btn;
 		default:
 			return 0;
@@ -241,7 +241,7 @@ public class Question {
 			return R.drawable.d_answer_picnic_3_4_btn;
 		case 43:
 			return R.drawable.d_answer_study_3_4_btn;
-		case 51:
+		case 61:
 			return R.drawable.d_answer_less_1_4_btn;
 		default:
 			return 0;
@@ -281,13 +281,13 @@ public class Question {
 		case 44:
 			return R.drawable.d_view_study_four;
 		case 51:
-			return R.drawable.d_view_four_copy_7;
-		case 61:
 			return R.drawable.d_view_young_one;
-		case 62:
+		case 52:
 			return R.drawable.d_view_young_two;
-		case 63:
+		case 53:
 			return R.drawable.d_view_young_three;
+		case 61:
+			return R.drawable.d_view_four_copy_7;
 		default:
 			return 0;
 			
@@ -328,14 +328,14 @@ public class Question {
 			case 41:
 				answersCode.put("item_19");
 				break;
-			case 61:
+			case 51:
 				answersCode.put("item_29");
 				answersCode.put("item_30");
 				break;
-			case 62:
+			case 52:
 				answersCode.put("item_39");
 				break;
-			case 63:
+			case 53:
 				answersCode.put("item_54");
 				break;
 			}
@@ -359,7 +359,7 @@ public class Question {
 			case 44:
 				answersCode.put("item_35");
 				break;
-			case 51:
+			case 61:
 				answersNoCode.put("item_54");
 				break;
 			}
@@ -380,7 +380,7 @@ public class Question {
 			case 44:
 				answersCode.put("item_28");
 				break;
-			case 51:
+			case 61:
 				answersNoCode.put("item_22");
 				break;
 			}
@@ -395,7 +395,7 @@ public class Question {
 			case 43:
 				answersCode.put("item_25");
 				break;
-			case 51:
+			case 61:
 				answersNoCode.put("item_23");
 				answersNoCode.put("item_24");
 				answersNoCode.put("item_25");
@@ -410,7 +410,7 @@ public class Question {
 			case 43:
 				answersCode.put("item_26");
 				break;
-			case 51:
+			case 61:
 				answersNoCode.put("item_29");
 				answersNoCode.put("item_30");
 				break;
@@ -420,8 +420,8 @@ public class Question {
 	
 
 	
-	public JSONArray answersCode;			// Á¤´ä ¿äÃ» ¹øÈ£µé ÀúÀå
-	public JSONArray answersNoCode;			// ¾ø´Â Á¶°Ç ÀúÀå
+	public JSONArray answersCode;			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	public JSONArray answersNoCode;			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	private int questionNumber;		// 11 : Question1_1  21 : Question 2_1 Etc...
 	private String question;
 }

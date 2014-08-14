@@ -1,5 +1,5 @@
 /**
- * ³ªµéÀÌ µ¿³×, µîµîÀ» ¼±ÅÃÇÏ´Â ÆäÀÌÁö
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 package com.nexters.explorethetown;
 
@@ -20,6 +20,7 @@ import android.widget.Toast;
 @SuppressLint("NewApi")
 public class SelectQuestionWayActivity extends ActionBarActivity {
 
+	
 	CityName selectCityName;
 	boolean isClicked[] = new boolean[6];
 	ImageView imgCenterBig ;
@@ -40,6 +41,7 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 		}
 		
 		
+
 		// Hidden Action Bar
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
@@ -128,11 +130,11 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View arg0){
 				if(!isClicked[4]){
-					imageButton5.setImageResource(R.drawable.c_btn_less_pressed);
+					imageButton5.setImageResource(R.drawable.c_btn_young_pressed);
 					isClicked[4] = true;
-					imgCenterBig.setImageResource(R.drawable.c_big_less);
+					imgCenterBig.setImageResource(R.drawable.c_btn_young);
 				}else{
-					imageButton5.setImageResource(R.drawable.c_btn_less);
+					imageButton5.setImageResource(R.drawable.c_btn_young);
 					isClicked[4] = false;
 					if (checkNothingClicked()){
 						imgCenterBig.setImageResource(R.drawable.c_unselect);
@@ -145,11 +147,11 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				if(!isClicked[5]){
-					imageButton6.setImageResource(R.drawable.c_btn_young_pressed);
+					imageButton6.setImageResource(R.drawable.c_btn_less_pressed);
 					isClicked[5] = true;
-					imgCenterBig.setImageResource(R.drawable.c_big_young);
+					imgCenterBig.setImageResource(R.drawable.c_big_less);
 				}else{
-					imageButton6.setImageResource(R.drawable.c_btn_young);
+					imageButton6.setImageResource(R.drawable.c_big_less);
 					isClicked[5] = false;
 					if (checkNothingClicked()){
 						imgCenterBig.setImageResource(R.drawable.c_unselect);

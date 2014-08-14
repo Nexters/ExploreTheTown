@@ -109,7 +109,7 @@
 		android:layout_alignLeft="@+id/imgBtn_Question2"
 		android:layout_marginTop="14.33dp"
         android:background="@android:color/transparent"
-        android:src="@drawable/c_btn_less" />
+        android:src="@drawable/c_btn_young" />
     
     <ImageButton
         android:id="@+id/imgBtn_Question4"
@@ -127,7 +127,7 @@
 		android:layout_alignTop="@+id/imgBtn_Question5"
 		android:layout_alignLeft="@+id/imgBtn_Question3"
         android:background="@android:color/transparent"
-        android:src="@drawable/c_btn_young" />
+        android:src="@drawable/c_btn_less" />
 
 
 </RelativeLayout>
