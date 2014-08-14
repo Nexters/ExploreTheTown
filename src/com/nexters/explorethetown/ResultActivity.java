@@ -1,5 +1,7 @@
 package com.nexters.explorethetown;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.http.Header;
@@ -34,7 +36,9 @@ import com.google.android.gms.maps.model.PolygonOptions;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nexters.coord.PointF;
 import com.nexters.custom.CityName;
+import com.nexters.custom.RegionData;
 import com.nexters.custom.SecondMapResponseData;
+import com.nexters.custom.myMarker;
 import com.nexters.server.RequestManager;
 
 public class ResultActivity extends ActionBarActivity implements
@@ -49,8 +53,8 @@ public class ResultActivity extends ActionBarActivity implements
 	BackgroundParsingData backData;
 	int totalCnt;
 	
-	Marker[] cityMarker;
-	Marker beforeMarker = null;
+	HashMap<String,Marker> cityMarkerMap = new HashMap<String, Marker>();
+	String beforeMarkerCd;
 
 	String nowCd;
 
@@ -212,7 +216,6 @@ public class ResultActivity extends ActionBarActivity implements
 		
 	}
 	public void setOnClickListener() {
-		Log.i("test", "sleepy..");
 		ImageButton myImgBtn = (ImageButton) findViewById(R.id.imgBtn_result_my);
 		myImgBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -290,7 +293,6 @@ public class ResultActivity extends ActionBarActivity implements
 			
 			// 일단 배경 흰색으로 칠함 
 			// 배경그리기
-			Log.i("background","test");
 			PolygonOptions tmp = new PolygonOptions();
 			tmp.add(new LatLng(30, 120), new LatLng(50, 120), new LatLng(50,
 					140), new LatLng(30, 140));
@@ -403,36 +405,46 @@ public class ResultActivity extends ActionBarActivity implements
 	@Override
 	public boolean onMarkerClick(Marker arg0) {
 		// TODO Auto-generated method stub
-		int rigionCnt = backData.resultData.rigions.length;
-		int oldRigionCnt = backData.resultData.oldRigions.length;
-		int totalCnt = rigionCnt + oldRigionCnt;
-		for(int i =0 ; i < totalCnt ; i++){
-			if(arg0.equals(cityMarker[i])){
-				if(beforeMarker!= null){
-					if(beforeMarker == cityMarker[0]){
-						beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_marker_1));
-					}else if(beforeMarker == cityMarker[1]){
-						beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_maarker_2));
-					}else if (beforeMarker == cityMarker[2]){
-						beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_maarker_3));
-					}else {
-						beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_marker_empty));
-					}
-				}
-				cityMarker[i].setIcon(BitmapDescriptorFactory
-						.fromResource(R.drawable.h_marker_0));
-				beforeMarker = cityMarker[i];
-				if(i < rigionCnt){
-					Toast toast = Toast.makeText(ResultActivity.this, backData.resultData.rigions[i].address, Toast.LENGTH_SHORT);
-					toast.show();
-				}else{
-					Toast toast = Toast.makeText(ResultActivity.this, backData.resultData.oldRigions[i-rigionCnt].address, Toast.LENGTH_SHORT);
-					toast.show();
-				}
+		String clickedCD = null;
+		//RDAUN
+		Iterator<String> keys = backData.resultData.regionMap.keySet().iterator();
+		while(keys.hasNext()){
+			String key = keys.next();
+			if(arg0.equals(cityMarkerMap.get(key))){
+				clickedCD = key;
 				break;
 			}
+			
 		}
-		
+		if(beforeMarkerCd != null){
+			Log.i("1",backData.resultData.firstCD);
+			Log.i("2",backData.resultData.secondCD);
+			Log.i("3",backData.resultData.thirdCD);
+			Log.i("First",beforeMarkerCd);
+			Log.i("second",clickedCD);
+			if(beforeMarkerCd.equals(backData.resultData.firstCD)){
+				Marker beforeMarker = cityMarkerMap.get(beforeMarkerCd);
+				beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_marker_1));
+			}else if(beforeMarkerCd.equals(backData.resultData.secondCD)){
+				Marker beforeMarker = cityMarkerMap.get(beforeMarkerCd);
+				beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_maarker_2));
+			}else if(beforeMarkerCd.equals(backData.resultData.thirdCD)){
+				Marker beforeMarker = cityMarkerMap.get(beforeMarkerCd);
+				beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_maarker_3));
+			}else{
+				Marker beforeMarker = cityMarkerMap.get(beforeMarkerCd);
+				beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_marker_empty));
+				
+			}
+		}
+			arg0.setIcon(BitmapDescriptorFactory
+					.fromResource(R.drawable.h_marker_0));
+			beforeMarkerCd = clickedCD;
+			Log.i("Third",beforeMarkerCd);
+			Log.i("Fourth",clickedCD);
+			RegionData nowRegion = backData.resultData.regionMap.get(clickedCD);
+				Toast toast = Toast.makeText(ResultActivity.this, nowRegion.address, Toast.LENGTH_SHORT);
+				toast.show();		
 		
 		return false;
 	}
@@ -457,58 +469,21 @@ public class ResultActivity extends ActionBarActivity implements
 
 				// 파싱하는데 시간과 메모리가 많이 소요된다.
 				resultData = RequestManager.responseParserSecondMap(response);
-				cityMarker = new Marker[resultData.oldRigions.length + resultData.rigions.length];
 				// 지역 경계를 그린다.
-				threadCnt = new AtomicInteger(resultData.rigions.length);
-				threadCnt.addAndGet(resultData.oldRigions.length);
+				threadCnt = new AtomicInteger(resultData.regionMap.size());
+				
 				int tmpCnt = 0;
-				// 자주색 지역 칠하기
-				for (int i = 0; i < resultData.rigions.length; i++) {
-					
-					Log.i("test", "" + i);
-					// Log.i("haha",
-					// Double.toString(resultData.rigions[i].ratio));
-					int fill_color = Color.BLACK;
-					if (resultData.rigions[i].ratio <= 33.3) {
-						fill_color = 0x99CC3399;
-					} else if (resultData.rigions[i].ratio <= 66.6) {
-						fill_color = 0xAAFF4CB7;
-					} else {
-						fill_color = 0x99990099;
-					}
-
-					// 지역 폴리곤을 그리는데 시간이 많이 걸리므로 이것 역시 새로운 쓰레드를 이용한다.
-					new BackgroundDrawRegion(resultData.rigions[i].coords,
-							fill_color, resultData.rigions[i].centerLatLng, tmpCnt).execute();
-					tmpCnt++;
+				// 지역 칠하기
+				Iterator<String> keys = resultData.regionMap.keySet().iterator();
+				while(keys.hasNext()){
+					String key = keys.next();
+					RegionData nowRegion = resultData.regionMap.get(key);
+					new BackgroundDrawRegion(nowRegion.coords, nowRegion.backgroundColor, 
+							nowRegion.centerLatLng,nowRegion.cd).execute();
 				}
 
-				// 노란색 지역 칠하기
-				for (int i = 0; i < resultData.oldRigions.length; i++) {
-					// Log.i("haha",
-					// Double.toString(resultData.rigions[i].ratio));
-					int fill_color = Color.TRANSPARENT;
-					if ((resultData.oldRigions[i].ratio > 30.0)
-							&& (resultData.oldRigions[i].ratio <= 40.0)) {
-						fill_color = 0X89FFFF66;
-						/*
-						 * colormapdraw(resultData.oldRigions[i].coords,
-						 * fill_color);
-						 */
-					} else if ((resultData.oldRigions[i].ratio > 40.0)
-							&& (resultData.oldRigions[i].ratio <= 50)) {
-						fill_color = 0x88FFFF99;
-						/*
-						 * colormapdraw(resultData.oldRigions[i].coords,
-						 * fill_color);
-						 */
-					}
-
-					// 지역 폴리곤을 그리는데 시간이 많이 걸리므로 이것 역시 새로운 쓰레드를 이용한다.
-					new BackgroundDrawRegion(resultData.oldRigions[i].coords,
-							fill_color,resultData.oldRigions[i].centerLatLng,tmpCnt).execute();
-					tmpCnt++;
-				}
+	
+				
 
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
@@ -523,32 +498,6 @@ public class ResultActivity extends ActionBarActivity implements
 		@Override
 		protected void onPostExecute(SecondMapResponseData resultData) {
 
-
-
-
-			// 1,2,3위 marker
-			MarkerOptions optSecond = new MarkerOptions();
-			optSecond.position(resultData.rigions[1].centerLatLng);
-			optSecond.icon(BitmapDescriptorFactory
-					.fromResource(R.drawable.h_marker_1));
-			cityMarker[0] = mmap.addMarker(optSecond);
-			cityMarker[0].showInfoWindow();
-
-			optSecond.position(resultData.rigions[2].centerLatLng);
-			optSecond.icon(BitmapDescriptorFactory
-					.fromResource(R.drawable.h_maarker_2));
-			cityMarker[1] = mmap.addMarker(optSecond);
-			cityMarker[1].showInfoWindow();
-
-			optSecond.position(resultData.rigions[3].centerLatLng);
-			optSecond.icon(BitmapDescriptorFactory
-					.fromResource(R.drawable.h_maarker_3));
-			cityMarker[2] = mmap.addMarker(optSecond);
-			cityMarker[2].showInfoWindow();
-
-			mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-					resultData.rigions[1].centerLatLng, 10));
-			/** END!!! */
 		}
 
 	}
@@ -566,12 +515,12 @@ public class ResultActivity extends ActionBarActivity implements
 		PolygonOptions region; // region
 		LatLng centerLatLng;
 		MarkerOptions  optSecond;
-		int newChk;
-		public BackgroundDrawRegion(PointF[] point, int fill_color, LatLng inLatLng, int newChk) {
+		String nowCD;
+		public BackgroundDrawRegion(PointF[] point, int fill_color, LatLng inLatLng, String nowCD) {
 			this.point = point;
 			this.fill_color = fill_color;
 			centerLatLng = inLatLng;
-			this.newChk = newChk;
+			this.nowCD = nowCD;
 		}
 
 		@Override
@@ -584,15 +533,45 @@ public class ResultActivity extends ActionBarActivity implements
 			// view는 메인 쓰레드에서만 조작할 수 있기 때문에 이렇게 만든거.
 			mmap.addPolygon(region);
 			
-			
-			//marker들 추가하기 - 이건 노란색 기준으로 다 추가하면 될듯
-			if(newChk > 2){
+			// add marker
+			if(nowCD == backData.resultData.firstCD){
+				optSecond = new MarkerOptions();
+				optSecond.position(centerLatLng);
+				optSecond.icon(BitmapDescriptorFactory
+						.fromResource(R.drawable.h_marker_1));
+				Marker nowMarker = mmap.addMarker(optSecond);
+				cityMarkerMap.put(nowCD, nowMarker);
+				
+				// camer move
+
+				mmap.moveCamera(CameraUpdateFactory
+						.newLatLngZoom(centerLatLng, 10));
+			}else if(nowCD == backData.resultData.secondCD){
+				optSecond = new MarkerOptions();
+				optSecond.position(centerLatLng);
+				optSecond.icon(BitmapDescriptorFactory
+						.fromResource(R.drawable.h_maarker_2));
+				Marker nowMarker = mmap.addMarker(optSecond);
+				cityMarkerMap.put(nowCD, nowMarker);
+				
+			}else if(nowCD == backData.resultData.thirdCD){
+				optSecond = new MarkerOptions();
+				optSecond.position(centerLatLng);
+				optSecond.icon(BitmapDescriptorFactory
+						.fromResource(R.drawable.h_maarker_3));
+				Marker nowMarker = mmap.addMarker(optSecond);
+				cityMarkerMap.put(nowCD, nowMarker);
+				
+			}else{
+				//marker들 추가하기 - 이건 노란색 기준으로 다 추가하면 될듯
 				optSecond = new MarkerOptions();
 				optSecond.position(centerLatLng);
 				optSecond.icon(BitmapDescriptorFactory
 						.fromResource(R.drawable.h_marker_empty));
-				cityMarker[newChk] = mmap.addMarker(optSecond);
+				Marker nowMarker = mmap.addMarker(optSecond);
+				cityMarkerMap.put(nowCD, nowMarker);
 			}
+	
 
 			// 모든 쓰레드를 처리한 상황을 체크해고, 모든 쓰레드가 끝났으면
 			if (threadCnt.decrementAndGet() == 0) {
@@ -604,7 +583,7 @@ public class ResultActivity extends ActionBarActivity implements
 				setPopupClickListener();
 				setRePlayClickListener();
 				// mypopup의 데이터 설정
-				int resultCnt = backData.resultData.rigions.length;
+				int resultCnt = backData.resultData.newRegionCnt;
 //totalCnt
 				TextView tv = (TextView)findViewById(R.id.text_result_mypopup_bottomNum);
 				tv.setText(""+resultCnt);
@@ -619,14 +598,17 @@ public class ResultActivity extends ActionBarActivity implements
 					resultText.setImageResource(R.drawable.h_popup_text_3);
 				}
 				
+				RegionData nowRegion = backData.resultData.regionMap.get(backData.resultData.firstCD);
 				tv = (TextView)findViewById(R.id.text_result_mypopup_first);
-				tv.setText("1위 " + backData.resultData.rigions[0].address);
+				tv.setText("1위 " + nowRegion.address);
 				
+				nowRegion = backData.resultData.regionMap.get(backData.resultData.secondCD);
 				tv = (TextView)findViewById(R.id.text_result_mypopup_second);
-				tv.setText("2위 " + backData.resultData.rigions[1].address);
+				tv.setText("2위 " + nowRegion.address);
 				
+				nowRegion = backData.resultData.regionMap.get(backData.resultData.thirdCD);
 				tv = (TextView)findViewById(R.id.text_result_mypopup_third);
-				tv.setText("3위 " + backData.resultData.rigions[2].address);				
+				tv.setText("3위 " + nowRegion.address);				
 				RelativeLayout myRelative = (RelativeLayout) findViewById(R.id.layout_result_my_popup);
 				myRelative.setVisibility(View.VISIBLE);
 			}

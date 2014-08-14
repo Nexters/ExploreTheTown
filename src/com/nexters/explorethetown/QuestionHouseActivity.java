@@ -192,16 +192,7 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				int endchk = 0 ;
-				for(int i = 0 ; i < 5 ; i++){
-					if(answerchk[i] == true){
-						endchk++;
-					}
-				}
-				if(endchk == 0){
-					Toast toast = Toast.makeText(QuestionHouseActivity.this, "Please select answer", Toast.LENGTH_LONG);
-					toast.show();
-				}else{
+
 					for(int i = 0 ; i < 5  ;i++){
 						if(answerchk[i] ){
 							String tmpStr = "house_0"+(i+1);
@@ -214,7 +205,7 @@ public class QuestionHouseActivity extends ActionBarActivity {
 					setImgsDefault();
 
 				}
-			}
+
 		});
 		
 		ImageButton imgBtnHelp = (ImageButton)findViewById(R.id.img_question_house_helpBtn);
@@ -297,16 +288,7 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				int endchk = 0 ;
-				for(int i = 0 ; i < 3 ; i++){
-					if(answerchk[i] == true){
-						endchk++;
-					}
-				}
-				if(endchk == 0){
-					Toast toast = Toast.makeText(QuestionHouseActivity.this, "Please select answer", Toast.LENGTH_LONG);
-					toast.show();
-				}else{
+
 					for(int i = 0 ; i < 3  ;i++){
 						if(answerchk[i] ){
 							String tmpStr = "year_0"+i;
@@ -318,7 +300,7 @@ public class QuestionHouseActivity extends ActionBarActivity {
 					setImgsDefault();
 
 				}
-			}
+			
 		});
 		ImageButton imgBtnHelp = (ImageButton)findViewById(R.id.img_question_house_helpBtn);
 		imgBtnHelp.setOnClickListener(new View.OnClickListener() {
@@ -501,16 +483,7 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				int endchk = 0 ;
-				for(int i = 0 ; i < 9 ; i++){
-					if(answerchk[i] == true){
-						endchk++;
-					}
-				}
-				if(endchk == 0){
-					Toast toast = Toast.makeText(QuestionHouseActivity.this, "Please select answer", Toast.LENGTH_LONG);
-					toast.show();
-				}else{
+
 					for(int i = 0 ; i < 9  ;i++){
 						if(answerchk[i] ){
 							String tmpStr = "area_0"+(i+1);
@@ -533,7 +506,7 @@ public class QuestionHouseActivity extends ActionBarActivity {
 					startActivity(iIntent);
 					finish();
 
-				}
+				
 
 			}
 		});

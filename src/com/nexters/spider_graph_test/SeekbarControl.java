@@ -5,7 +5,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class SeekbarControl implements OnSeekBarChangeListener {
 
-   public float nowSeekbarPercent;
+   public float nowSeekbarPercent = (float) 0.5;
    SeekBarType type;
    GraphView graph;
 

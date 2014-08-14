@@ -16,6 +16,7 @@ public class RegionData {
 	public int rank;
 	public LatLng centerLatLng;
 	public String address;
+	public int backgroundColor;
 	public void setCD(String cd){
 		this.cd = cd;
 	}
