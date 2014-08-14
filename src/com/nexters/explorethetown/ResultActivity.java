@@ -50,6 +50,7 @@ public class ResultActivity extends ActionBarActivity implements
 	int totalCnt;
 	
 	Marker[] cityMarker;
+	Marker beforeMarker = null;
 
 	String nowCd;
 
@@ -407,6 +408,20 @@ public class ResultActivity extends ActionBarActivity implements
 		int totalCnt = rigionCnt + oldRigionCnt;
 		for(int i =0 ; i < totalCnt ; i++){
 			if(arg0.equals(cityMarker[i])){
+				if(beforeMarker!= null){
+					if(beforeMarker == cityMarker[0]){
+						beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_marker_1));
+					}else if(beforeMarker == cityMarker[1]){
+						beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_maarker_2));
+					}else if (beforeMarker == cityMarker[2]){
+						beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_maarker_3));
+					}else {
+						beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_marker_empty));
+					}
+				}
+				cityMarker[i].setIcon(BitmapDescriptorFactory
+						.fromResource(R.drawable.h_marker_0));
+				beforeMarker = cityMarker[i];
 				if(i < rigionCnt){
 					Toast toast = Toast.makeText(ResultActivity.this, backData.resultData.rigions[i].address, Toast.LENGTH_SHORT);
 					toast.show();
