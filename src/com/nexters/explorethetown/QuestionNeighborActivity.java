@@ -105,6 +105,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
             Intent iIntent = new Intent(QuestionNeighborActivity.this, QuestionHouseActivity.class);
             iIntent.putExtra("NEIGHBOR_RESULT", sendJson.toString());
             iIntent.putExtra("YELLOW_TOP30_CD", top30Cds);
+            Log.i("neighbor top 30 cds check",top30Cds);
             iIntent.putExtra("FIRST_COND", firstCond);
             iIntent.putExtra("FIRST_NE_COND", firstNeCond);
             iIntent.putExtra("SELECT_CITY", selectCityName);

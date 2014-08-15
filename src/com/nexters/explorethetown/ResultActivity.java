@@ -70,6 +70,7 @@ public class ResultActivity extends ActionBarActivity implements
 		neighbor_result = iIntent.getStringExtra("NEIGHBOR_RESULT");
 		house_result = iIntent.getStringExtra("HOUSE_RESULT");
 		top30Cds = iIntent.getStringExtra("YELLOW_TOP30_CD");
+		Log.i("result top30cds check",top30Cds);
 
 		String firstCond = iIntent.getStringExtra("FIRST_COND");
 		String firstNeCond = iIntent.getStringExtra("FIRST_NE_COND");

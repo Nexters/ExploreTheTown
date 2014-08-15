@@ -102,7 +102,6 @@ public class RequestManager {
 		Log.i("test","formatter3");
 		req_dataObj.put("_nebor_d", neighborObject);
 		req_dataObj.put("_area_cd", cdArray);
-		Log.i("test","formatter2");
 		req_dataObj.put("_cond_cd", houseArray);
 		req_dataObj.put("_ne_cond_cd", new JSONArray());
 		

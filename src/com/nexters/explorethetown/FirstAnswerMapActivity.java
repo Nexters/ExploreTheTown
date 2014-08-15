@@ -7,6 +7,8 @@
 
 package com.nexters.explorethetown;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.http.Header;
@@ -41,6 +43,7 @@ import com.nexters.coord.PointF;
 import com.nexters.custom.CityName;
 import com.nexters.custom.FirstMapAnswerData;
 import com.nexters.custom.FirstMapRequestData;
+import com.nexters.custom.RegionData;
 import com.nexters.server.RequestManager;
 
 public class FirstAnswerMapActivity extends ActionBarActivity implements
@@ -48,12 +51,10 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 	private GoogleMap mmap;
 	MapFragment fragment;
 	ProgressBar loadingBar;
-	private Marker nowMarker;
 	private Marker beforeMarker = null;
 	CityName selectCityName;
 	
-
-	Marker[] cityMarker;
+	HashMap<String,Marker> cityMarkerMap = new HashMap<String, Marker>();
 
 	FirstMapRequestData resultData;
 
@@ -180,6 +181,7 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 				// TODO Auto-generated method stub
 				Intent iIntent = new Intent(FirstAnswerMapActivity.this,
 						QuestionNeighborActivity.class);
+				Log.i("firstAnswerMap top30cds check",resultData.top30CdStr);
 				iIntent.putExtra("YELLOW_TOP30_CD", resultData.top30CdStr);
 				iIntent.putExtra("FIRST_COND", answersCode.toString());
 				iIntent.putExtra("FIRST_NE_COND", answersNoCode.toString());
@@ -349,23 +351,28 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 	}
 
 	@Override
-	public boolean onMarkerClick(Marker arg0) {
+	public boolean onMarkerClick(Marker nowClickMarker) {
 		// TODO Auto-generated method stub
-		for(int i =0 ; i < resultData.rigions.length ; i++){
-			if(arg0.equals(cityMarker[i])){
-				if(beforeMarker!= null){
-					beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_marker_empty));
-				}
-				cityMarker[i].setIcon(BitmapDescriptorFactory
-						.fromResource(R.drawable.h_marker_0));
-				beforeMarker = cityMarker[i];
-				Toast toast = Toast.makeText(FirstAnswerMapActivity.this, resultData.rigions[i].address, Toast.LENGTH_SHORT);
-				toast.show();
+		String clickedCd = null;
+		Iterator<String> keys = cityMarkerMap.keySet().iterator();
+		while(keys.hasNext()){
+			String key = keys.next();
+			if(nowClickMarker.equals(cityMarkerMap.get(key))){
+				clickedCd = key;
 				break;
 			}
+
 		}
 		
-		
+		if(beforeMarker!= null){
+			beforeMarker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.h_marker_empty));
+		}
+		nowClickMarker.setIcon(BitmapDescriptorFactory
+				.fromResource(R.drawable.h_marker_0));
+		beforeMarker = nowClickMarker;
+		RegionData nowRegion = resultData.regionMap.get(clickedCd);
+		Toast toast = Toast.makeText(FirstAnswerMapActivity.this, nowRegion.address, Toast.LENGTH_SHORT);
+		toast.show();
 		return false;
 	}
 
@@ -387,28 +394,30 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 			try {
 				// 파싱하는데 시간과 메모리가 많이 소요된다.
 				resultData = RequestManager.responseParserFirstMap(response);
-				cityMarker = new Marker[resultData.rigions.length];
 				// 지역 경계를 그린다.
-				threadCnt = new AtomicInteger(resultData.rigions.length);
-				for (int i = 0; i < resultData.rigions.length; i++) {
+				Iterator<String> keys = resultData.regionMap.keySet().iterator();
+				threadCnt = new AtomicInteger(resultData.regionMap.size());
+				while(keys.hasNext()){
+					String key = keys.next();
+					RegionData nowRegion = resultData.regionMap.get(key);
 					int fill_color = Color.WHITE;
-					if (resultData.rigions[i].ratio <= 10.0) {
+					if (nowRegion.ratio <= 10.0) {
 						fill_color = 0xAAFF9900;
-					} else if (resultData.rigions[i].ratio <= 20.0) {
+					} else if (nowRegion.ratio <= 20.0) {
 						fill_color = 0x99FFCC00;
-					} else if (resultData.rigions[i].ratio <= 30.0) {
+					} else if (nowRegion.ratio <= 30.0) {
 						fill_color = 0x90FFFF33;
-					} else if (resultData.rigions[i].ratio <= 40.0) {
+					} else if (nowRegion.ratio <= 40.0) {
 						fill_color = 0X89FFFF66;
 					} else {
 						fill_color = 0x88FFFF99;
 					}
 
 					// 지역 폴리곤을 그리는데 시간이 많이 걸리므로 이것 역시 새로운 쓰레드를 이용한다.
-					new BackgroundDrawRegion(resultData.rigions[i].coords,
-							fill_color, resultData.rigions[i].centerLatLng).execute();
+					new BackgroundDrawRegion(nowRegion.coords,
+							fill_color, nowRegion.centerLatLng, nowRegion.cd).execute();
 				}
-
+				
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -442,11 +451,12 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 		PolygonOptions region; // region
 		LatLng centerLatLng;
 		MarkerOptions optSecond;
-
-		public BackgroundDrawRegion(PointF[] point, int fill_color, LatLng inLatLng) {
+		String nowCD;
+		public BackgroundDrawRegion(PointF[] point, int fill_color, LatLng inLatLng, String nowCD) {
 			this.point = point;
 			this.fill_color = fill_color;
 			centerLatLng = inLatLng;
+			this.nowCD = nowCD;
 		}
 		@Override
 		protected String doInBackground(Object... params) {
@@ -463,8 +473,9 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 			optSecond.position(centerLatLng);
 			optSecond.icon(BitmapDescriptorFactory
 					.fromResource(R.drawable.h_marker_empty));
-			cityMarker[resultData.rigions.length - threadCnt.intValue()] = mmap.addMarker(optSecond);
-			//TODO
+			Marker nowMarker = mmap.addMarker(optSecond);
+			cityMarkerMap.put(nowCD, nowMarker);
+			
 			//모든 쓰레드를 처리한 상황을 체크해고, 모든 쓰레드가 끝났으면 
 			if (threadCnt.decrementAndGet() == 0) {
 				// view는 메인 쓰레드에서만 조작할 수 있기 때문에 이렇게 만든거.

@@ -496,6 +496,7 @@ public class QuestionHouseActivity extends ActionBarActivity {
 					iIntent.putExtra("NEIGHBOR_RESULT", neighbor_resultStr);
 					iIntent.putExtra("HOUSE_RESULT", houseResult.toString());
 					iIntent.putExtra("YELLOW_TOP30_CD", top30Cds);
+					Log.i("House top30 cds check",top30Cds);
 					iIntent.putExtra("FIRST_COND", firstCond);
 					iIntent.putExtra("FIRST_NE_COND",firstNeCond);
 					iIntent.putExtra("SELECT_CITY", selectCityName);
