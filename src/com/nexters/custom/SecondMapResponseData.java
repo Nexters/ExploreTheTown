@@ -74,12 +74,12 @@ public class SecondMapResponseData {
 				rigions.address = objJSON.getString("_address");
 				parseCoord(location,i, rigions);
 				
-				if(rigions.ratio <= 33.3){
-					rigions.backgroundColor = 0x99CC3399;
-				}else if(rigions.ratio <= 66.6){
-					rigions.backgroundColor = 0xAAFF4CB7;
+				if(rigions.ratio <= 15){
+					rigions.backgroundColor = 0xAA660066;
+				}else if(rigions.ratio <= 30){
+					rigions.backgroundColor = 0x99CC0099;
 				}else{
-					rigions.backgroundColor= 0x99990099;
+					rigions.backgroundColor= 0x99FF33CC;
 				}
 				regionMap.put(rigions.cd, rigions);
 			}

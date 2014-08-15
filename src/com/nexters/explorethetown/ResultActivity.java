@@ -24,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.android.Facebook;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
@@ -84,87 +85,87 @@ public class ResultActivity extends ActionBarActivity implements
 		TextView tv = (TextView)findViewById(R.id.text_result_mypopup_topleft);
 		switch (selectCityName) {
 		case SEOUL:
-			tv.setText("서울 지역 총");
+			tv.setText("서울 지역");
 			nowCd = "11";
 			totalCnt = 424;
 			break;
 		case INCHEON:
-			tv.setText("인천 지역 총");
+			tv.setText("인천 지역");
 			nowCd = "23";
 			totalCnt = 143;
 			break;
 		case GYEONGGI_DO:
-			tv.setText("경기 지역 총");
+			tv.setText("경기 지역");
 			nowCd = "31";
 			totalCnt = 542;
 			break;
 		case GANGWON_DO:
-			tv.setText("강원 지역 총");
+			tv.setText("강원 지역");
 			nowCd = "32";
 			totalCnt = 188;
 			break;
 		case SEJONG:
-			tv.setText("세종 지역 총");
+			tv.setText("세종 지역");
 			nowCd = "34";
 			totalCnt = 123;
 			break;
 		case CHUNGCHEONGNAM_DO:
-			tv.setText("충남 지역 총");
+			tv.setText("충남 지역");
 			nowCd = "34";
 			totalCnt = 211;
 			break;
 		case DAEJEON:
-			tv.setText("대전 지역 총");
+			tv.setText("대전 지역");
 			nowCd = "25";
 			totalCnt = 74;
 			break;
 		case CHUNGCHEONGBUK_DO:
-			tv.setText("충북 지역 총");
+			tv.setText("충북 지역");
 			nowCd = "33";
 			totalCnt = 154;
 			break;
 		case JEOLLABUK_DO:
-			tv.setText("전북 지역 총");
+			tv.setText("전북 지역");
 			nowCd = "35";
 			totalCnt = 243;
 			break;
 		case JEOLLANAM_DO:
-			tv.setText("전남 지역 총");
+			tv.setText("전남 지역");
 			nowCd = "36";
 			totalCnt = 295;
 			break;
 		case GWANGJU:
-			tv.setText("광주 지역 총");
+			tv.setText("광주 지역");
 			nowCd = "24";
 			totalCnt = 94;
 			break;
 		case JEJU:
-			tv.setText("제주 지역 총");
+			tv.setText("제주 지역");
 			nowCd = "39";
 			totalCnt = 43;
 			break;
 		case GYEONGBUK:
-			tv.setText("경북 지역 총");
+			tv.setText("경북 지역");
 			nowCd = "37";
 			totalCnt = 331;
 			break;
 		case DAEGU:
-			tv.setText("대구 지역 총");
+			tv.setText("대구 지역");
 			nowCd = "22";
 			totalCnt = 139;
 			break;
 		case ULSAN:
-			tv.setText("울산 지역 총");
+			tv.setText("울산 지역");
 			nowCd = "26";
 			totalCnt = 57;
 			break;
 		case GYEONGSANGNAM_DO:
-			tv.setText("경남 지역 총");
+			tv.setText("경남 지역");
 			nowCd = "38";
 			totalCnt = 319;
 			break;
 		case BUSAN:
-			tv.setText("부산 지역 총");
+			tv.setText("부산 지역");
 			nowCd = "21";
 			totalCnt = 214;
 			break;
@@ -444,6 +445,7 @@ public class ResultActivity extends ActionBarActivity implements
 			Log.i("Third",beforeMarkerCd);
 			Log.i("Fourth",clickedCD);
 			RegionData nowRegion = backData.resultData.regionMap.get(clickedCD);
+			Log.i("marker color check",nowRegion.backgroundColor+"");
 				Toast toast = Toast.makeText(ResultActivity.this, nowRegion.address, Toast.LENGTH_SHORT);
 				toast.show();		
 		
@@ -635,4 +637,9 @@ public class ResultActivity extends ActionBarActivity implements
 				.fillColor(fill_color);
 		return options;
 	}
+	
+	
+	
+	/* facebook connect */
+	Facebook facebook = new Facebook("269224213276596");
 }

@@ -154,7 +154,6 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:background="@drawable/f_bg_black"
-	    android:visibility="invisible"
 	    android:id="@+id/layout_result_my_popup">
 	
 	    <ImageView
@@ -184,25 +183,38 @@
 			android:background="@android:color/transparent"
 		    android:src="@drawable/h_popup_share" />
 		
+
+		
 		<TextView
-		    android:id="@+id/text_result_mypopup_topNum"
+		    android:id="@+id/text_Result_mypopup_top_total"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:layout_marginTop="159.67dp"
 		    android:layout_alignTop="@+id/img_result_mypopup_bg"
 		    android:layout_centerHorizontal="true"
 		    android:textSize="20sp"
-		    android:text="143" />
-								
+		    android:textColor="#666666"
+		    android:text=" 총 " />
+		
+		<TextView
+		    android:id="@+id/text_result_mypopup_topNum"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignTop="@+id/text_Result_mypopup_top_total"
+		    android:layout_toRightOf="@+id/text_Result_mypopup_top_total"
+		    android:textSize="20sp"
+		    android:textColor="#ff6633"
+		    android:text="143" />				
+		    				
 		<TextView
 		    android:id="@+id/text_result_mypopup_topleft"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
-			android:layout_toLeftOf="@+id/text_result_mypopup_topNum"
+			android:layout_toLeftOf="@+id/text_Result_mypopup_top_total"
 			android:layout_alignTop="@+id/text_result_mypopup_topNum"
 		    android:textSize="20sp"
 		    android:textColor="#666666"
-		    android:text="서울 지역 총 " />
+		    android:text="서울 지역" />
 		
 
 		
@@ -214,15 +226,16 @@
 		    android:layout_alignTop="@+id/text_result_mypopup_topNum"
 		    android:textSize="20sp"
 		    android:textColor="#666666"
-		    android:text=" 곳 중에" />
+		    android:text="곳 중에" />
 
 		<TextView
 		    android:id="@+id/text_result_mypopup_bottomNum"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 			android:layout_below="@+id/text_result_mypopup_topleft"
-			android:layout_alignRight="@+id/text_result_mypopup_topleft"
+			android:layout_alignLeft="@+id/text_Result_mypopup_top_total"
 		    android:textSize="20sp"
+		    android:textColor="#ff6633"
 		    android:text="50" />
 		
 		<TextView

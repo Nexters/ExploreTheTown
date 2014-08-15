@@ -49,6 +49,7 @@ public class FirstMapRequestData {
 				regionMap.put(rigions.cd, rigions);
 
 			}
+			Log.i("first map total cnt",regionMap.size()+"");
 			Log.i("top 30 cds json arry",top30Cds.toString());
 			top30CdStr = top30Cds.toString();
 		} catch (JSONException e) {
