@@ -75,6 +75,9 @@ public class QuestionHouseActivity extends ActionBarActivity {
 			
 			setOnClickListenerFirst();
 			
+			Toast toast = Toast.makeText(QuestionHouseActivity.this, "모르는 부분이 있다연 물음표 이미지를 터치해보세요", Toast.LENGTH_LONG);
+			toast.show();
+			
 		}else if(questionNumber == 1){
 			setContentView(R.layout.activity_question_house);
 			ImageView progressImg = (ImageView)findViewById(R.id.img_question_house_progressView);

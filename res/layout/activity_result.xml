@@ -153,6 +153,7 @@
 	<RelativeLayout
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
+	    android:visibility="invisible"
 	    android:background="@drawable/f_bg_black"
 	    android:id="@+id/layout_result_my_popup">
 	

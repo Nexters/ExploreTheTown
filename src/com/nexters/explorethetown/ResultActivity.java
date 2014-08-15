@@ -24,7 +24,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.android.Facebook;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
@@ -58,6 +57,8 @@ public class ResultActivity extends ActionBarActivity implements
 	String beforeMarkerCd;
 
 	String nowCd;
+	
+	boolean myPopupCloseChk = false;
 
 	/* 지역경계를 그리기 위해 실행한 쓰레드 개수를 세고, 모든 쓰레드의 실행이 끝난 시점을 체크하기 위한 변수. */
 	public static AtomicInteger threadCnt;
@@ -239,6 +240,11 @@ public class ResultActivity extends ActionBarActivity implements
 				// TODO Auto-generated method stub
 				RelativeLayout myRelative = (RelativeLayout) findViewById(R.id.layout_result_my_popup);
 				myRelative.setVisibility(View.INVISIBLE);
+				if(!myPopupCloseChk){
+					Toast toast = Toast.makeText(ResultActivity.this, "지도를 확대하여 궁금한 지역을 터치해보세요", Toast.LENGTH_LONG);
+					toast.show();
+					myPopupCloseChk = true;
+				}
 				
 			}
 		});
@@ -581,6 +587,7 @@ public class ResultActivity extends ActionBarActivity implements
 				// view는 메인 쓰레드에서만 조작할 수 있기 때문에 이렇게 만든거.
 				RelativeLayout loadingLayout = (RelativeLayout) findViewById(R.id.layout_result_loading_page);
 				loadingLayout.setVisibility(View.INVISIBLE);
+
 				
 				setOnClickListener();
 				setPopupClickListener();
@@ -640,6 +647,4 @@ public class ResultActivity extends ActionBarActivity implements
 	
 	
 	
-	/* facebook connect */
-	Facebook facebook = new Facebook("269224213276596");
 }

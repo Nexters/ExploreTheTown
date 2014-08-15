@@ -15,6 +15,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -64,7 +65,9 @@ public class QuestionNeighborActivity extends ActionBarActivity {
            
       setOnClickListener();
    
-   
+		
+		Toast toast = Toast.makeText(QuestionNeighborActivity.this, "모르는 부분이 있다연 물음표 이미지를 터치해보세요", Toast.LENGTH_LONG);
+		toast.show();
    }
    @Override
    public void onWindowFocusChanged(boolean hasFocus) {
