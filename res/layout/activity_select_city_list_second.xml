@@ -23,6 +23,16 @@
         android:layout_centerHorizontal="true"
         android:scaleType="fitXY"
         android:src="@drawable/b_text_top" />
+    
+    <ImageView
+        android:id="@+id/img_selectCitymap_help_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@+id/img_selectCityListSecond_title"
+        android:scaleType="fitXY"
+        android:src="@drawable/btn_help_btn" />
 
     
     <!--  bottom  -->

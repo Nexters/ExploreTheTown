@@ -46,8 +46,9 @@ public class InitialTutorialAdapter extends PagerAdapter {
 		Log.i("memo", String.valueOf(mImages.length));
 		// start main activity on last page.
 		if (position == mImages.length - 1) {
-			Intent i = new Intent(activity, SelectCityActivity.class);
-			activity.startActivity(i);
+			//어떻게 여는지에 따라서 달라진다.
+			//Intent i = new Intent(activity, SelectCityActivity.class);
+			//activity.startActivity(i);
 
 			// close this activity
 			activity.finish();

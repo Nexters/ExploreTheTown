@@ -6,16 +6,15 @@
 package com.nexters.explorethetown;
 
 
-import android.support.v7.app.ActionBarActivity;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.Toast;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 
-import com.nexters.explorethetown.R;
 import com.nexters.custom.CityPosition;
 
 public class SelectCityActivity  extends ActionBarActivity{	
@@ -80,6 +79,18 @@ public class SelectCityActivity  extends ActionBarActivity{
 				Intent iIntent = new Intent(SelectCityActivity.this, SelectCityListActivity.class);
 				iIntent.putExtra("CityPosition", CityPosition.LEFTDOWN);
 				startActivity(iIntent);
+				
+			}
+		});
+		
+		//도움말버튼.
+		findViewById(R.id.img_selectCitymap_help_btn).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(SelectCityActivity.this,
+						InitialTutorialActivity.class);
+				startActivity(i);
 				
 			}
 		});

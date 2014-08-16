@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -51,6 +52,18 @@ public class SelectCityListActivity extends ActionBarActivity{
 			addFourthPageListenerOnButton();
 			break;
 		}
+		
+		//도움말버튼 설정 
+		findViewById(R.id.img_selectCitymap_help_btn).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(SelectCityListActivity.this,
+						InitialTutorialActivity.class);
+				startActivity(i);
+				
+			}
+		});
 	}
 	
 	public void addFirstPageListenerOnButton(){

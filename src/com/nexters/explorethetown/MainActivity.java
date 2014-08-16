@@ -40,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
 
 		// 처음 실행 여부 체크
 		isFirst = pref.getBoolean("isFirst", true);
-		isFirst = true; //test
+		// isFirst = true; //test
 		if (isFirst) {
 			pref.edit().putBoolean("isFirst", false).commit();
 
@@ -53,10 +53,10 @@ public class MainActivity extends ActionBarActivity {
 
 					Intent i = new Intent(MainActivity.this,
 							InitialTutorialActivity.class);
-					startActivity(i);
+					startActivityForResult(i, 0);
 
 					// close this activity
-					finish();
+					// finish();
 				}
 			}, AUTO_HIDE_DELAY_MILLIS);
 
@@ -82,21 +82,15 @@ public class MainActivity extends ActionBarActivity {
 
 	}
 
-	/*
-	 * @Override public boolean onCreateOptionsMenu(Menu menu) { // Inflate the
-	 * menu; this adds items to the action bar if it is present.
-	 * getMenuInflater().inflate(R.menu.main, menu);
-	 * 
-	 * 
-	 * return true; }
-	 * 
-	 * 
-	 * @Override public boolean onOptionsItemSelected(MenuItem item) { // Handle
-	 * action bar item clicks here. The action bar will // automatically handle
-	 * clicks on the Home/Up button, so long // as you specify a parent activity
-	 * in AndroidManifest.xml. int id = item.getItemId();
-	 * 
-	 * return super.onOptionsItemSelected(item); }
-	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		Intent iIntent = new Intent(MainActivity.this, SelectCityActivity.class);
+		startActivity(iIntent);
+		finish();
+
+		// Fade
+		overridePendingTransition(android.R.anim.fade_in,
+				android.R.anim.fade_out);
+	}
 
 }

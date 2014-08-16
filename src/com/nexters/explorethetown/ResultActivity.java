@@ -2,6 +2,7 @@ package com.nexters.explorethetown;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -13,7 +14,9 @@ import org.json.JSONObject;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -23,6 +26,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -681,25 +685,30 @@ public class ResultActivity extends ActionBarActivity implements
 		SnapshotReadyCallback callback = new SnapshotReadyCallback() {
 
 			@Override
-			public void onSnapshotReady(Bitmap snapshot) {
+			public void onSnapshotReady(Bitmap mapScreen) {
 				// TODO Auto-generated method stub
 				try {
-					File path = Environment
-							.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-					File png = new File(path, System.currentTimeMillis()
-							+ ".png");
-					FileOutputStream fos = new FileOutputStream(png);
-					snapshot.compress(Bitmap.CompressFormat.PNG, 90, fos);
-					fos.flush();
-					fos.close();
+					
+					//test
+					findViewById(R.id.layout_result_my_popup).setVisibility(View.INVISIBLE);
+					View rootview = getWindow().getDecorView().getRootView();
+					rootview.setDrawingCacheEnabled(true);
+					Bitmap screenshot = rootview.getDrawingCache();
+					
+					// 필요없는부분은 잘라내기
+					int cropedBitmapHeight = screenshot.getHeight();
+					cropedBitmapHeight -= statusBar();
+					cropedBitmapHeight -= findViewById(R.id.img_result_bottombg).getHeight();
+					Bitmap cropedBitmap = Bitmap.createBitmap(screenshot, 0,
+							statusBar(), screenshot.getWidth(),
+							cropedBitmapHeight);
 
-					Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-					sharingIntent.setType("image/*");
-					sharingIntent.putExtra(Intent.EXTRA_STREAM,
-							Uri.fromFile(png));
-					sharingIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.nexters.explorethetown");
-					startActivity(Intent.createChooser(sharingIntent,
-							"Share using"));
+					// 캔버스에 찍은 사진과 합성할 사진을 그린다.
+					int top = findViewById(R.id.result_map).getTop();
+					Canvas canvas = new Canvas(cropedBitmap);
+					canvas.drawBitmap(mapScreen, 0, top, null);
+					
+					shareScreenshot(cropedBitmap);
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -715,4 +724,31 @@ public class ResultActivity extends ActionBarActivity implements
 		// getSupportFragmentManager().findFragmentById(R.id.map_pass_home_call)).getMap();
 	}
 
+
+	private void shareScreenshot(Bitmap snapshot) throws IOException {
+		File path = Environment
+				.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+		File png = new File(path, System.currentTimeMillis()
+				+ ".png");
+		FileOutputStream fos = new FileOutputStream(png);
+		snapshot.compress(Bitmap.CompressFormat.PNG, 90, fos);
+		fos.flush();
+		fos.close();
+
+		Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+		sharingIntent.setType("image/*");
+		sharingIntent.putExtra(Intent.EXTRA_STREAM,
+				Uri.fromFile(png));
+		sharingIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.nexters.explorethetown");
+		startActivity(Intent.createChooser(sharingIntent,
+				"Share using"));
+		
+	}
+
+	private int statusBar() {
+		Rect frame = new Rect();
+		getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+		int statusBarHeight = frame.top;
+		return statusBarHeight;
+	}
 }
