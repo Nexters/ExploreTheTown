@@ -24,10 +24,8 @@ public class InitialTutorialAdapter extends PagerAdapter {
 	public InitialTutorialAdapter(Activity tempActivity) {
 		this.activity = tempActivity;
 
-		mImages = new int[] { R.drawable.b_big_busan,
-				R.drawable.b_big_chungcheongbukdo,
-				R.drawable.b_big_chungcheongnamdo, R.drawable.b_big_daegu,
-				R.drawable.b_big_daejeon };
+		mImages = new int[] { R.drawable.z_a, R.drawable.z_b, R.drawable.z_c,
+				R.drawable.z_d, R.drawable.z_e, R.drawable.z_f, R.drawable.z_g };
 	}
 
 	@Override
@@ -46,9 +44,9 @@ public class InitialTutorialAdapter extends PagerAdapter {
 		Log.i("memo", String.valueOf(mImages.length));
 		// start main activity on last page.
 		if (position == mImages.length - 1) {
-			//어떻게 여는지에 따라서 달라진다.
-			//Intent i = new Intent(activity, SelectCityActivity.class);
-			//activity.startActivity(i);
+			// 어떻게 여는지에 따라서 달라진다.
+			// Intent i = new Intent(activity, SelectCityActivity.class);
+			// activity.startActivity(i);
 
 			// close this activity
 			activity.finish();

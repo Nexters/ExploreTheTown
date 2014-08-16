@@ -28,9 +28,9 @@
         android:id="@+id/img_selectCitymap_help_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="25dp"
-        android:layout_toRightOf="@+id/img_selectCityListThird_title"
+        android:layout_marginTop="13.3dp"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true"
         android:scaleType="fitXY"
         android:src="@drawable/btn_help_btn" />
 
