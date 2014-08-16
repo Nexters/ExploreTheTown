@@ -227,6 +227,8 @@ public class ResultActivity extends ActionBarActivity implements
 		tv.setTypeface(tf);
 		tv = (TextView) findViewById(R.id.text_result_mypopup_topNum);
 		tv.setTypeface(tf);
+		tv = (TextView) findViewById(R.id.text_Result_mypopup_top_total);
+		tv.setTypeface(tf);
 		tv = (TextView) findViewById(R.id.text_result_mypopup_topRight);
 		tv.setTypeface(tf);
 		tv = (TextView) findViewById(R.id.text_result_mypopup_bottomNum);
