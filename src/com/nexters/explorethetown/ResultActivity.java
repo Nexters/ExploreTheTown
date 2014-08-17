@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -697,10 +698,20 @@ public class ResultActivity extends ActionBarActivity implements
 					rootview.setDrawingCacheEnabled(true);
 					Bitmap screenshot = rootview.getDrawingCache();
 					
+					//앱정보. 크기에 맞게 리사이즈한다.
+					Bitmap appBar = BitmapFactory.decodeResource(getResources(), R.drawable.app_bar_final);
+					double ratio = (double)screenshot.getWidth() / (double)appBar.getWidth();
+					int appBarWidth = (int) (appBar.getWidth() * ratio);
+					int appBarHeight = (int) (appBar.getHeight() * ratio);
+					Bitmap appBarResized = Bitmap.createScaledBitmap(appBar, appBarWidth, appBarHeight, false);
+					
 					// 필요없는부분은 잘라내기
 					int cropedBitmapHeight = screenshot.getHeight();
 					cropedBitmapHeight -= statusBar();
 					cropedBitmapHeight -= findViewById(R.id.img_result_bottombg).getHeight();
+					cropedBitmapHeight += appBarHeight;	//앱정보 출력영역.
+					
+					
 					Bitmap cropedBitmap = Bitmap.createBitmap(screenshot, 0,
 							statusBar(), screenshot.getWidth(),
 							cropedBitmapHeight);
@@ -709,6 +720,7 @@ public class ResultActivity extends ActionBarActivity implements
 					int top = findViewById(R.id.result_map).getTop();
 					Canvas canvas = new Canvas(cropedBitmap);
 					canvas.drawBitmap(mapScreen, 0, top, null);
+					canvas.drawBitmap(appBarResized, 0, cropedBitmapHeight -appBarHeight , null);	//앱정보 출력영역.
 					
 					shareScreenshot(cropedBitmap);
 
