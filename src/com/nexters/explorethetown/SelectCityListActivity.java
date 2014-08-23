@@ -432,7 +432,7 @@ public class SelectCityListActivity extends ActionBarActivity{
 		
 		beforeClickedButton = imgBtn1;
 		beforeClickedButton.setSelected(true);
-		clickedCityName = CityName.JEOLLABUK_DO;
+		clickedCityName = CityName.GYEONGBUK;
 		addStartBtnListenerOnButton();
 	}
 	
