@@ -1,6 +1,8 @@
 package com.nexters.custom;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,6 +60,22 @@ public class SecondMapResponseData {
 					oldRigions.backgroundColor = 0x88FFFF99;
 				}
 				
+				//set score by item.
+				//rigions.scoreMap
+				JSONObject valObject = objJSON.getJSONObject("_val");
+				Iterator<String> it = valObject.keys();
+				while(it.hasNext()){
+					try{
+						String valueKey = it.next();	//item.
+						String value = valObject.getString(valueKey);
+						double valueD = Double.parseDouble(value);
+						int valueI = (int) (valueD * 100);
+						oldRigions.scoreMap.put(valueKey, valueI);
+						Log.i("value", valueKey +","+valueI);
+					}catch(Exception e){
+						
+					}
+				}
 				
 				regionMap.put(oldRigions.cd, oldRigions);
 			}
@@ -81,6 +99,35 @@ public class SecondMapResponseData {
 				}else{
 					rigions.backgroundColor= 0x99FF33CC;
 				}
+				
+
+				
+				//add attr
+				if(regionMap.containsKey(rigions.cd)){
+					RegionData temp = regionMap.get(rigions.cd);
+					for(Entry<String, Integer> e : temp.scoreMap.entrySet()){
+						rigions.scoreMap.put(e.getKey(), e.getValue());
+					}
+					//rigions.scoreMap.put("line", 0);
+				}
+				
+				//set score by item.
+				//rigions.scoreMap
+				JSONObject valObject = objJSON.getJSONObject("_val");
+				Iterator<String> it = valObject.keys();
+				while(it.hasNext()){
+					try{
+						String valueKey = it.next();	//item.
+						String value = valObject.getString(valueKey);
+						double valueD = Double.parseDouble(value);
+						int valueI = (int) (valueD * 100);
+						rigions.scoreMap.put(valueKey, valueI);
+						Log.i("value", valueKey +","+valueI);
+					}catch(Exception e){
+						
+					}
+				}
+				
 				regionMap.put(rigions.cd, rigions);
 			}
 

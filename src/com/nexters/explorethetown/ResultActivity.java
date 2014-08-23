@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.http.Header;
@@ -27,7 +28,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -50,6 +50,8 @@ import com.nexters.coord.PointF;
 import com.nexters.custom.CityName;
 import com.nexters.custom.RegionData;
 import com.nexters.custom.SecondMapResponseData;
+import com.nexters.data.CodeMap;
+import com.nexters.etc.Util;
 import com.nexters.server.RequestManager;
 
 public class ResultActivity extends ActionBarActivity implements
@@ -486,11 +488,49 @@ public class ResultActivity extends ActionBarActivity implements
 		Log.i("Fourth", clickedCD);
 		RegionData nowRegion = backData.resultData.regionMap.get(clickedCD);
 		Log.i("marker color check", nowRegion.backgroundColor + "");
-		Toast toast = Toast.makeText(ResultActivity.this, nowRegion.address,
+		/*Toast toast = Toast.makeText(ResultActivity.this, nowRegion.address,
 				Toast.LENGTH_SHORT);
-		toast.show();
+		toast.show();*/
+		
 
-		return false;
+		//show detail info window
+		findViewById(R.id.layout_result_popup).setVisibility(View.VISIBLE);
+		findViewById(R.id.layout_result_popup_layout).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				findViewById(R.id.layout_result_popup).setVisibility(View.GONE);
+				
+			}
+		});
+		TextView popupTitle= (TextView) findViewById(R.id.textview_result_info_title);
+		StringBuffer title = new StringBuffer();
+		title.append(nowRegion.address);
+		title.append("\t\t");
+		
+		//rate
+		title.append(nowRegion.rank);
+		title.append("위");
+		
+		popupTitle.setText(title.toString());
+		
+		TextView popupContent = (TextView) findViewById(R.id.textview_result_info_content);
+		StringBuffer content = new StringBuffer();
+		for(Entry<String, Integer> e : nowRegion.scoreMap.entrySet()){
+			String keyName = CodeMap.map.get(e.getKey());
+			//keyName = Util.padRight(keyName, 10);
+			content.append(keyName);
+			content.append("\t\t");
+			content.append(e.getValue());
+			content.append("점");
+			content.append("\n");
+		}
+		content.append("\n");
+		content.append("* 100점 만점에서 각 시설의 \n 평균점수는 50점입니다.");
+		content.append("\n");
+		popupContent.setText(content.toString());
+
+		return true;
 	}
 
 	public class BackgroundParsingData extends

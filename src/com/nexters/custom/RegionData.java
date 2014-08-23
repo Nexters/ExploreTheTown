@@ -1,11 +1,9 @@
 package com.nexters.custom;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.nexters.coord.CoordConverter;
 import com.nexters.coord.PointF;
 
 public class RegionData {
@@ -17,16 +15,22 @@ public class RegionData {
 	public LatLng centerLatLng;
 	public String address;
 	public int backgroundColor;
-	public void setCD(String cd){
+	public Map<String, Integer> scoreMap;
+
+	public RegionData() {
+		scoreMap = new HashMap<String, Integer>();
+	}
+
+	public void setCD(String cd) {
 		this.cd = cd;
 	}
-	public void setRatio(double ratio){
+
+	public void setRatio(double ratio) {
 		this.ratio = ratio;
 	}
-	public void setSum(double sum){
+
+	public void setSum(double sum) {
 		this.sum = sum;
 	}
 
-
-	
 }

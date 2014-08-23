@@ -1,6 +1,7 @@
 package com.nexters.custom;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,6 +46,24 @@ public class FirstMapRequestData {
 				String location = objJSON.getString("_location");
 				Log.i("request for check",i+"");
 				parseCoord(location,rigions);
+				
+				//set score by item.
+				//rigions.scoreMap
+				JSONObject valObject = objJSON.getJSONObject("_val");
+				Iterator<String> it = valObject.keys();
+				while(it.hasNext()){
+					try{
+						String valueKey = it.next();	//item.
+						String value = valObject.getString(valueKey);
+						double valueD = Double.parseDouble(value);
+						int valueI = (int) (valueD * 100);
+						rigions.scoreMap.put(valueKey, valueI);
+						Log.i("value", valueKey +","+valueI);
+					}catch(Exception e){
+						
+					}
+				}
+				
 				
 				regionMap.put(rigions.cd, rigions);
 

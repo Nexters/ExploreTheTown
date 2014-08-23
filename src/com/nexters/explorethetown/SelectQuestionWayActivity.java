@@ -166,7 +166,7 @@ public class SelectQuestionWayActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View arg0){
 				if(checkNothingClicked()){
-					Toast toast = Toast.makeText(SelectQuestionWayActivity.this, "Please select type", Toast.LENGTH_LONG);
+					Toast toast = Toast.makeText(SelectQuestionWayActivity.this, "유형을 선택해주세요!", Toast.LENGTH_LONG);
 					toast.show();
 			
 				}else{

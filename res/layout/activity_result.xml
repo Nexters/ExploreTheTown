@@ -100,25 +100,44 @@
         android:layout_marginRight="9.6dp"
         android:background="@android:color/transparent"
         android:src="@drawable/h_btn_my" />
+    
     <!-- popup -->
 	<RelativeLayout 
 	    android:layout_width="264.67dp"
-	    android:layout_height="136dp"
+	    android:layout_height="300dp"
 	    android:layout_alignBottom="@+id/result_map"
 	    android:layout_alignLeft="@+id/result_map"
 	    android:visibility="invisible"
 	    android:background="@drawable/e_bg_box_info"
-	    android:id="@+id/layout_result_popup">
-
-		<TextView
-		    android:id="@+id/textview_result_cityName"
+	    android:id="@+id/layout_result_popup"
+	    android:padding="30dp">
+	    
+	    <ScrollView android:layout_width="fill_parent"
+	        android:layout_height="match_parent">
+	        
+	    <LinearLayout android:layout_width="fill_parent"
+	        android:layout_height="fill_parent" android:orientation="vertical"
+	        android:id="@+id/layout_result_popup_layout">
+	        
+	 
+	    <TextView
+		    android:id="@+id/textview_result_info_title"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
-		    android:layout_alignParentLeft="true"
-		    android:layout_alignParentTop="true"
-		    android:layout_marginLeft="14dp"
-		    android:layout_marginTop="17dp"
-		    android:text="서울시 강남구 강남동" />
+		    android:textStyle="bold"
+		    android:textColor="#ff9900"
+		    android:text="서울시 강남구 강남동" />   
+		    
+	    <TextView
+		    android:id="@+id/textview_result_info_content"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="15dp"
+		    android:lineSpacingMultiplier="1.3"
+		    android:text="content..." />
+        </LinearLayout>
+	    </ScrollView>
+		
 	    
 	</RelativeLayout>
 	
@@ -180,7 +199,7 @@
 		    android:layout_height="43dp"
 		    android:layout_above="@+id/imgBtn_result_mypopup_result"
 			android:layout_centerHorizontal="true"
-			android:layout_marginBottom="10dp"
+			android:layout_marginBottom="20dp"
 			android:background="@android:color/transparent"
 		    android:src="@drawable/h_popup_share" />
 		
@@ -258,17 +277,16 @@
 		    android:layout_marginTop="46dp"
 		    android:src="@drawable/h_popup_text_1" />
 
-
 		<TextView
 		    android:id="@+id/text_result_mypopup_first"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
-		    android:layout_below="@+id/img_result_mypopup_text"	    
-		    android:layout_marginTop="3dp"
+		    android:layout_below="@+id/img_result_mypopup_text"
 		    android:layout_centerHorizontal="true"
-		    android:textSize="17sp"
+		    android:layout_marginTop="20dp"
+		    android:text="1위 송파1동"
 		    android:textColor="#660066"
-		    android:text="1위 송파1동" />
+		    android:textSize="17sp" />
 
 		<TextView
 		    android:id="@+id/text_result_mypopup_second"
@@ -276,6 +294,7 @@
 		    android:layout_height="wrap_content"
 		    android:layout_below="@+id/text_result_mypopup_first"
 		    android:layout_centerHorizontal="true"
+		    android:layout_marginTop="5dp"
 		    android:textSize="17sp"
 		    android:textColor="#660066"
 		    android:text="2위 인천광역시 인천광역군 인천광역시" />
@@ -285,6 +304,7 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:layout_below="@+id/text_result_mypopup_second"
+		    android:layout_marginTop="5dp"
 		    android:layout_centerHorizontal="true"
 		    android:textSize="17sp"
 		    android:textColor="#660066"
@@ -294,8 +314,9 @@
 		    android:id="@+id/img_result_mypopup_yelloBg"
 		    android:layout_width="220dp"
 		    android:layout_height="85dp"
+		    android:layout_marginTop="50dp"
 		    android:layout_centerHorizontal="true"
-		    android:layout_alignTop="@+id/text_result_mypopup_first"
+		    android:layout_alignTop="@+id/img_result_mypopup_text"
 		    android:layout_alignBottom="@+id/text_result_mypopup_thrid"
 		    android:layout_alignLeft="@+id/img_result_mypopup_bg"
 		    android:layout_alignRight="@+id/img_result_mypopup_bg"

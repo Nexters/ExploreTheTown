@@ -200,7 +200,7 @@ public class QuestionActivity extends ActionBarActivity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if((nowQuestionType == QuestionType.YESORNO) && (beforeClickAnswerNum == -1)){
-					Toast toast = Toast.makeText(QuestionActivity.this, "Please select answer", Toast.LENGTH_LONG);
+					Toast toast = Toast.makeText(QuestionActivity.this, "질문에 답해주세요!", Toast.LENGTH_LONG);
 					toast.show();
 				}else{
 					switch(nowQuestionType){

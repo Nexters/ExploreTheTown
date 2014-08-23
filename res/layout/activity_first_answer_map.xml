@@ -91,25 +91,48 @@
         class="com.google.android.gms.maps.MapFragment" />
     
     
-    <!-- popup -->
+    <!-- popup 
+    android:layout_height="136dp"
+    -->
 	<RelativeLayout 
 	    android:layout_width="264.67dp"
-	    android:layout_height="136dp"
+	    android:layout_height="300dp"
 	    android:layout_alignBottom="@+id/map"
 	    android:layout_alignLeft="@+id/map"
 	    android:visibility="invisible"
 	    android:background="@drawable/e_bg_box_info"
-	    android:id="@+id/layout_first_answer_popup">
-
-		<TextView
-		    android:id="@+id/textview_first_answer_cityName"
+	    android:id="@+id/layout_first_answer_popup"
+	    android:padding="30dp">
+	    
+	    <ScrollView android:layout_width="fill_parent"
+	        android:layout_height="match_parent">
+	        
+	    <LinearLayout android:layout_width="fill_parent"
+	        android:layout_height="fill_parent" android:orientation="vertical"
+	        android:id="@+id/layout_first_answer_popup_layout">
+	        
+	    
+	    <TextView
+		    android:id="@+id/textview_first_answer_info_title"
+		    android:layout_alignParentTop="true"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
-		    android:layout_alignParentLeft="true"
-		    android:layout_alignParentTop="true"
-		    android:layout_marginLeft="14dp"
-		    android:layout_marginTop="17dp"
-		    android:text="서울시 강남구 강남동" />
+		    android:textStyle="bold"
+		    android:textColor="#ff9900"
+		    android:text="서울시 강남구 강남동" />   
+		    
+	    <TextView
+	        android:layout_below="@+id/textview_first_answer_info_title"
+		    android:id="@+id/textview_first_answer_info_content"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="15dp"
+		    android:lineSpacingMultiplier="1.2"
+		    android:text="content..." />
+        </LinearLayout>
+	    </ScrollView>
+
+		
 	    
 	</RelativeLayout>
 	
