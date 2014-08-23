@@ -46,6 +46,8 @@ public class QuestionNeighborActivity extends ActionBarActivity {
    String firstNeCond;
    CityName selectCityName;
    
+   boolean isFirst = true;
+   
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
@@ -69,13 +71,19 @@ public class QuestionNeighborActivity extends ActionBarActivity {
 		Toast toast = Toast.makeText(QuestionNeighborActivity.this, "모르는 부분이 있다연 물음표 이미지를 터치해보세요", Toast.LENGTH_LONG);
 		toast.show();
    }
+   
+   
    @Override
    public void onWindowFocusChanged(boolean hasFocus) {
 	   super.onWindowFocusChanged(hasFocus);
         // TODO Auto-generated method stub
         // 占쏙옙占썩서 width占쏙옙 占쏙옙咀몌옙占� 占쏙옙占쏙옙 占쏙옙占쏙옙占� 占쏙옙쨉홱占�.
-	   ImageView imgBgLine = (ImageView)findViewById(R.id.img_question_neighbor_linebg);
-	   drawGraph(imgBgLine.getLeft(), imgBgLine.getRight(), imgBgLine.getTop(), imgBgLine.getBottom());
+	   if(isFirst){
+		   ImageView imgBgLine = (ImageView)findViewById(R.id.img_question_neighbor_linebg);
+		   drawGraph(imgBgLine.getLeft(), imgBgLine.getRight(), imgBgLine.getTop(), imgBgLine.getBottom());
+		   
+		   Log.i("test", "test!!!");
+	   }
 	   
 	   //RelativeLayout vg = (RelativeLayout) findViewById(R.id.main_layout);
 	   //drawGraph(vg.getLeft(), vg.getRight(), vg.getTop(), vg.getBottom());
@@ -114,6 +122,7 @@ public class QuestionNeighborActivity extends ActionBarActivity {
             iIntent.putExtra("SELECT_CITY", selectCityName);
             startActivity(iIntent);
             finish();
+            isFirst = false;
          }
       });
       
