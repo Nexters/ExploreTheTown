@@ -223,7 +223,11 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 
 	@Override
 	public void onBackPressed() {
-		this.finish();
+		if(findViewById(R.id.layout_first_answer_popup).getVisibility() == View.VISIBLE){
+			findViewById(R.id.layout_first_answer_popup).setVisibility(View.GONE);
+		} else {
+			this.finish();
+		}
 	}
 
 	@Override
@@ -412,10 +416,15 @@ public class FirstAnswerMapActivity extends ActionBarActivity implements
 			content.append("점");
 			content.append("\n");
 		}
-		content.append("\n");
-		content.append("* 100점 만점에서 각 시설의 \n 평균점수는 50점입니다.");
-		content.append("\n");
 		popupContent.setText(content.toString());
+		
+		StringBuffer caution = new StringBuffer();
+		TextView popupCaution = (TextView) findViewById(R.id.textview_first_answer_caution);
+		caution.append("각 점수는 해당 지역(예:서울)에 한해서 원하는 항목의 갯수와 거리를 지역 전체 평균과 비교하여 나타낸 것이며, 각 항목당 평균 점수는 50점입니다.");
+		caution.append("\n");
+		caution.append("점수가 월등히 높다면 그 지역의 평균에 비해 높은 것임을 기억하세요!!");
+		
+		popupCaution.setText(caution.toString());
 		
 		return false;
 	}

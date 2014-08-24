@@ -33,7 +33,7 @@ public class CodeMap {
 		map.put("item_37", "금융기관");
 		map.put("item_38", "주차장");
 		map.put("item_39", "예술회관,소극장,영화관");
-		map.put("item_40", "박물관,사적지\n미술관,문예회관");
+		map.put("item_40", "박물관, 미술관 외");
 		map.put("item_41", "동물원 식물원");
 		map.put("item_42", "공원(실외)");
 		map.put("item_43", "실내 체육시설");
@@ -101,9 +101,9 @@ public class CodeMap {
 		map.put("trail", "등산로");
 		map.put("vacant_lot", "마을공터");
 		map.put("yachting_course", "요트경기장");
-		map.put("year_00", "1996~1999년 건축");
-		map.put("year_01", "2000~2009년 건축");
-		map.put("year_02", "2010년~ 건축");
+		map.put("year_00", "건축년도 1996~1999년");
+		map.put("year_01", "건축년도 2000~2009년");
+		map.put("year_02", "건축년도 2010년~");
 		map.put("athletic_field", "종합운동장");
 
 	}
